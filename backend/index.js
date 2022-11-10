@@ -13,7 +13,7 @@ connectDB()
 app.use(morgan('dev'))
 app.use(cors())
 
-//comenta
+
 
 const PORT= process.env.PORT || 4000
 
