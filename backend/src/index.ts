@@ -1,14 +1,14 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
-import connectDB from './config/db.js'
 import cors from 'cors'
+import connectDB from './config/db';
 
 const app=express()
-app.use(express.json())
+app.use(express.json()) //middleware que transforma la req.body a un json
 dotenv.config()
-//Conexion a la base de datos
-connectDB()
+
+connectDB() //Conexion a la base de datos
 
 app.use(morgan('dev'))
 app.use(cors())

@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const connectDB= async()=>{
+    console.log('prueba')
     //Hay que crear una cuenta en MongoDB para hacer la conexion
     // try {
     //     const connection=await mongoose.connect(process.env.MONGO_URI,{
