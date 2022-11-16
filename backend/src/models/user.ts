@@ -27,7 +27,10 @@ const userSchema = new Schema({
     token: {
         type: String
     },
-    confirm:Boolean
+    confirm:{
+        type: Boolean,
+        default: false,
+    }
 });
 
 // Este es un middleware para verificar si se modifico el password del usuario

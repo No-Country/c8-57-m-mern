@@ -4,9 +4,11 @@ import morgan from 'morgan'
 import cors from 'cors'
 import connectDB from './config/db';
 import passport from 'passport';
-import passportMiddleware from './middleware/passport';
 import registerRoute from './routes/registerRoute';
 import loginRoute from './routes/userRoute'
+import userRoute from './routes/userRoute'
+import strategy from './middleware/passport';
+
 const app=express()
 dotenv.config()
 
@@ -18,7 +20,7 @@ app.use(morgan('dev')); // Mostrar peticiones
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(passport.initialize());
-passport.use(passportMiddleware);
+passport.use(strategy);
 
 
 
@@ -27,6 +29,7 @@ const PORT= process.env.PORT || 4000
 const server=app.listen(PORT, ()=>{
     console.log(`Server started on port ${PORT}`)
 })
-
+//para bloquear una ruta passport.authenticate('jwt',{session:false})
 app.use('/register',registerRoute)
 app.use('/login',loginRoute)
+app.use('/user', userRoute)
