@@ -7,6 +7,7 @@ export interface IUser extends Document {
     name?:string;
     token?:string;
     confirm?:boolean;
+    bearer?:string;
     comparePassword:(password:string) => Promise<Boolean>
 };
 
@@ -30,6 +31,9 @@ const userSchema = new Schema({
     confirm:{
         type: Boolean,
         default: false,
+    },
+    bearer:{
+        type: String
     }
 });
 

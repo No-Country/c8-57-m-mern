@@ -6,7 +6,7 @@ import {
 import Swal from 'sweetalert2';
 import * as yup from 'yup';
 
-function Registro() {
+function RegisterForm() {
   const publicar = (actions) => {
     Swal.fire({
       title: 'Registro Exitoso!',
@@ -37,12 +37,12 @@ function Registro() {
 
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
   return (
-    <div className="flex-col justify-center items-center">
+    <div className="flex-col justify-center items-center ">
       <div className=" mb-4 py-10 text-center flex-col justify-center items-center m-auto ">
         <h1 className="text-2xl font-bold block text-[#ffffff]"> Me gustaría saber como llamarte </h1>
         <h3 className="text-xl font-bold block text-[#ffffff]"> Tu privacidad es importante, tranqui.</h3>
       </div>
-      <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl max-h-full">
+      <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
         <header className="flex items-center  justify-center pt-2 pb-4">
           <h2 className="text-2xl font-bold text-[#ffffff]">Escríbelo aquí</h2>
         </header>
@@ -101,4 +101,4 @@ function Registro() {
   );
 }
 
-export default Registro;
+export default RegisterForm;

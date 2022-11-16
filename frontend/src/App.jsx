@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Registro from './components/Registro';
+import Registro from './pages/Registro';
 
 function App() {
   return (

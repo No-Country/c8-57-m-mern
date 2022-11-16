@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import User from '../models/user';
 import createJWT from '../helpers/generateJWT';
 import generateId from '../helpers/generateID';
+import { emailRegister } from '../helpers/sendEmail';
+import { IUser } from '../models/user';
 
 
 //Permite al usuario hacer login y entrar al sistema
@@ -41,38 +43,16 @@ export const register = async (req: Request, res: Response): Promise<Response | 
     if (user) {
         return res.json({ msg: "The User already Exists", register: false })
     }
-
     const newUser = new User(req.body)
     newUser.token = generateId()
     await newUser.save()
+    //Enviar email de confirmacion
+    emailRegister({
+        name:newUser.name,
+        email:newUser.email,
+        token:newUser.token
+    }as IUser)
 
-<<<<<<< HEAD
-    return res.json({ msg: "User created", register: true })
-}
-
-// Genera un nuevo password
-export const newPassword = async (req: Request, res: Response): Promise<Response | any> => {
-    const { token } = req.params
-    const { password } = req.body
-    //Busca el usuario que tenga el token recibido por params
-    const user =  await User.findOne({token})
-
-    if (user) {
-        user.password = password
-        user.token = ''
-        try {
-            //guarda los nuevos valores
-            await user.save()
-            //Retorna un mensaje y un estado en true cuando genera la nueva contraseña
-            res.json({ msg: 'Password modified successfully',newPassword:true })
-        } catch (error) {
-            console.log(error)
-        }
-    } else {
-        res.json({ msg: 'Invalid Token',newPassword:false })
-    }
-
-=======
     return res.json({msg:"User created", register:true})
 }
 
@@ -97,5 +77,28 @@ export const deleteUserById = async (req: Request, res: Response):Promise<Respon
     return res.json({msg:"User deleted", user, deleted: true})
   }
   return res.json({msg: "User not deleted", deleted: false})
->>>>>>> 2e0c0c39433a3da7403fc20866c901140df4dff1
 }
+
+// Genera un nuevo password
+export const newPassword = async (req: Request, res: Response): Promise<Response | any> => {
+    const { token } = req.params
+    const { password } = req.body
+    //Busca el usuario que tenga el token recibido por params
+    const user =  await User.findOne({token})
+
+    if (user) {
+        user.password = password
+        user.token = ''
+        try {
+            //guarda los nuevos valores
+            await user.save()
+            //Retorna un mensaje y un estado en true cuando genera la nueva contraseña
+            res.json({ msg: 'Password modified successfully',newPassword:true })
+        } catch (error) {
+            console.log(error)
+        }
+    } else {
+        res.json({ msg: 'Invalid Token',newPassword:false })
+    }
+}
+
