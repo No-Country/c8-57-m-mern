@@ -7,6 +7,7 @@ import passport from 'passport';
 import passportMiddleware from './middleware/passport';
 import registerRoute from './routes/registerRoute';
 import loginRoute from './routes/userRoute'
+import userRoute from './routes/userRoute'
 const app=express()
 dotenv.config()
 
@@ -30,3 +31,4 @@ const server=app.listen(PORT, ()=>{
 
 app.use('/register',registerRoute)
 app.use('/login',loginRoute)
+app.use('/user', userRoute)
