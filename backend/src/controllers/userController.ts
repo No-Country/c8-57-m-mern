@@ -46,6 +46,7 @@ export const register = async (req: Request, res: Response): Promise<Response | 
     newUser.token = generateId()
     await newUser.save()
 
+<<<<<<< HEAD
     return res.json({ msg: "User created", register: true })
 }
 
@@ -71,4 +72,30 @@ export const newPassword = async (req: Request, res: Response): Promise<Response
         res.json({ msg: 'Invalid Token',newPassword:false })
     }
 
+=======
+    return res.json({msg:"User created", register:true})
+}
+
+//Permite buscar un usuario por id
+
+export const findUserById = async (req: Request, res: Response):Promise<Response | undefined> => {
+  //Buscamos por id
+  const {id} = req.params
+  const user = await User.findById(id)
+  if(user) {
+    return res.json({msg:"Found User", user, found: true})
+  }
+  return res.json({msg:"Not Found User", found:false})
+}
+
+//Eliminar usuario por id
+
+export const deleteUserById = async (req: Request, res: Response):Promise<Response | undefined> => {
+  const {id} = req.params
+  const user = await User.findByIdAndDelete(id)
+  if(user){
+    return res.json({msg:"User deleted", user, deleted: true})
+  }
+  return res.json({msg: "User not deleted", deleted: false})
+>>>>>>> 2e0c0c39433a3da7403fc20866c901140df4dff1
 }

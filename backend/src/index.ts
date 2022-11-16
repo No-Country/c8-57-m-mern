@@ -6,7 +6,9 @@ import connectDB from './config/db';
 import passport from 'passport';
 import registerRoute from './routes/registerRoute';
 import loginRoute from './routes/userRoute'
+import userRoute from './routes/userRoute'
 import strategy from './middleware/passport';
+
 const app=express()
 dotenv.config()
 
@@ -30,3 +32,4 @@ const server=app.listen(PORT, ()=>{
 //para bloquear una ruta passport.authenticate('jwt',{session:false})
 app.use('/register',registerRoute)
 app.use('/login',loginRoute)
+app.use('/user', userRoute)
