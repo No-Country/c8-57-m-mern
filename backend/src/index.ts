@@ -5,9 +5,11 @@ import cors from 'cors'
 import connectDB from './config/db';
 import passport from 'passport';
 import registerRoute from './routes/registerRoute';
-import loginRoute from './routes/userRoute'
+import loginRoute from './routes/loginRoute'
 import userRoute from './routes/userRoute'
 import strategy from './middleware/passport';
+import confirmRoute from './routes/confirmRoute'
+import passwordRoute from './routes/passwordRoute'
 
 const app=express()
 dotenv.config()
@@ -33,3 +35,5 @@ const server=app.listen(PORT, ()=>{
 app.use('/register',registerRoute)
 app.use('/login',loginRoute)
 app.use('/user', userRoute)
+app.use('/confirm', confirmRoute)
+app.use('/forget-password',passwordRoute)
