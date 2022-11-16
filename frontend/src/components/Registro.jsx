@@ -81,7 +81,7 @@ function Registro() {
                 <Field
                   name="password"
                   type="password"
-                  className="px-3 py-2 focus: outline-none rounded w-full "
+                  className="px-2 py-2 focus: outline-none rounded w-full "
                   placeholder="Ingresa una contraseña"
                 />
                 <ErrorMessage name="password" component="p" />
