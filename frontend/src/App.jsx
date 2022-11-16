@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Registro from './components/Registro';
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
-    <h1 className="text-center text-blue-900 flex justify-center items-center">
-      Empezamos
-    </h1>
+    <div className="bg-primary min-h-screen flex items-center">
+      <div className="px-10 container m-auto py-4">
+        <Routes>
+          <Route path="/register" element={<Registro />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 
