@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import Home from './components/Home';
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
-    <h1 className="text-center text-blue-900 flex justify-center items-center">
-      Empezamos
-    </h1>
+    <div>
+      <Home />
+    </div>
   );
 }
 

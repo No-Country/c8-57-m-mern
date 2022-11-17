@@ -10,7 +10,7 @@ import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import ImagePerfil from '../image/imagen_perfil.jpg';
+import ImagePerfil from '../image/imagen_perfil.png';
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -161,7 +161,6 @@ function Home() {
       </div>
 
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
-      
       <div className="flex bg-[#597a97] p-1 justify-around text-white">
         <div className="flex flex-col items-center cursor-pointer">
           <GoHome className="text-[#f4717f] text-2xl" />
