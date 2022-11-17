@@ -1,11 +1,16 @@
-import { useState } from 'react';
-
+import { Route, Routes } from 'react-router-dom';
+import BeforeStart from './components/BeforeStart';
+import Home from './components/Home';
+import Targets from './components/Targets';
 function App() {
-  const [count, setCount] = useState(0);
   return (
-    <h1 className="text-center text-blue-900 flex justify-center items-center">
-      Empezamos
-    </h1>
+    <div>
+      <Routes>
+        <Route path="/" element={<Targets />} />
+        <Route path="/beforeStart" element={<BeforeStart />} />
+        <Route path='/home' element={<Home />} />
+      </Routes>
+    </div>
   );
 }
 
