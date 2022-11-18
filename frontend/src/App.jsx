@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Registro from './pages/Registro';
+import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <div className="px-10 container m-auto py-4">
         <Routes>
           <Route path="/register" element={<Registro />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<LoginForm />} />
         </Routes>
       </div>
