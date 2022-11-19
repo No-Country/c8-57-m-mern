@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Registro from './pages/Registro';
 import Home from './components/Home';
-import LoginForm from './components/LoginForm';
+import Login from './pages/Login';
+import ForgetPassword from './components/ForgetPassword';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
         <Routes>
           <Route path="/register" element={<Registro />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/reset" element={<ForgetPassword />} />
         </Routes>
       </div>
     </div>
