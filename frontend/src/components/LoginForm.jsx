@@ -4,7 +4,7 @@ import {
 } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 function LoginForm() {
   const login = () => true;
@@ -63,6 +63,10 @@ function LoginForm() {
             >
               Continuar
             </button>
+            <span className="font-bold  text-[#ffffff]">
+              <Link to="/reset">Olvidé mi contraseña</Link>
+            </span>
+            <span className="font-bold  text-[#ffffff]  ml-16"><Link to="/register">Registrarme</Link></span>
           </Form>
         )}
       </Formik>
