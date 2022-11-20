@@ -5,16 +5,22 @@ import {
 } from 'formik';
 import Swal from 'sweetalert2';
 import * as yup from 'yup';
+import axiosClient from '../config/axiosClient';
 
 function RegisterForm() {
-  const publicar = (actions) => {
-    Swal.fire({
-      title: 'Registro Exitoso!',
-      text: 'Te has registrado correctamente',
-      icon: 'success',
-      position: 'top',
-    });
-    actions.setSubmitting(false);
+  const handleSubmit = async (values) => {
+    try {
+      const { data } = await axiosClient.post('register', values);
+      Swal.fire({
+        title: data.register ? 'Registro Exitoso!' : 'Usuario ya existe',
+        text: data.register ? 'Te has registrado correctamente, por favor verifica tu Email para verificar la cuenta' : '',
+        icon: data.register ? 'success' : 'error',
+        position: 'top',
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
   };
 
   const userSchema = yup.object().shape({
@@ -52,10 +58,13 @@ function RegisterForm() {
             email: '',
             password: '',
           }}
-          onSubmit={publicar}
+          onSubmit={async (values, { resetForm }) => {
+            await handleSubmit(values);
+            resetForm();
+          }}
           validationSchema={userSchema}
         >
-          {({ isSubmitting }) => (
+          {/* {({ values }) => ( */}
             <Form>
               <div>
                 <label htmlFor="name" className="font-bold  block text-[#ffffff]"> Nombre</label>
@@ -88,13 +97,13 @@ function RegisterForm() {
               </div>
               <button
                 type="submit"
-                disabled={isSubmitting}
+                // disabled={isSubmitting}
                 className=" w-full text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
               >
                 Continuar
               </button>
             </Form>
-          )}
+          {/* )} */}
         </Formik>
       </div>
     </div>
