@@ -3,7 +3,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axiosClient from '../config/axiosClient';
 import useAuth from '../hooks/useAuth';
@@ -56,7 +56,7 @@ function LoginForm() {
           resetForm();
         }}
       >
-        {/* {({ values }) => ( */}
+        {({ values }) => (
           <Form>
             <div>
               <label htmlFor="email" className=" font-bold block text-[#ffffff] mt-5 ">
@@ -88,8 +88,12 @@ function LoginForm() {
             >
               Continuar
             </button>
+            <span className="font-bold  text-[#ffffff]">
+              <Link to="/reset">Olvidé mi contraseña</Link>
+            </span>
+            <span className="font-bold  text-[#ffffff]  ml-16"><Link to="/register">Registrarme</Link></span>
           </Form>
-        {/* )} */}
+        )}
       </Formik>
     </div>
   );

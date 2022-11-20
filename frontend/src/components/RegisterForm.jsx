@@ -64,7 +64,7 @@ function RegisterForm() {
           }}
           validationSchema={userSchema}
         >
-          {/* {({ values }) => ( */}
+          {({ values }) => (
             <Form>
               <div>
                 <label htmlFor="name" className="font-bold  block text-[#ffffff]"> Nombre</label>
@@ -103,7 +103,7 @@ function RegisterForm() {
                 Continuar
               </button>
             </Form>
-          {/* )} */}
+          )}
         </Formik>
       </div>
     </div>
