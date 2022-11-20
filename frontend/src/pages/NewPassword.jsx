@@ -1,9 +1,10 @@
 import React from 'react';
+import RecoverPassword from '../components/RecoverPassword';
 
 function NewPassword() {
   return (
     <div>
-      <h1>inpur para colocar su nuevo password</h1>
+      <RecoverPassword />
     </div>
   );
 }
