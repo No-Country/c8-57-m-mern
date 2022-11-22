@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { json, Request, Response } from 'express';
 import User from '../models/user';
 import createJWT from '../helpers/generateJWT';
 import generateId from '../helpers/generateID';
@@ -11,12 +11,18 @@ export const login = async (req: Request, res: Response): Promise<Response | und
     try {
 
         const { email, password, } = req.body
-        const user = await User.findOne({ email })
-
         //Verificar si ya existe el usuario 
+        const user = await User.findOne({ email })
         if (!user) {
             return res.json({ msg: "The User does not exists", email: false })
         }
+
+        //Comprobar si el usuario esta confirmado
+        if (!user.confirm) {
+            return res.json({msg: 'Your account has not been confirmed', confirm: false })
+        }
+
+
         //Comprobar su password
         if (await user?.comparePassword(password)) {
             //Retorna todos los datos del usuario , el token y un booleano para validar que logueo correctamente
