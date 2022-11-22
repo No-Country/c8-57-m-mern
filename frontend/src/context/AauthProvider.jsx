@@ -8,14 +8,17 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
-  const data = useMemo(() => ({
-    user,
-    setUser,
-    loading,
-    setLoading,
-    email,
-    setEmail,
-  }), []);
+  const data = useMemo(
+    () => ({
+      user,
+      setUser,
+      loading,
+      setLoading,
+      email,
+      setEmail,
+    }),
+    [],
+  );
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 }
 
