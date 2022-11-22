@@ -22,7 +22,7 @@ function Targets() {
         <div className="text-[#B1C0CE] absolute bottom-16 left-2/4 translate-x-[-50%]" >
           <p className="underline">No por ahora</p>
         </div>
-        <button className='absolute right-[20%] bottom-24 text-3xl rounded-[10px] p-4 hover:bg-slate-600'> >></button>
+        <button className='absolute right-[20%] bottom-24 text-3xl rounded-[10px] p-4 hover:bg-slate-600'> ▶ </button>
       </Link>
 
     </div>
