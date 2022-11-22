@@ -69,9 +69,9 @@ export const findUserById = async (req: Request, res: Response):Promise<Response
   const {id} = req.params
   const user = await User.findById(id)
   if(user) {
-    return res.json({msg:"Found User", user, found: true})
+    return res.json({msg:"User successfully found", user, found: true})
   }
-  return res.json({msg:"Not Found User", found:false})
+  return res.json({msg:"User Not Found", found: false})
 }
 
 //Eliminar usuario por id
@@ -106,5 +106,13 @@ export const newPassword = async (req: Request, res: Response): Promise<Response
     } else {
         res.json({ msg: 'Invalid Token',newPassword:false })
     }
+}
+
+export const findAllUsers = async (req: Request, res: Response): Promise<Response | any> => {
+    const users = await User.find()
+    if(users) {
+        return res.json({msg:'Users successfully found', users, found: true})
+    }
+    return res.json({msg:'Users not found', found: false})
 }
 
