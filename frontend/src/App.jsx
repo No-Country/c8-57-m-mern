@@ -23,11 +23,12 @@ function App() {
             <Route path="/reset" element={<ForgetPassword />} />
             <Route path="/reset:token" element={<NewPassword />} />
             <Route path="/confirm/:token" element={<ConfirmAccount />} />
-            <Route path="/targets" element={<Targets />} />
-            <Route path="/beforeStart" element={<BeforeStart />} />
+
             {/* Rutas Privadas */}
             <Route path="/" element={<Protected />}>
+              <Route path="/" element={<Targets />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/beforeStart" element={<BeforeStart />} />
             </Route>
           </Routes>
         </div>

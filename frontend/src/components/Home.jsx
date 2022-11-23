@@ -10,6 +10,7 @@ import {
   import { Calendar } from 'react-calendar';
   import 'react-calendar/dist/Calendar.css';
   import ImagePerfil from '../image/imagen_perfil.png';
+import { useState } from 'react';
   
   function Home() {
     const [showCalendar, setShowCalendar] = useState(false);
