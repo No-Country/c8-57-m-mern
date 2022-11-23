@@ -1,52 +1,56 @@
-import React, { useState } from 'react';
 import {
   BsEmojiLaughing,
   BsEmojiNeutral,
   BsEmojiFrown,
   BsEmojiAngry,
   BsEmojiSmile,
-} from 'react-icons/bs';
-import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
-import { GoHome } from 'react-icons/go';
-import { HiOutlineChat } from 'react-icons/hi';
-import { FaBriefcaseMedical, FaQuestion } from 'react-icons/fa';
-import { RiLightbulbFlashLine } from 'react-icons/ri';
-import { AiOutlineUser } from 'react-icons/ai';
-import { Calendar } from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import { Link } from 'react-router-dom';
-import Chatbot from './Chatbot';
-import ImagePerfil from '../image/imagen_logotipo.png';
+} from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
+import { GoHome } from "react-icons/go";
+import { HiOutlineChat } from "react-icons/hi";
+import { FaBriefcaseMedical, FaQuestion } from "react-icons/fa";
+import { RiLightbulbFlashLine } from "react-icons/ri";
+import { AiOutlineUser } from "react-icons/ai";
+import { Calendar } from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import ImagePerfil from "../image/imagen_perfil.png";
+import { useState } from "react";
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [onChange, setOnChange] = useState(new Date());
-  const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
     setShowCalendar(!showCalendar);
   };
 
   return (
-    <div className="bg-[#3d6487] flex flex-col gap-3 w-full relative sm:gap-2">
+    <div className="grid bg-[#3d6487]  grid-cols-1 gap-3">
       {/* Caja principal, donde contiene la imagen, el SOS, y el boton */}
-      <div className=" flex gap-2  border-b-[#597a97] border-t-[#597a97] border-b-2 relative pb-3 sm:justify-end  sm:grid sm:grid-cols-3 sm:gap-2 sm:p-3 sm:my-5">
-        <div className="w-2/4">
-          <img className="w-full rounded-lg" src={ImagePerfil} alt="image_perfil" />
+      <div className="mt-5 mx-2 flex gap-2 border-b-[#597a97] border-t-[#597a97] border-b-2 pb-2">
+        <div className="w-1/4">
+          <img
+            className="w-full rounded-lg"
+            src={ImagePerfil}
+            alt="image_perfil"
+          />
         </div>
 
-        <div className="flex flex-col w-2/3 gap-2 justify-between sm:w-full sm:justify-around sm:gap-3">
-          <h3 className="text-xs my-px text-fourth">Hola, Ana</h3>
-          <span className="block  text-xs text-fourth">¿Como te sientes?</span>
-          <button type="submit" className=" text-xs rounded-2xl bg-[#f4717f] p-2 cursor-pointer">
-            <span className="w-full text-fourth">Hablar ahora</span>
+        <div className="flex flex-col  text-white">
+          <h3 className="text-sm my-px">Hola, Ana</h3>
+          <span className="block  text-sm max-w-max">¿Como te sientes?</span>
+          <button
+            type="submit"
+            className="my-1 text-sm rounded-2xl bg-[#f4717f] p-2 cursor-pointer"
+          >
+            <span>Hablar ahora</span>
           </button>
         </div>
 
-        <div className="text-white w-1/3 sm:w-full sm:flex justify-end">
+        <div className="text-white w-1/3">
           <button
             type="submit"
-            className="rounded-2xl border-red-500 border-2 p-1 w-1/3 absolute sm:w-1/4 text-fourth "
+            className="rounded-2xl border-red-500 border-2 p-1 w-full"
           >
             sos
           </button>
@@ -58,14 +62,14 @@ function Home() {
       <div
         className={
           showCalendar
-            ? 'flex flex-col gap-3 h-auto p-1'
-            : 'duration-300 p-1 flex flex-col gap-3 h-20 overflow-hidden'
+            ? "flex flex-col gap-3 h-auto p-1"
+            : "duration-300 p-1 flex flex-col gap-3 h-20 overflow-hidden"
         }
       >
         <div>
-          <span className="text-fourth">¿Quieres registrar tu emocion?</span>
+          <span className="text-white">¿Quieres registrar tu emocion?</span>
         </div>
-        <div className="flex justify-around text-fourth">
+        <div className="flex justify-around text-white">
           <div>
             <BsEmojiLaughing className="text-3xl" />
           </div>
@@ -86,21 +90,20 @@ function Home() {
             onClick={handleClick}
             className={
               showCalendar
-                ? 'focus:rotate-180 ease-in duration-300'
-                : 'rotate-0 ease-in duration-300'
+                ? "focus:rotate-180 ease-in duration-300"
+                : "rotate-0 ease-in duration-300"
             }
           >
-            {' '}
-            <IoIosArrowDown className="text-3xl" />
-            {' '}
+            {" "}
+            <IoIosArrowDown className="text-3xl" />{" "}
           </button>
         </div>
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center text-white">
           <Calendar
             className={
               showCalendar
-                ? 'text-center bg-transparent ease-linear delay-150 duration-200 border-none'
-                : 'opacity-0 ease-in  duration-500 delay-500'
+                ? "text-center bg-transparent ease-linear delay-150 duration-200 border-none"
+                : "opacity-0 ease-in  duration-500 delay-500"
             }
             onChange={setOnChange}
             value={onChange}
@@ -111,46 +114,42 @@ function Home() {
       {/* Seccion para ti, slider de imagenes */}
       <div className=" p-1  h-auto w-full">
         <div>
-          <h3 className="text-fourth">Para ti</h3>
+          <h3 className="text-white">Para ti</h3>
         </div>
         <div>
-          <span className="text-right text-fourth block">Ver mas</span>
+          <span className="text-right text-white block">Ver mas</span>
         </div>
       </div>
-      <div className="w-full overflow-y-auto over order-b-[#597a97] border-b-[#597a97] border-t-[#597a97] border-b-2 sm:overflow-hidden">
-        <div
-          className="flex p-2 gap-4 sm:flex-wrap sm:mx-6 sm:justify-center"
-          style={{ width: '600px' }}
-        >
-          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_1.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none" />
-          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_2.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none" />
-          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_3.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none" />
-          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_4.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none mb-5" />
+      <div className="w-full overflow-y-auto order-b-[#597a97] border-b-[#597a97] border-t-[#597a97] border-b-2">
+        <div className="flex p-2 gap-4 " style={{ width: "700px" }}>
+          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_1.jpeg')] block rounded-t-xl" />
+          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_2.jpeg')] block rounded-t-xl" />
+          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_3.jpeg')] block rounded-t-xl" />
+          <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_4.jpeg')] block rounded-t-xl mb-5" />
         </div>
       </div>
 
       {/* Seccion de tu terapeuta ideal, contiene una imagen y un boton hacia otra direccion */}
 
-      <div className="border-b-[#597a97] border-t-[#597a97] border-b-2 my-2 mx-2">
-        <h2 className="block p-0 text-fourth">Tu terapeuta ideal</h2>
-        <div className="flex text-center gap-2 justify-center items-center my-10 sm:w-full sm:justify-around">
+      <div className="border-b-[#597a97] border-t-[#597a97] border-b-2 my-2 mx-2 text-white">
+        <h2 className="block p-0">Tu terapeuta ideal</h2>
+        <div className="flex text-center gap-2 justify-center items-center my-10">
           <div className="w-1/4 flex flex-col items-center">
             <FaQuestion className="text-4xl text-[#f4717f]" />
-            <span className="text-sm text-fourth">En espera...</span>
+            <span>En espera...</span>
           </div>
           <div className="w-4/4 text-base flex flex-col  p-2 gap-3">
             <div>
-              <h3 className="text-sm text-fourth">No hay proximas seciones</h3>
-              <span className="text-sm text-fourth">¿Te gustaria programar una?</span>
+              <h3>No hay proximas seciones</h3>
+              <span>¿Te gustaria programar una?</span>
             </div>
             <div>
               <button
                 type="submit"
-                className=" bg-third p-2 cursor-pointer text-fourth  rounded-2xl text-white text-sm"
+                className="p-2 cursor-pointer bg-red-400 rounded-2xl text-white"
               >
-                {' '}
-                Programar ahora
-                {' '}
+                {" "}
+                Programar ahora{" "}
               </button>
             </div>
           </div>
@@ -159,11 +158,12 @@ function Home() {
 
       {/* Caja de resumen de emociones, contiene emociones, boton de terapeuta */}
 
-      <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white mb-6">
+      <div className=" flex flex-col gap-4 p-2 text-center text-white mb-6">
         <div className="flex flex-col gap-3">
           <h2 className="text-left">Resumen de emociones</h2>
-          <span className="text-sm">
-            El mejor proceso es el que nunca se detiene te has sentido mejor 4/7 dias
+          <span>
+            El mejor proceso es el que nunca se detiene te has sentido mejor 4/7
+            dias
           </span>
         </div>
         <div className="text-right">
@@ -202,33 +202,17 @@ function Home() {
         </div>
         <div className="flex flex-col gap-4  items-center">
           <span>¿Te gustaria empezar terapia?</span>
-          <button
-            type="submit"
-            className="w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:w-1/4 sm:p-3"
-          >
+          <button type="submit" className="w-2/4 bg-red-400 p-2 rounded-2xl">
             Encontrar terapeuta
           </button>
         </div>
       </div>
 
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
-      <div
-        className={`flex bg-[#597a97] relative top-4 left-0 p-1 px-25  justify-around text-fourth sm:duration-150 sm:flex-col sm:fixed sm:left-0 sm:h-screen sm:items-center sm:top-0 sm:gap-5 sm:justify-center ${
-          showMenu ? 'sm:w-60' : 'sm:w-10'
-        }`}
-      >
-        <button
-          type="submit"
-          className={`hidden sm:absolute sm:top-2  sm:text-2xl sm:block sm:duration-150 sm:cursor-pointer  ${
-            showMenu && 'rotate-180 left-3/4'
-          }`}
-          onClick={() => setShowMenu(!showMenu)}
-        >
-          <IoIosArrowForward className="text-third" />
-        </button>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+      <div className="flex bg-[#597a97] p-1 justify-around text-white">
+        <div className="flex flex-col items-center cursor-pointer">
           <GoHome className="text-[#f4717f] text-2xl" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
+          <h3>Home</h3>
         </div>
         <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
           <Link to={<Chatbot />}>
@@ -237,17 +221,17 @@ function Home() {
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
           </Link>
         </div>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+        <div className="flex flex-col items-center cursor-pointer">
           <FaBriefcaseMedical className="text-[#f4717f] text-2xl" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
+          <h3>Terapia</h3>
         </div>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+        <div className="flex flex-col items-center cursor-pointer">
           <RiLightbulbFlashLine className="text-[#f4717f] text-2xl" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
+          <h3>Para ti</h3>
         </div>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+        <div className="flex flex-col items-center cursor-pointer">
           <AiOutlineUser className="text-[#f4717f] text-2xl" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
+          <h3>Perfil</h3>
         </div>
       </div>
     </div>

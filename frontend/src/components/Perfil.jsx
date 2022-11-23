@@ -7,8 +7,8 @@ import * as Yup from 'Yup';
 import useAuth from '../hooks/useAuth';
 
 function Perfil() {
-  const handleSubmit = 
-  };
+  const handleSubmit = {};
+
   const profileSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, 'Nombre muy corto!')

@@ -1,3 +1,4 @@
+
 import { Routes, Route } from 'react-router-dom';
 import Registro from './pages/Registro';
 import Home from './components/Home';
@@ -7,6 +8,8 @@ import Protected from './components/layout/Protected';
 import { AuthProvider } from './context/AauthProvider';
 import ForgetPassword from './components/ForgetPassword';
 import ConfirmAccount from './pages/ConfirmAccount';
+import BeforeStart from './components/BeforeStart';
+import Targets from './components/Targets';
 
 function App() {
   return (
@@ -20,15 +23,17 @@ function App() {
             <Route path="/reset" element={<ForgetPassword />} />
             <Route path="/reset:token" element={<NewPassword />} />
             <Route path="/confirm/:token" element={<ConfirmAccount />} />
-
+            <Route path="/targets" element={<Targets />} />
+            <Route path="/beforeStart" element={<BeforeStart />} />
             {/* Rutas Privadas */}
             <Route path="/" element={<Protected />}>
-              <Route path="home" element={<Home />} />
+              <Route path="/home" element={<Home />} />
             </Route>
           </Routes>
         </div>
       </div>
     </AuthProvider>
+
   );
 }
 

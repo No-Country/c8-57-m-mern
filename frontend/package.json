@@ -18,7 +18,9 @@
     "react-router-dom": "^6.4.3",
     "react-simple-chatbot": "^0.6.1",
     "sweetalert2": "^11.6.8",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@react-spring/web": "^9.5.5",
+    "react-tinder-card": "^1.6.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

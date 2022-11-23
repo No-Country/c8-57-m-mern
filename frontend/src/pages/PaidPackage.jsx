@@ -1,5 +1,5 @@
-import React from 'react';
-import { IoIosArrowForward } from 'react-icons/io';
+import React from "react";
+import { IoIosArrowForward } from "react-icons/io";
 
 function PaidPackage() {
   return (
@@ -19,7 +19,9 @@ function PaidPackage() {
             <span className="text-sm text-center font-semibold">
               12 sesiones con 70% de descuento
             </span>
-            <span className="text-sm text-center">S/21.00 C/sesión S/252.00 en total</span>
+            <span className="text-sm text-center">
+              S/21.00 C/sesión S/252.00 en total
+            </span>
             <button
               className="bg-third rounded-lg text-fourth p-1 w-2/3 m-auto text-sm mb-2"
               type="submit"
@@ -30,10 +32,11 @@ function PaidPackage() {
           <div className="w-full bg-secondary p-2 flex flex-col gap-1 rounded-lg sm:w-72">
             <h3 className="text-left">ESENCIAL</h3>
             <span className="text-sm text-center font-semibold">
-              4 sesiones con 30% de descuento
-              {' '}
+              4 sesiones con 30% de descuento{" "}
             </span>
-            <span className="text-sm text-center">S/49.00 C/sesión S/196.00 en total</span>
+            <span className="text-sm text-center">
+              S/49.00 C/sesión S/196.00 en total
+            </span>
             <button
               className="bg-third rounded-lg text-fourth p-1 w-2/3 m-auto text-sm mb-2"
               type="submit"
@@ -44,7 +47,9 @@ function PaidPackage() {
           <div className="w-full bg-secondary p-2 flex flex-col gap-1 rounded-lg sm:w-72">
             <h3 className="text-left">CONTEMPLATIVO</h3>
             <span className="text-sm text-left font-semibold">1 sesión</span>
-            <span className="text-sm text-center">S/70.00 C/sesión; S/70.00 en total</span>
+            <span className="text-sm text-center">
+              S/70.00 C/sesión; S/70.00 en total
+            </span>
             <button
               className="bg-third text-fourth rounded-lg p-1 w-2/3 m-auto text-sm mb-2"
               type="submit"
