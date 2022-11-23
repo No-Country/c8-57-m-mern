@@ -13,7 +13,9 @@ function RegisterForm() {
       const { data } = await axiosClient.post('register', values);
       Swal.fire({
         title: data.register ? 'Registro Exitoso!' : 'Usuario ya existe',
-        text: data.register ? 'Te has registrado correctamente, por favor verifica tu Email para verificar la cuenta' : '',
+        text: data.register
+          ? 'Te has registrado correctamente, por favor verifica tu Email para verificar la cuenta'
+          : '',
         icon: data.register ? 'success' : 'error',
         position: 'top',
       });
@@ -45,8 +47,15 @@ function RegisterForm() {
   return (
     <div className="flex-col justify-center items-center ">
       <div className=" mb-4 py-10 text-center flex-col justify-center items-center m-auto ">
-        <h1 className="text-2xl font-bold block text-[#ffffff]"> Me gustaría saber como llamarte </h1>
-        <h3 className="text-xl font-bold block text-[#ffffff]"> Tu privacidad es importante, tranqui.</h3>
+        <h1 className="text-2xl font-bold block text-[#ffffff]">
+          {' '}
+          Me gustaría saber como llamarte
+          {' '}
+        </h1>
+        <h3 className="text-xl font-bold block text-[#ffffff]">
+          {' '}
+          Tu privacidad es importante, tranqui.
+        </h3>
       </div>
       <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
         <header className="flex items-center  justify-center pt-2 pb-4">
@@ -67,7 +76,10 @@ function RegisterForm() {
           {({ values }) => (
             <Form>
               <div>
-                <label htmlFor="name" className="font-bold  block text-[#ffffff]"> Nombre</label>
+                <label htmlFor="name" className="font-bold  block text-[#ffffff]">
+                  {' '}
+                  Nombre
+                </label>
                 <Field
                   name="name"
                   id="name"
