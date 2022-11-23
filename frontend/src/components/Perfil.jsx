@@ -3,11 +3,14 @@ import React from 'react';
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
-import * as Yup from 'Yup';
+import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 
 function Perfil() {
-  const handleSubmit = {};
+  const handleSubmit = () => {
+    toast.success('Usuario editado exitosamente!');
+  };
 
   const profileSchema = Yup.object().shape({
     name: Yup.string()
@@ -24,17 +27,16 @@ function Perfil() {
   });
   console.log(useAuth.user);
   return (
-    <div>
+    <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
+      <header className="flex items-center  justify-center pt-2 pb-4">
+        <h2 className="text-2xl font-bold text-[#ffffff]">Edita tu Perfil </h2>
+      </header>
       <Formik
         initialValues={{
           name: useAuth.user,
-          lastname: '',
           nickname: '',
         }}
-        onSubmit={async (values, { resetForm }) => {
-          await handleSubmit(values);
-          resetForm();
-        }}
+        onSubmit={handleSubmit}
         validationSchema={profileSchema}
       >
         <Form>
@@ -46,22 +48,9 @@ function Perfil() {
             name="name"
             id="name"
             type="text"
-            placeholder={useAuth.name}
             className="px-3 py-2 focus: outline-none rounded w-full "
           />
           <ErrorMessage name="name" component="p" />
-          <label htmlFor="lastname" className="font-bold  block text-[#ffffff]">
-            {' '}
-            Apellido
-          </label>
-          <Field
-            name="lastname"
-            id="lastname"
-            type="text"
-            placeholder="Ingresa tu apellido"
-            className="px-3 py-2 focus: outline-none rounded w-full "
-          />
-          <ErrorMessage name="lastname" component="p" />
           <label htmlFor="nickname" className="font-bold  block text-[#ffffff]">
             {' '}
             Apodo(opcional)
@@ -74,6 +63,13 @@ function Perfil() {
             className="px-3 py-2 focus: outline-none rounded w-full "
           />
           <ErrorMessage name="nickname" component="p" />
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className=" w-full text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
+          >
+            Confirmar
+          </button>
         </Form>
       </Formik>
     </div>

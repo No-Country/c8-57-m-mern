@@ -1,5 +1,6 @@
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
+import useAuth from '../hooks/useAuth';
 
 function Chatbot() {
   return (
@@ -8,14 +9,14 @@ function Chatbot() {
         steps={[
           {
             id: '1',
-            message: 'Hola {user} me alegra verte por aquí!',
+            message: `Hola ${useAuth.user} me alegra verte por aquí!`,
             trigger: '2',
             hideInput: true,
           },
           {
             id: '2',
             message: '¿Cómo ha ido tu dia?',
-            trigger: 3,
+            trigger: '3',
           },
           {
             id: '3',
@@ -29,7 +30,7 @@ function Chatbot() {
           {
             id: '4',
             message: 'Me alegra mucho saberlo, ¿quieres contarme mas?',
-            trigger: 6,
+            trigger: '6',
             hideInput: true,
           },
           {
@@ -70,25 +71,76 @@ function Chatbot() {
           {
             id: '10',
             message: 'Oh ¿porque ha estado regular? ¿Quieres hablar de ello?',
-            trigger: 9,
+            trigger: '9',
           },
 
           {
             id: '12',
             message: 'Que nivel de estrés te ha generado la situación',
             trigger: '13',
+            hideInput: true,
           },
           {
             id: '13',
             options: [
               { value: 1, label: '1-Muy poco', trigger: '14' },
-              { value: 2, label: '2', trigger: '15' },
-              { value: 3, label: '3', trigger: '16' },
-              { value: 4, label: '4', trigger: '17' },
-              { value: 1, label: '5- Me ha afectado mucho', trigger: '18' },
+              { value: 2, label: '2', trigger: '14' },
+              { value: 3, label: '3', trigger: '14' },
+              { value: 4, label: '4', trigger: '14' },
+              { value: 1, label: '5- Me ha afectado mucho', trigger: '14' },
             ],
             hideInput: true,
           },
+          {
+            id: '14',
+            message: 'Que nivel de ansiedad te ha generado la situación',
+            trigger: '16',
+            hideInput: true,
+          },
+          {
+            id: '16',
+            options: [
+              { value: 1, label: '1-Muy poco', trigger: '17' },
+              { value: 2, label: '2', trigger: '17' },
+              { value: 3, label: '3', trigger: '17' },
+              { value: 4, label: '4', trigger: '17' },
+              { value: 1, label: '5- Me ha afectado mucho', trigger: '17' },
+            ],
+            hideInput: true,
+          },
+          {
+            id: '17',
+            message: 'Que nivel de tristeza te ha generado la situación',
+            trigger: '18',
+            hideInput: true,
+          },
+          {
+            id: '18',
+            options: [
+              { value: 1, label: '1-Muy poco', trigger: '19' },
+              { value: 2, label: '2', trigger: '19' },
+              { value: 3, label: '3', trigger: '19' },
+              { value: 4, label: '4', trigger: '19' },
+              { value: 1, label: '5- Me ha afectado mucho', trigger: '19' },
+            ],
+            hideInput: true,
+          },
+          {
+            id: '19',
+            message: 'Que nivel de tristeza te ha generado la situación',
+            trigger: '20',
+            hideInput: true,
+          },
+          {
+            id: '20',
+            message: 'Bien, analizaré esto que me has contado y te enviaré un diagnostico',
+            end: true,
+          },
+          // {
+          //   id: '21',
+          //   message: 'Esperame un momento a que te de los resultados',
+          //   end: true,
+          // },
         ]}
       />
     </div>
