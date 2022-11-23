@@ -14,6 +14,8 @@ import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { Link } from 'react-router-dom';
+import Chatbot from './Chatbot';
 import ImagePerfil from '../image/imagen_logotipo.png';
 
 function Home() {
@@ -229,8 +231,11 @@ function Home() {
           <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
         </div>
         <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-          <HiOutlineChat className="text-[#f4717f] text-2xl" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
+          <Link to={<Chatbot />}>
+            {' '}
+            <HiOutlineChat className="text-[#f4717f] text-2xl" />
+            <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
+          </Link>
         </div>
         <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
           <FaBriefcaseMedical className="text-[#f4717f] text-2xl" />
