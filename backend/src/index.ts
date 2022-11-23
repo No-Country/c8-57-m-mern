@@ -7,9 +7,9 @@ import passport from 'passport';
 import registerRoute from './routes/registerRoute';
 import loginRoute from './routes/loginRoute'
 import userRoute from './routes/userRoute'
-import strategy from './middleware/passport';
 import confirmRoute from './routes/confirmRoute'
 import passwordRoute from './routes/passwordRoute'
+import { strategy } from './middleware/passport';
 
 const app=express()
 dotenv.config()

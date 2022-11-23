@@ -8,7 +8,8 @@ export interface IUser extends Document {
     token?:string;
     confirm?:boolean;
     bearer?:string;
-    comparePassword:(password:string) => Promise<Boolean>
+    rol?:string;
+    comparePassword:(password:string) => Promise<Boolean>;
 };
 
 const userSchema = new Schema({
@@ -34,7 +35,11 @@ const userSchema = new Schema({
     },
     bearer:{
         type: String
-    }
+    },
+    rol:{
+        type:String,
+        maxlength:30,
+    },
 });
 
 // Este es un middleware para verificar si se modifico el password del usuario
