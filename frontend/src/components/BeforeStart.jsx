@@ -14,7 +14,7 @@ const BeforeStart = () => {
   return (
     <div className='bg-[#3D6487] relative h-screen max-h-screen w-screen flex flex-col  pt-[2rem] items-center gap-[5vh] text-[white] text-xl'>
         <div className='bg-[#F4717F] rounded-[50%] w-[230px] h-[230px] flex justify-center items-center px-2 animate-ext-slow box-border'>
-            <h2 className='text-[clamp(1rem,5vw,1.5rem)]'>Antes de empezar</h2>
+            <h2 className='text-[clamp(1rem,5vw,2.5rem)] text-center'>Antes <br  /> de <br /> empezar</h2>
         </div>
         <div className='flex flex-col pt-[2rem] items-center gap-[10vh] text-[white] text-xl '>
         
