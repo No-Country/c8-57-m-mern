@@ -5,15 +5,15 @@ import Feeling from './targets/Feeling';
 function Targets() {
   return (
     <div 
-    className="bg-[#3D6487] relative h-screen max-h-screen w-screen flex flex-col justify-center items-center gap-[10vh] text-white"
+    className= " m-0 bg-[#3D6487] relative h-[100vh] max-h-screen w-[100vw] flex flex-col items-center , pt-[10vh] gap-[2rem] text-white overflow-hidden text-[white] font-serif "
     >
-      <div className='absolute top-24 flex flex-col justify-center items-center gap-2'  >
-        <h2 className=" text-3xl w-max h-max p-2">Hagamos este espacio tuyo</h2>
-        <h3>¿Que te gustaria tratar?</h3>
+      <div className=' top-[0] flex flex-col justify-center items-center gap-4 px-[5px]  sm:gap-2'  >
+        <h2 className=" text-[clamp(1.5rem,7vw,3rem)] w-max h-max">Hagamos este espacio tuyo</h2>
+        <h3 className='text-[clamp(1rem,5vw,2rem)]'>¿Qué temas te gustaria tratar?</h3>
       </div>
     
       
-      <div>
+      <div className='w-[clamp(100px,50vw,300px)]  h-[clamp(300px,100vw,400px)] '>
         <Feeling />
       </div>
       <Link to="/beforeStart">

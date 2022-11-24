@@ -23,7 +23,7 @@ function LoginForm() {
         // usuario en el Provider
         setUser(data);
         setLoading(false);
-        navigate('/home');
+        navigate('/targets');
       } else {
         Swal.fire({
           title: 'Error',
