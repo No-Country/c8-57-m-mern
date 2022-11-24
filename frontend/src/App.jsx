@@ -7,7 +7,6 @@ import Protected from './components/layout/Protected';
 import { AuthProvider } from './context/AauthProvider';
 import ForgetPassword from './components/ForgetPassword';
 import ConfirmAccount from './pages/ConfirmAccount';
-import PaidPackage from './pages/PaidPackage';
 
 function App() {
   return (
