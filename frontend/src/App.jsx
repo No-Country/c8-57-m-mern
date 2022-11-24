@@ -7,12 +7,13 @@ import Protected from './components/layout/Protected';
 import { AuthProvider } from './context/AauthProvider';
 import ForgetPassword from './components/ForgetPassword';
 import ConfirmAccount from './pages/ConfirmAccount';
+import PaidPackage from './pages/PaidPackage';
 
 function App() {
   return (
     <AuthProvider>
-      <div className="bg-primary min-h-screen flex items-center">
-        <div className="px-10 container m-auto py-4">
+      <div className="bg-primary min-h-screen flex items-center justify-center">
+        <div className=" container">
           {/* Rutas Publicas */}
           <Routes>
             <Route path="/register" element={<Registro />} />
@@ -20,7 +21,6 @@ function App() {
             <Route path="/reset" element={<ForgetPassword />} />
             <Route path="/reset:token" element={<NewPassword />} />
             <Route path="/confirm/:token" element={<ConfirmAccount />} />
-
             {/* Rutas Privadas */}
             <Route path="/" element={<Protected />}>
               <Route path="home" element={<Home />} />

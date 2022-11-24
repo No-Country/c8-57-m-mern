@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     screens: {
       sm: '600px',
+      lg: '900px',
     },
     extend: {},
     colors: {
@@ -14,6 +15,7 @@ module.exports = {
       fourth: 'white',
       transparent: 'transparent',
       fifth: '#7E97AC',
+      seventh: '#000',
     },
   },
   plugins: [],
