@@ -7,25 +7,29 @@ import Protected from './components/layout/Protected';
 import { AuthProvider } from './context/AauthProvider';
 import ForgetPassword from './components/ForgetPassword';
 import ConfirmAccount from './pages/ConfirmAccount';
+import BeforeStart from './components/BeforeStart';
+import Targets from './components/Targets';
+import PaidPackage from './pages/PaidPackage';
 
 function App() {
   return (
     <AuthProvider>
       <div className="bg-primary min-h-screen flex items-center justify-center">
-        <div className=" container">
-          {/* Rutas Publicas */}
-          <Routes>
-            <Route path="/register" element={<Registro />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/reset" element={<ForgetPassword />} />
-            <Route path="/reset:token" element={<NewPassword />} />
-            <Route path="/confirm/:token" element={<ConfirmAccount />} />
-            {/* Rutas Privadas */}
-            <Route path="/" element={<Protected />}>
-              <Route path="home" element={<Home />} />
-            </Route>
-          </Routes>
-        </div>
+        {/* Rutas Publicas */}
+        <Routes>
+          <Route path="/register" element={<Registro />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/reset" element={<ForgetPassword />} />
+          <Route path="/reset:token" element={<NewPassword />} />
+          <Route path="/confirm/:token" element={<ConfirmAccount />} />
+          <Route path="/targets" element={<Targets />} />
+          <Route path="/beforeStart" element={<BeforeStart />} />
+          {/* Rutas Privadas */}
+          <Route path="/" element={<Protected />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/paid" element={<PaidPackage />} />
+          </Route>
+        </Routes>
       </div>
     </AuthProvider>
   );
