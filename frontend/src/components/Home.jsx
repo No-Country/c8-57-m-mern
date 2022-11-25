@@ -284,8 +284,8 @@ function Home() {
       <div
         className={`${
           showModal
-            ? 'fixed top-1/2 backdrop-blur-lg w-full flex flex-justify-center items-center'
-            : 'hidden'
+            ? 'fixed top-1/2 backdrop-blur-lg w-full flex flex-justify-center items-center duration-150'
+            : 'scale-0 duration-200 fixed w-full flex flex-justify-center items-center top-1/2'
         }`}
       >
         <ModalFeelings handleModal={handleModal} />
