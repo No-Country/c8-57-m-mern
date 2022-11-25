@@ -11,11 +11,13 @@ function AuthProvider({ children }) {
   useEffect(() => {
     const userStorage = JSON.parse(localStorage.getItem('user'));
     // console.log(userStorage);
-    setUser({
-      email: userStorage.email,
-      name: userStorage.name,
-      id: userStorage._id,
-    });
+    if (userStorage) {
+      setUser({
+        email: userStorage.email,
+        name: userStorage.name,
+        id: userStorage._id,
+      });
+    }
   }, []);
 
   // const data = useMemo(
