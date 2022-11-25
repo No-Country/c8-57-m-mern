@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-import { useState } from 'react';
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
+import { Link } from 'react-router-dom';
 import {
   BsEmojiLaughing,
   BsEmojiNeutral,
@@ -18,41 +15,25 @@ import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom';
 import ImagePerfil from '../image/imagen_logotipo.png';
 import Imagen1 from '../image/imagen_1.jpeg';
 import Imagen2 from '../image/imagen_2.jpeg';
 import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 import ModalFeelings from './layout/ModalFeelings';
-=======
-import ImagePerfil from '../image/imagen_logotipo.png';
-import useAuth from '../hooks/useAuth';
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [onChange, setOnChange] = useState(new Date());
   const [showMenu, setShowMenu] = useState(false);
-<<<<<<< HEAD
   const [showModal, setShowModal] = useState(false);
-=======
-  const { user } = useAuth();
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
 
-  const navigate = useNavigate();
   const handleClick = () => {
     setShowCalendar(!showCalendar);
   };
-<<<<<<< HEAD
   const handleModal = () => {
     setShowModal(!showModal);
   };
-=======
-
-  console.log(user);
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
   return (
     <div className="flex flex-col-reverse w-full sm:flex sm:flex-row gap-2 container">
       {/* Cajas */}
@@ -80,22 +61,20 @@ function Home() {
             <HiOutlineChat className="text-[#f4717f] text-2xl lg:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
           </div>
-          <button
-            type="submit"
-            onClick={() => navigate('/paid')}
-            className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md"
-          >
+          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
-          </button>
+          </div>
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <RiLightbulbFlashLine className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
           </div>
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <AiOutlineUser className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
-          </div>
+          <Link to="/perfil">
+            <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+              <AiOutlineUser className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
+              <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
+            </div>
+          </Link>
         </div>
       </div>
       {/* Separacion */}
@@ -103,11 +82,17 @@ function Home() {
         {/* Caja principal, donde contiene la imagen, el SOS, y el boton */}
         <div className="flex justify-center w-full  lg:w-full p-1 gap-2  border-b-[#597a97] border-t-[#597a97] border-b-2  pb-3 sm:gap-3 sm:p-3 sm:my-5 lg:justify-between">
           <div className="w-2/4 sm:w-full lg:w-3/4">
-            <img className="w-full rounded-lg" src={ImagePerfil} alt="image_perfil" />
+            <img
+              className="w-full rounded-lg"
+              src={ImagePerfil}
+              alt="image_perfil"
+            />
           </div>
 
           <div className="flex flex-col w-2/3 gap-2 justify-between sm:w-full sm:justify-around sm:gap-3">
-            <h3 className="text-base my-px text-fourth sm:text-xl lg:text-2xl">Hola, Ana</h3>
+            <h3 className="text-base my-px text-fourth sm:text-xl lg:text-2xl">
+              Hola, Ana
+            </h3>
             <span className="block  text-base text-fourth sm:text-xl lg:text-2xl">
               ¿Como te sientes?
             </span>
@@ -115,7 +100,9 @@ function Home() {
               type="submit"
               className="hover:scale-110  text-sm rounded-2xl bg-[#f4717f] p-2 cursor-pointer hover:bg-secondary duration-150"
             >
-              <span className="w-full text-fourth sm:text-xl lg:text-2xl">Hablar ahora</span>
+              <span className="w-full text-fourth sm:text-xl lg:text-2xl">
+                Hablar ahora
+              </span>
             </button>
           </div>
 
@@ -135,15 +122,13 @@ function Home() {
           className={
             showCalendar
               ? 'flex flex-col gap-3 h-auto p-1'
-<<<<<<< HEAD
               : 'duration-300 p-1 flex flex-col gap-3 h-24 overflow-hidden'
-=======
-              : 'duration-300 p-1 flex flex-col gap-3 h-20 overflow-hidden'
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
           }
         >
           <div className="block">
-            <span className="text-fourth sm:text-3xl">¿Quieres registrar tu emocion?</span>
+            <span className="text-fourth sm:text-3xl">
+              ¿Quieres registrar tu emocion?
+            </span>
           </div>
           <div className="flex justify-around text-fourth sm:gap-3">
             <div>
@@ -186,12 +171,7 @@ function Home() {
               }
             >
               {' '}
-<<<<<<< HEAD
-              <IoIosArrowDown className="text-3xl" />
-              {' '}
-=======
               <IoIosArrowDown className="text-3xl" />{' '}
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
             </button>
           </div>
           <div className="relative flex items-center justify-center">
@@ -213,43 +193,57 @@ function Home() {
             <h3 className="text-fourth sm:text-3xl text-left">Para ti</h3>
           </div>
           <div>
-            <span className="text-right text-fourth block sm:text-2xl">Ver mas</span>
+            <span className="text-right text-fourth block sm:text-2xl">
+              Ver mas
+            </span>
           </div>
         </div>
-<<<<<<< HEAD
         <div className="h-auto p-2 order-b-[#597a97] border-b-[#597a97]  overflow-x-auto border-t-[#597a97] border-b-2  sm:w-full">
           <div className="flex  gap-4  sm:mx-6  pr-4 w-3xl ">
-            <img className="w-56 cursor-pointer sm:w-96" src={Imagen1} alt="imagen_1" />
-            <img className="w-56 cursor-pointer sm:w-96" src={Imagen2} alt="imagen_2" />
-            <img className="w-56 cursor-pointer sm:w-96" src={Imagen3} alt="imagen_3" />
-            <img className="w-56 cursor-pointer sm:w-96" src={Imagen4} alt="imagen_4" />
-=======
-        <div className="w-full overflow-y-auto over order-b-[#597a97] border-b-[#597a97] border-t-[#597a97] border-b-2 sm:overflow-hidden">
-          <div
-            className="flex p-2 gap-4 sm:flex-wrap sm:mx-6 sm:justify-center"
-            style={{ width: '600px' }}
-          >
-            <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_1.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none" />
-            <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_2.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none" />
-            <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_3.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none" />
-            <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_4.jpeg')] block rounded-t-xl sm:bg-center sm:h-32 sm:rounded-none mb-5" />
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
+            <img
+              className="w-56 cursor-pointer sm:w-96"
+              src={Imagen1}
+              alt="imagen_1"
+            />
+            <img
+              className="w-56 cursor-pointer sm:w-96"
+              src={Imagen2}
+              alt="imagen_2"
+            />
+            <img
+              className="w-56 cursor-pointer sm:w-96"
+              src={Imagen3}
+              alt="imagen_3"
+            />
+            <img
+              className="w-56 cursor-pointer sm:w-96"
+              src={Imagen4}
+              alt="imagen_4"
+            />
           </div>
         </div>
 
         {/* Seccion de tu terapeuta ideal, contiene una imagen y un boton hacia otra direccion */}
 
         <div className="border-b-[#597a97] border-t-[#597a97] border-b-2 my-2 mx-2">
-          <h2 className="block p-0 text-fourth sm:text-3xl">Tu terapeuta ideal</h2>
+          <h2 className="block p-0 text-fourth sm:text-3xl">
+            Tu terapeuta ideal
+          </h2>
           <div className="flex text-center gap-2 justify-center items-center my-10 sm:w-full sm:justify-around">
             <div className="w-1/4 flex flex-col items-center">
               <FaQuestion className="text-5xl text-[#f4717f]" />
-              <span className="text-sm text-fourth sm:text-3xl">En espera...</span>
+              <span className="text-sm text-fourth sm:text-3xl">
+                En espera...
+              </span>
             </div>
             <div className="w-4/4 text-base flex flex-col  p-2 gap-3">
               <div>
-                <h3 className="text-sm text-fourth sm:text-3xl">No hay proximas seciones</h3>
-                <span className="text-sm text-fourth sm:text-2xl">¿Te gustaria programar una?</span>
+                <h3 className="text-sm text-fourth sm:text-3xl">
+                  No hay proximas seciones
+                </h3>
+                <span className="text-sm text-fourth sm:text-2xl">
+                  ¿Te gustaria programar una?
+                </span>
               </div>
               <div>
                 <button
@@ -257,12 +251,7 @@ function Home() {
                   className="hover:scale-110 bg-third p-2 cursor-pointer hover:bg-secondary duration-100 text-fourth  rounded-2xl text-white text-sm sm:p-4 sm:text-2xl"
                 >
                   {' '}
-<<<<<<< HEAD
-                  Programar ahora
-                  {' '}
-=======
                   Programar ahora{' '}
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
                 </button>
               </div>
             </div>
@@ -275,7 +264,8 @@ function Home() {
           <div className="flex flex-col gap-3">
             <h2 className="text-left sm:text-3xl">Resumen de emociones</h2>
             <span className="text-sm sm:text-2xl">
-              El mejor proceso es el que nunca se detiene te has sentido mejor 4/7 dias
+              El mejor proceso es el que nunca se detiene te has sentido mejor
+              4/7 dias
             </span>
           </div>
           <div className="text-right">
@@ -313,7 +303,9 @@ function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-4  items-center">
-            <span className="text-sm sm:text-3xl">¿Te gustaria empezar terapia?</span>
+            <span className="text-sm sm:text-3xl">
+              ¿Te gustaria empezar terapia?
+            </span>
             <button
               type="submit"
               className="hover:scale-110 duration-100 hover:bg-secondary w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:text-2xl sm:w-2/4 sm:p-3"
@@ -322,7 +314,6 @@ function Home() {
             </button>
           </div>
         </div>
-<<<<<<< HEAD
       </div>
       <div
         className={`${
@@ -332,45 +323,6 @@ function Home() {
         }`}
       >
         <ModalFeelings handleModal={handleModal} />
-=======
-
-        {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
-        <div
-          className={`flex bg-[#597a97] relative top-4 left-0 p-1 px-25  justify-around text-fourth sm:duration-150 sm:flex-col sm:fixed sm:left-0 sm:h-screen sm:items-center sm:top-0 sm:gap-5 sm:justify-center ${
-            showMenu ? 'sm:w-60' : 'sm:w-10'
-          }`}
-        >
-          <button
-            type="submit"
-            className={`hidden sm:absolute sm:top-2  sm:text-2xl sm:block sm:duration-150 sm:cursor-pointer  ${
-              showMenu && 'rotate-180 left-3/4'
-            }`}
-            onClick={() => setShowMenu(!showMenu)}
-          >
-            <IoIosArrowForward className="text-third" />
-          </button>
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <GoHome className="text-[#f4717f] text-2xl" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
-          </div>
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <HiOutlineChat className="text-[#f4717f] text-2xl" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
-          </div>
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <FaBriefcaseMedical className="text-[#f4717f] text-2xl" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
-          </div>
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <RiLightbulbFlashLine className="text-[#f4717f] text-2xl" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
-          </div>
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <AiOutlineUser className="text-[#f4717f] text-2xl" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
-          </div>
-        </div>
->>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
       </div>
     </div>
   );
