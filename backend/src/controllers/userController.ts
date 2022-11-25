@@ -45,6 +45,7 @@ export const login = async (req: Request, res: Response): Promise<Response | und
 export const register = async (req: Request, res: Response): Promise<Response | undefined> => {
     //Evitar registros duplicados
     const { email } = req.body
+   try {
     const user = await User.findOne({ email })
     if (user) {
         return res.json({ msg: "The User already Exists", register: false })
@@ -60,6 +61,9 @@ export const register = async (req: Request, res: Response): Promise<Response | 
     }as IUser)
 
     return res.json({msg:"User created", register:true})
+   } catch (error) {
+    console.log(error)
+   }
 }
 
 //Permite buscar un usuario por id

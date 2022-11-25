@@ -1,6 +1,28 @@
 import {model,Schema,Document} from 'mongoose'
 import bcrypt from 'bcrypt'
 
+enum MotivationLevel {
+    siempre,
+    usualmente,
+    algunas_veces,
+    nunca
+  }
+
+enum SecurityLevel {
+    siempre,
+    usualmente,
+    algunas_veces,
+    nunca
+}
+
+enum InterestLevel {
+    escuche,
+    aprender,
+    indagar,
+    creencias,
+    no
+}
+
 export interface IUser extends Document {
     email:string;
     password:string;
@@ -9,8 +31,15 @@ export interface IUser extends Document {
     confirm?:boolean;
     bearer?:string;
     rol?:string;
+    motivation?:MotivationLevel;
+    security?:SecurityLevel;
+    interest?:InterestLevel;
     comparePassword:(password:string) => Promise<Boolean>;
 };
+
+
+
+  console.log(MotivationLevel.usualmente, 'acaaaaaaaa')
 
 const userSchema = new Schema({
     email: {
@@ -40,6 +69,19 @@ const userSchema = new Schema({
         type:String,
         maxlength:30,
     },
+    motivation:{
+        type:String,
+        enum:[MotivationLevel.siempre,MotivationLevel.usualmente, MotivationLevel.algunas_veces,MotivationLevel.nunca],
+    },
+    security:{
+        type:String,
+        enum:[SecurityLevel.siempre,SecurityLevel.usualmente, SecurityLevel.algunas_veces,SecurityLevel.nunca],
+    },
+    interest:{
+        type:String,
+        enum:[InterestLevel.escuche,InterestLevel.aprender, InterestLevel.indagar,InterestLevel.creencias,InterestLevel.no],
+    },
+
 });
 
 // Este es un middleware para verificar si se modifico el password del usuario

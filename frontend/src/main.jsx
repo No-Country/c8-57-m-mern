@@ -9,8 +9,9 @@ import Perfil from './components/Perfil';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Perfil />
-      <Toaster position="top-center" reverseOrder={false} />
+      <App />
+      {/* <Perfil />
+      <Toaster position="top-center" reverseOrder={false} /> */}
     </BrowserRouter>
   </React.StrictMode>,
 );

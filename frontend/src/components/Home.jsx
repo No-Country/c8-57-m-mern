@@ -16,6 +16,7 @@ import "react-calendar/dist/Calendar.css";
 import ImagePerfil from "../image/imagen_perfil.png";
 import { useState } from "react";
 
+
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [onChange, setOnChange] = useState(new Date());
@@ -62,8 +63,8 @@ function Home() {
       <div
         className={
           showCalendar
-            ? "flex flex-col gap-3 h-auto p-1"
-            : "duration-300 p-1 flex flex-col gap-3 h-20 overflow-hidden"
+            ? 'flex flex-col gap-3 h-auto p-1'
+            : 'duration-300 p-1 flex flex-col gap-3 h-20 overflow-hidden'
         }
       >
         <div>
@@ -90,20 +91,21 @@ function Home() {
             onClick={handleClick}
             className={
               showCalendar
-                ? "focus:rotate-180 ease-in duration-300"
-                : "rotate-0 ease-in duration-300"
+                ? 'focus:rotate-180 ease-in duration-300'
+                : 'rotate-0 ease-in duration-300'
             }
           >
-            {" "}
-            <IoIosArrowDown className="text-3xl" />{" "}
+            {' '}
+            <IoIosArrowDown className="text-3xl" />
+            {' '}
           </button>
         </div>
         <div className="relative flex items-center justify-center text-white">
           <Calendar
             className={
               showCalendar
-                ? "text-center bg-transparent ease-linear delay-150 duration-200 border-none"
-                : "opacity-0 ease-in  duration-500 delay-500"
+                ? 'text-center bg-transparent ease-linear delay-150 duration-200 border-none'
+                : 'opacity-0 ease-in  duration-500 delay-500'
             }
             onChange={setOnChange}
             value={onChange}
@@ -121,7 +123,7 @@ function Home() {
         </div>
       </div>
       <div className="w-full overflow-y-auto order-b-[#597a97] border-b-[#597a97] border-t-[#597a97] border-b-2">
-        <div className="flex p-2 gap-4 " style={{ width: "700px" }}>
+        <div className="flex p-2 gap-4 " style={{ width: '700px' }}>
           <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_1.jpeg')] block rounded-t-xl" />
           <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_2.jpeg')] block rounded-t-xl" />
           <div className="h-24 w-56 bg-cover bg-center bg-[url('./image/imagen_3.jpeg')] block rounded-t-xl" />
@@ -148,8 +150,9 @@ function Home() {
                 type="submit"
                 className="p-2 cursor-pointer bg-red-400 rounded-2xl text-white"
               >
-                {" "}
-                Programar ahora{" "}
+                {' '}
+                Programar ahora
+                {' '}
               </button>
             </div>
           </div>
@@ -213,13 +216,6 @@ function Home() {
         <div className="flex flex-col items-center cursor-pointer">
           <GoHome className="text-[#f4717f] text-2xl" />
           <h3>Home</h3>
-        </div>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-          <Link to={<Chatbot />}>
-            {' '}
-            <HiOutlineChat className="text-[#f4717f] text-2xl" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
-          </Link>
         </div>
         <div className="flex flex-col items-center cursor-pointer">
           <FaBriefcaseMedical className="text-[#f4717f] text-2xl" />
