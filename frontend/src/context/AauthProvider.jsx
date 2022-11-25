@@ -1,4 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
+import axiosClient from '../config/axiosClient';
 
 const AuthContext = createContext();
 
@@ -9,17 +10,19 @@ function AuthProvider({ children }) {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    const userStorage = JSON.parse(localStorage.getItem('user'));
-    // console.log(userStorage);
-    if (userStorage) {
-      setUser({
-        email: userStorage.email,
-        name: userStorage.name,
-        id: userStorage._id,
-      });
-    }
+    (async () => {
+      const userStorage = JSON.parse(localStorage.getItem('user'));
+      if (userStorage.login) {
+        const res = await axiosClient.get('user/' + userStorage._id);
+        const { user } = res.data;
+        setUser({
+          email: user.email,
+          name: user.name,
+          id: user._id,
+        });
+      }
+    })();
   }, []);
-
   // const data = useMemo(
   //   () => ({
   //     user,

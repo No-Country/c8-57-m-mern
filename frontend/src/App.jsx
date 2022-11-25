@@ -10,7 +10,7 @@ import ConfirmAccount from "./pages/ConfirmAccount";
 import BeforeStart from "./components/BeforeStart";
 import Targets from "./components/Targets";
 import PaidPackage from "./pages/PaidPackage";
-
+import Perfil from "./components/Perfil";
 function App() {
   return (
     <AuthProvider>
@@ -24,6 +24,7 @@ function App() {
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
           <Route path="/targets" element={<Targets />} />
           <Route path="/beforeStart" element={<BeforeStart />} />
+          <Route path="/perfil" element={<Perfil/>} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
             <Route path="/home" element={<Home />} />
