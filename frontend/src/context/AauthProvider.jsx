@@ -8,6 +8,20 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
+<<<<<<< HEAD
+  const data = useMemo(
+    () => ({
+      user,
+      setUser,
+      loading,
+      setLoading,
+      email,
+      setEmail,
+    }),
+    [],
+  );
+  return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
+=======
   useEffect(() => {
     const userStorage = JSON.parse(localStorage.getItem('user'));
     // console.log(userStorage);
@@ -43,6 +57,7 @@ function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
+>>>>>>> 5b69ad8aa50ecbc49e06ec9e084cc48f3ba1ed7a
 }
 
 export { AuthProvider };
