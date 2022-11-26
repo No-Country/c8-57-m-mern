@@ -15,7 +15,6 @@ function App() {
   return (
     <AuthProvider>
       <div className="bg-primary min-h-screen flex items-center justify-center">
-        <div>
           {/* Rutas Publicas */}
           <Routes>
             <Route path="/register" element={<Registro />} />
@@ -31,7 +30,6 @@ function App() {
               <Route path="/beforeStart" element={<BeforeStart />} />
             </Route>
           </Routes>
-        </div>
       </div>
     </AuthProvider>
 
