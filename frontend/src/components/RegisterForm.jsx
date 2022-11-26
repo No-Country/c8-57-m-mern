@@ -1,21 +1,23 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import Swal from "sweetalert2";
-import * as yup from "yup";
-import axiosClient from "../config/axiosClient";
+import React from 'react';
+import {
+  Formik, Form, Field, ErrorMessage,
+} from 'formik';
+import Swal from 'sweetalert2';
+import * as yup from 'yup';
+import axiosClient from '../config/axiosClient';
 
 function RegisterForm() {
   const handleSubmit = async (values) => {
     try {
-      const { data } = await axiosClient.post("register", values);
+      const { data } = await axiosClient.post('register', values);
       Swal.fire({
-        title: data.register ? "Registro Exitoso!" : "Usuario ya existe",
+        title: data.register ? 'Registro Exitoso!' : 'Usuario ya existe',
         text: data.register
-          ? "Te has registrado correctamente, por favor verifica tu Email para verificar la cuenta"
-          : "",
-        icon: data.register ? "success" : "error",
-        position: "top",
+          ? 'Te has registrado correctamente, por favor verifica tu Email para verificar la cuenta'
+          : '',
+        icon: data.register ? 'success' : 'error',
+        position: 'top',
       });
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -26,22 +28,19 @@ function RegisterForm() {
   const userSchema = yup.object().shape({
     name: yup
       .string()
-      .min(3, "Nombre muy corto!")
-      .max(15, "Nombre demasiado largo!")
-      .matches(/^[A-Z _]+$/i, "El nombre solo puede contener letras"),
+      .min(3, 'Nombre muy corto!')
+      .max(15, 'Nombre demasiado largo!')
+      .matches(/^[A-Z _]+$/i, 'El nombre solo puede contener letras'),
     lastName: yup
       .string()
-      .min(3, "Apellido muy corto!")
-      .max(15, "Apellido demasiado largo!")
-      .matches(/^[A-Z _]+$/i, "El apellido solo puede contener letras"),
+      .min(3, 'Apellido muy corto!')
+      .max(15, 'Apellido demasiado largo!')
+      .matches(/^[A-Z _]+$/i, 'El apellido solo puede contener letras'),
     password: yup
       .string()
-      .min(6, "La contraseña es demasiado corta!")
-      .required("Debes ingresar una contraseña"),
-    email: yup
-      .string()
-      .email("Mail no valido")
-      .required("Debes ingresar un mail"),
+      .min(6, 'La contraseña es demasiado corta!')
+      .required('Debes ingresar una contraseña'),
+    email: yup.string().email('Mail no valido').required('Debes ingresar un mail'),
   });
 
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -49,11 +48,12 @@ function RegisterForm() {
     <div className="flex-col justify-center items-center ">
       <div className=" mb-4 py-10 text-center flex-col justify-center items-center m-auto ">
         <h1 className="text-2xl font-bold block text-[#ffffff]">
-          {" "}
-          Me gustaría saber como llamarte{" "}
+          {' '}
+          Me gustaría saber como llamarte
+          {' '}
         </h1>
         <h3 className="text-xl font-bold block text-[#ffffff]">
-          {" "}
+          {' '}
           Tu privacidad es importante, tranqui.
         </h3>
       </div>
@@ -63,9 +63,9 @@ function RegisterForm() {
         </header>
         <Formik
           initialValues={{
-            name: "",
-            email: "",
-            password: "",
+            name: '',
+            email: '',
+            password: '',
           }}
           onSubmit={async (values, { resetForm }) => {
             await handleSubmit(values);
@@ -76,11 +76,8 @@ function RegisterForm() {
           {({ values }) => (
             <Form>
               <div>
-                <label
-                  htmlFor="name"
-                  className="font-bold  block text-[#ffffff]"
-                >
-                  {" "}
+                <label htmlFor="name" className="font-bold  block text-[#ffffff]">
+                  {' '}
                   Nombre
                 </label>
                 <Field
@@ -92,10 +89,7 @@ function RegisterForm() {
                 />
 
                 <ErrorMessage name="name" component="p" />
-                <label className=" font-bold block text-[#ffffff] mt-5 ">
-                  {" "}
-                  Email
-                </label>
+                <label className=" font-bold block text-[#ffffff] mt-5 "> Email</label>
                 <Field
                   name="email"
                   type="email"
@@ -104,10 +98,7 @@ function RegisterForm() {
                 />
 
                 <ErrorMessage name="email" component="p" />
-                <label className=" font-bold block text-[#ffffff]  mt-5">
-                  {" "}
-                  Contraseña
-                </label>
+                <label className=" font-bold block text-[#ffffff]  mt-5"> Contraseña</label>
                 <Field
                   name="password"
                   type="password"

@@ -3,10 +3,10 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-
     screens: {
       sm: '600px',
-      md: '768px'
+      md: '768px',
+      lg: '900px',
     },
     extend: {
       boxShadow:{
@@ -29,8 +29,9 @@ module.exports = {
       fourth: 'white',
       transparent: 'transparent',
       fifth: '#7E97AC',
+      seventh: '#000',
+      eighth: 'red',
     },
-    
   },
   plugins: [],
 };

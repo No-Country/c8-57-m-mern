@@ -5,3 +5,11 @@
 /* body{
     overflow: hidden;
 } */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #f4717f;
+    border-radius: 10px;
+}
