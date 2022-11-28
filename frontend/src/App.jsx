@@ -1,16 +1,17 @@
-import { Routes, Route } from "react-router-dom";
-import Registro from "./pages/Registro";
-import Home from "./components/Home";
-import Login from "./pages/Login";
-import NewPassword from "./pages/NewPassword";
-import Protected from "./components/layout/Protected";
-import { AuthProvider } from "./context/AauthProvider";
-import ForgetPassword from "./components/ForgetPassword";
-import ConfirmAccount from "./pages/ConfirmAccount";
-import BeforeStart from "./components/BeforeStart";
-import Targets from "./components/Targets";
-import PaidPackage from "./pages/PaidPackage";
-import Perfil from "./components/Perfil";
+import { Routes, Route } from 'react-router-dom';
+import Registro from './pages/Registro';
+import Home from './components/Home';
+import Login from './pages/Login';
+import NewPassword from './pages/NewPassword';
+import Protected from './components/layout/Protected';
+import { AuthProvider } from './context/AauthProvider';
+import ForgetPassword from './components/ForgetPassword';
+import ConfirmAccount from './pages/ConfirmAccount';
+import BeforeStart from './components/BeforeStart';
+import Targets from './components/Targets';
+import PaidPackage from './pages/PaidPackage';
+import Perfil from './components/Perfil';
+import Payment from './components/Payment';
 function App() {
   return (
     <AuthProvider>
@@ -24,7 +25,8 @@ function App() {
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
           <Route path="/targets" element={<Targets />} />
           <Route path="/beforeStart" element={<BeforeStart />} />
-          <Route path="/perfil" element={<Perfil/>} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/payment" element={<Payment />} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
             <Route path="/home" element={<Home />} />
