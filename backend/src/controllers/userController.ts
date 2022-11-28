@@ -120,3 +120,30 @@ export const findAllUsers = async (req: Request, res: Response): Promise<Respons
     return res.json({msg:'Users not found', found: false})
 }
 
+export const updateUser = async (req: Request, res: Response): Promise<Response | any> => {
+   // Evitar registros duplicados
+   const {email, age, sex, phone, dateOfBirty, direction, experience, emotion, motivation, security, interest }=req.body;
+   const user = await User.findOne({ email })
+   if (!user) {
+    return res.json({ update:false})
+   }
+
+   user.age = age || user.age
+   user.sex = sex || user.sex
+   user.phone = phone || user.phone
+   user.age = dateOfBirty || user.dateOfBirty
+   user.age = direction || user.direction
+   user.age = experience || user.experience
+   user.emotion = emotion || user.emotion
+   user.motivation = motivation || user.motivation
+   user.security = security || user.security
+   user.interest = interest || user.interest
+   user.experience = experience || user.experience
+   
+
+   await user.save()
+
+   return res.json({ update:true})
+
+}
+

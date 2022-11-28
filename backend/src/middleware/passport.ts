@@ -21,11 +21,12 @@ const options:StrategyOptions = {
      }
 })
 
-export const verifyAdmin = new Strategy(options, async (payload,done)=>{
+export const verifyTherapist= new Strategy(options, async (payload,done)=>{
    console.log(payload,'acaaaa')
     try {
        const user = await User.findById(payload.id);
-       if (user?.rol === 'Admin') {
+       if (user?.rol === 1) {
+         console.log('entrooooo')
            return done(null, user);
        }
        return done(null, false);

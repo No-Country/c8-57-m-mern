@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import {
-  Formik, Form, Field, ErrorMessage,
-} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -9,7 +7,7 @@ import axiosClient from '../config/axiosClient';
 import useAuth from '../hooks/useAuth';
 
 function LoginForm() {
-  const { setUser, setLoading } = useAuth();
+  const { setLoading } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
@@ -19,9 +17,7 @@ function LoginForm() {
       if (data.login) {
         // usuario en localStorage
         localStorage.setItem('user', JSON.stringify(data));
-
         // usuario en el Provider
-        setUser(data);
         setLoading(false);
         navigate('/home');
       } else {
@@ -59,7 +55,10 @@ function LoginForm() {
         {({ values }) => (
           <Form>
             <div>
-              <label htmlFor="email" className=" font-bold block text-[#ffffff] mt-5 ">
+              <label
+                htmlFor="email"
+                className=" font-bold block text-[#ffffff] mt-5 "
+              >
                 {' '}
                 Email
               </label>
@@ -72,7 +71,10 @@ function LoginForm() {
               />
 
               <ErrorMessage name="email" component="p" />
-              <label className=" font-bold block text-[#ffffff]  mt-5"> Contraseña</label>
+              <label className=" font-bold block text-[#ffffff]  mt-5">
+                {' '}
+                Contraseña
+              </label>
               <Field
                 name="password"
                 type="password"
@@ -91,7 +93,9 @@ function LoginForm() {
             <span className="font-bold  text-[#ffffff]">
               <Link to="/reset">Olvidé mi contraseña</Link>
             </span>
-            <span className="font-bold  text-[#ffffff]  ml-16"><Link to="/register">Registrarme</Link></span>
+            <span className="font-bold  text-[#ffffff]  ml-16">
+              <Link to="/register">Registrarme</Link>
+            </span>
           </Form>
         )}
       </Formik>
