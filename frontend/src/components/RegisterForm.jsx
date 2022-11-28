@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import {
-  Formik, Form, Field, ErrorMessage,
-} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Swal from 'sweetalert2';
 import * as yup from 'yup';
 import axiosClient from '../config/axiosClient';
@@ -40,24 +38,26 @@ function RegisterForm() {
       .string()
       .min(6, 'La contraseña es demasiado corta!')
       .required('Debes ingresar una contraseña'),
-    email: yup.string().email('Mail no valido').required('Debes ingresar un mail'),
+    email: yup
+      .string()
+      .email('Mail no valido')
+      .required('Debes ingresar un mail'),
   });
 
   // eslint-disable-next-line jsx-a11y/label-has-associated-control
   return (
-    <div className="flex-col justify-center items-center ">
+    <div className="flex-col justify-center items-center container">
       <div className=" mb-4 py-10 text-center flex-col justify-center items-center m-auto ">
         <h1 className="text-2xl font-bold block text-[#ffffff]">
           {' '}
-          Me gustaría saber como llamarte
-          {' '}
+          Me gustaría saber como llamarte{' '}
         </h1>
         <h3 className="text-xl font-bold block text-[#ffffff]">
           {' '}
           Tu privacidad es importante, tranqui.
         </h3>
       </div>
-      <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
+      <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto ">
         <header className="flex items-center  justify-center pt-2 pb-4">
           <h2 className="text-2xl font-bold text-[#ffffff]">Escríbelo aquí</h2>
         </header>
@@ -76,7 +76,10 @@ function RegisterForm() {
           {({ values }) => (
             <Form>
               <div>
-                <label htmlFor="name" className="font-bold  block text-[#ffffff]">
+                <label
+                  htmlFor="name"
+                  className="font-bold  block text-[#ffffff]"
+                >
                   {' '}
                   Nombre
                 </label>
@@ -89,7 +92,10 @@ function RegisterForm() {
                 />
 
                 <ErrorMessage name="name" component="p" />
-                <label className=" font-bold block text-[#ffffff] mt-5 "> Email</label>
+                <label className=" font-bold block text-[#ffffff] mt-5 ">
+                  {' '}
+                  Email
+                </label>
                 <Field
                   name="email"
                   type="email"
@@ -98,7 +104,10 @@ function RegisterForm() {
                 />
 
                 <ErrorMessage name="email" component="p" />
-                <label className=" font-bold block text-[#ffffff]  mt-5"> Contraseña</label>
+                <label className=" font-bold block text-[#ffffff]  mt-5">
+                  {' '}
+                  Contraseña
+                </label>
                 <Field
                   name="password"
                   type="password"
