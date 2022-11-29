@@ -6,6 +6,7 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+import useAuth from '../hooks/useAuth';
 
 const stripePromise = loadStripe(
   'pk_test_51M8nPkEZcBXalvvxy6k87YiwyWvwCp0oIq0mQgCuQ9zgLOYchA31na4kTE6pAZRMRstxM7sCtL1knjNv49MDaP5g00nxM62vC9'
@@ -14,6 +15,7 @@ const stripePromise = loadStripe(
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const { postCheckout } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +25,9 @@ const CheckoutForm = () => {
       card: elements.getElement(CardElement), //captura la info tipeada por el usuario
     });
     if (!error) {
-      console.log(paymentMethod);
+      const { id } = paymentMethod;
+      const order = { id, amount: 10000 };
+      const data = await postCheckout(order);
     }
     console.log(error);
   };
