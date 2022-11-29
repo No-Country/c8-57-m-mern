@@ -12,6 +12,7 @@ import Targets from './components/Targets';
 import PaidPackage from './pages/PaidPackage';
 import Perfil from './components/Perfil';
 import Start from './components/Start';
+import Payment from './components/Payment';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/" element={<Start />} />
+          <Route path="/payment" element={<Payment />} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
             <Route path="/targets" element={<Targets />} />

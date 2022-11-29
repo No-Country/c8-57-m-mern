@@ -17,24 +17,49 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('hola');
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement), //captura la info tipeada por el usuario
     });
+    if (!error) {
+      console.log(paymentMethod);
+    }
+    console.log(error);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-third p-2">
-      <CardElement className="focus:outline-none border p-2 rounded-sm m-2" />
-      <button>Buy</button>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center w-full justify-center"
+    >
+      <CardElement className="p-3 rounded-sm w-full md:w-4/6 bg-gray" />
+      <div className="flex flex-row w-full md:w-4/6 items-start">
+        <button
+          type="button"
+          className="bg-third text-xl font-bold w-1/3 mr-2 mt-2 px-2 rounded-sm text-fourth hover:bg-thirdHover"
+        >
+          Volver
+        </button>
+        <button
+          type="submit"
+          className="bg-third text-xl font-bold w-full md:w-1/2 mt-2 px-2 rounded-sm text-fourth hover:bg-thirdHover"
+        >
+          Pagar
+        </button>
+      </div>
     </form>
   );
 };
 
 function Payment() {
   return (
-    <div className="bg-secondary w-1/2 p-16 container">
+    <div className="bg-fifth w-3/4 md:w-1/2 p-2">
+      <header className="text-center p-1 mb-2 font-bold text-2xl text-fourth">
+        <h1>Ingresa tus datos</h1>
+        <hr className="mt-2" />
+      </header>
+      <div className="my-2"></div>
       <Elements stripe={stripePromise}>
         <CheckoutForm />
       </Elements>
