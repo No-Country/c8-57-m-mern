@@ -5,12 +5,22 @@ module.exports = {
   theme: {
     screens: {
       sm: '600px',
+      md: '768px',
       lg: '900px',
     },
     extend: {
-      boxShadow: {
-        '228b': '2px 2px 8px rgba(0,0,0)',
+      boxShadow:{
+        '228b': '2px 2px 8px rgba(0,0,0)'
       },
+      animation: {
+        'ext-slow': 'ext 3s ease-in-out infinite',
+      },
+      keyframes: {
+        ext: {
+          '0%, 100%': {border: '0px #3D6487 solid' },
+          '50%': { border: '5px #3D6487 solid'},
+        }
+      }
     },
     colors: {
       primary: '#3D6487',

@@ -7,9 +7,10 @@ import passport from 'passport';
 import registerRoute from './routes/registerRoute';
 import loginRoute from './routes/loginRoute'
 import userRoute from './routes/userRoute'
-import strategy from './middleware/passport';
+import updateRoute from './routes/updateRoute'
 import confirmRoute from './routes/confirmRoute'
 import passwordRoute from './routes/passwordRoute'
+import { strategy } from './middleware/passport';
 
 const app=express()
 dotenv.config()
@@ -22,7 +23,8 @@ app.use(morgan('dev')); // Mostrar peticiones
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(passport.initialize());
-passport.use(strategy);
+//passport.use(strategy);
+
 
 
 
@@ -35,5 +37,6 @@ const server=app.listen(PORT, ()=>{
 app.use('/register',registerRoute)
 app.use('/login',loginRoute)
 app.use('/user', userRoute)
+app.use('/update', updateRoute)
 app.use('/confirm', confirmRoute)
 app.use('/forget-password',passwordRoute)

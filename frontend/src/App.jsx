@@ -10,6 +10,8 @@ import ConfirmAccount from './pages/ConfirmAccount';
 import BeforeStart from './components/BeforeStart';
 import Targets from './components/Targets';
 import PaidPackage from './pages/PaidPackage';
+import Perfil from './components/Perfil';
+import Start from './components/Start';
 import ForYou from './pages/ForYou';
 import TerapistPanel from './pages/TerapistPanel';
 
@@ -24,12 +26,14 @@ function App() {
           <Route path="/reset" element={<ForgetPassword />} />
           <Route path="/reset:token" element={<NewPassword />} />
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
-          <Route path="/targets" element={<Targets />} />
-          <Route path="/beforeStart" element={<BeforeStart />} />
+          <Route path="/" element={<Start />} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
+            <Route path="/targets" element={<Targets />} />
+            <Route path="/beforeStart" element={<BeforeStart />} />
             <Route path="/home" element={<Home />} />
             <Route path="/paid" element={<PaidPackage />} />
+            <Route path="/perfil" element={<Perfil />} />
             <Route path="/you" element={<ForYou />} />
             <Route path="/controler" element={<TerapistPanel />} />
           </Route>

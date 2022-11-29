@@ -36,11 +36,11 @@ function LoginForm() {
     password: Yup.string()
       .min(6, 'Contraseña muy corta!')
       .max(50, 'Demasiado larga!')
-      .required('Required'),
-    email: Yup.string().email('Mail no valido').required('Required'),
+      .required('Ingresa tu contraseña'),
+    email: Yup.string().email('Mail no valido').required('Ingresa tu email'),
   });
   return (
-    <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
+    <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/2">
       <header className="flex items-center  justify-center pt-2 pb-4">
         <h2 className="text-2xl font-bold text-[#ffffff]">Login</h2>
       </header>

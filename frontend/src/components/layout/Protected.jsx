@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
+import Dashboard from './Dashboard';
 
 function Protected() {
   const [auth, setAuth] = useState(false);
@@ -33,7 +34,13 @@ function Protected() {
   return (
     <>
       {loading && 'loading....'}
-      {auth && <Outlet />}
+
+      {auth &&
+      <div>
+        <Dashboard />
+        <Outlet />
+      </div>
+      }
     </>
 
   );
