@@ -3,8 +3,6 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 
 // eslint-disable-next-line react/prop-types
 function ModalFeelings({ handleModal }) {
-  const numberArrFeelings = [1, 2, 3, 4, 5, 6, 7, 8];
-  const numberArrFeelingsTwo = [1, 2, 3, 4, 5, 6, 7, 8];
   const fellingsOptionsTwo = [
     'familia',
     'trabajo',
@@ -27,6 +25,13 @@ function ModalFeelings({ handleModal }) {
     'miserable',
     'arrepentida',
   ];
+
+  const handleSubmitEmotion = (value) => {
+    console.log(value,'ckileooo')
+  }
+  const handleSubmitSituation = (value) => {
+    console.log(value,'ckileooo')
+  }
 
   return (
     <div className="flex flex-col bg-fifth p-3 gap-3 z-10  fixed justify-center rounded-lg m-2">
@@ -51,9 +56,9 @@ function ModalFeelings({ handleModal }) {
           />
         </div>
         <div className="flex gap-3 flex-wrap justify-center">
-          {numberArrFeelings.map((button) => (
-            <button key={button} type="submit" className="p-2 rounded-md text-fourth bg-third">
-              {fellingsOptions[button - 1]}
+          {fellingsOptions.map((value, index) => (
+            <button value={value} onClick={()=>handleSubmitEmotion(value)} key={index} type="submit" className="p-2 rounded-md text-fourth bg-third">
+              {value}
             </button>
           ))}
         </div>
@@ -71,9 +76,9 @@ function ModalFeelings({ handleModal }) {
           />
         </div>
         <div className="flex gap-3 flex-wrap justify-center">
-          {numberArrFeelingsTwo.map((button) => (
-            <button key={button} type="submit" className="p-2 rounded-md text-fourth bg-third">
-              {fellingsOptionsTwo[button - 1]}
+          {fellingsOptionsTwo.map((value, index) => (
+            <button onClick={()=>handleSubmitSituation(value)} value={value} key={index} type="submit" className="p-2 rounded-md text-fourth bg-third">
+              {value}
             </button>
           ))}
         </div>
