@@ -7,7 +7,7 @@ import axiosClient from '../config/axiosClient';
 import useAuth from '../hooks/useAuth';
 
 function LoginForm() {
-  const { setLoading } = useAuth();
+  const { setLoading, setUser, user } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {

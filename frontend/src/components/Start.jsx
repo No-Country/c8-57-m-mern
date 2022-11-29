@@ -19,8 +19,6 @@ const Start = () => {
      
       <Link to="/login">
 
-          
-    
         <button className='absolute right-[20%] bottom-24 text-3xl rounded-[10px] p-4 hover:bg-slate-600'> ▶ </button>
       </Link>
 

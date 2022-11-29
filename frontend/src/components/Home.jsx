@@ -7,12 +7,8 @@ import {
   BsEmojiAngry,
   BsEmojiSmile,
 } from 'react-icons/bs';
-import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
-import { GoHome } from 'react-icons/go';
-import { HiOutlineChat } from 'react-icons/hi';
-import { FaBriefcaseMedical, FaQuestion } from 'react-icons/fa';
-import { RiLightbulbFlashLine } from 'react-icons/ri';
-import { AiOutlineUser } from 'react-icons/ai';
+import { IoIosArrowDown } from 'react-icons/io';
+import { FaQuestion } from 'react-icons/fa'
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ImagePerfil from '../image/imagen_logotipo.png';
@@ -21,14 +17,15 @@ import Imagen2 from '../image/imagen_2.jpeg';
 import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 import ModalFeelings from './layout/ModalFeelings';
+import useAuth from '../hooks/useAuth';
 
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [onChange, setOnChange] = useState(new Date());
-  const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const { user } = useAuth()
+console.log(user,'acaaaa');
   const handleClick = () => {
     setShowCalendar(!showCalendar);
   };
@@ -52,7 +49,7 @@ function Home() {
 
           <div className="flex flex-col w-2/3 gap-2 justify-between sm:w-full sm:justify-around sm:gap-3">
             <h3 className="text-base my-px text-fourth sm:text-xl lg:text-2xl">
-              Hola, Ana
+              Hola, {user.rol===1 ? 'LOCO':'Terapeuta'}
             </h3>
             <span className="block  text-base text-fourth sm:text-xl lg:text-2xl">
               ¿Como te sientes?

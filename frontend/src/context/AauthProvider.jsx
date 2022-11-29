@@ -10,18 +10,22 @@ function AuthProvider({ children }) {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    (async () => {
-      const userStorage = JSON.parse(localStorage.getItem('user'));
-      if (userStorage.login) {
-        const res = await axiosClient.get('user/' + userStorage._id);
-        const { user } = res.data;
-        setUser({
-          email: user.email,
-          name: user.name,
-          id: user._id,
-        });
+    const authenticateUser = async () => {
+      const data = JSON.parse(localStorage.getItem('user'));
+      if (!data) {
+        setLoading(false);
+        return;
       }
-    })();
+      try {
+        setUser(data);   
+        return
+      } catch (error) {
+        setUser({});
+      }
+      setLoading(false);
+    };
+    authenticateUser();
+  
   }, []);
   // const data = useMemo(
   //   () => ({
@@ -37,6 +41,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
         setLoading,
         email,

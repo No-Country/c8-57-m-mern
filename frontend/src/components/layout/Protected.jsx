@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 
 function Protected() {
   const [auth, setAuth] = useState(false);
+  const {setUser, user} = useAuth()
   const {
     loading,
     setLoading,
@@ -14,7 +15,7 @@ function Protected() {
 
   useEffect(() => {
     setLoading(true);
-    const storageUser = localStorage.getItem('user');
+    const storageUser = JSON.parse(localStorage.getItem('user'));
     if (storageUser === null) {
       setAuth(false);
       setLoading(false);
@@ -24,17 +25,19 @@ function Protected() {
         icon: 'error',
         position: 'center',
       });
-      navigate('/login');
+      navigate('/start');
     } else {
       setAuth(true);
+      setUser(storageUser)
+      console.log(user, 'aca de protected');
       setLoading(false);
+      navigate('/home');
     }
   }, []);
 
   return (
     <>
       {loading && 'loading....'}
-
       {auth &&
       <div>
         <Dashboard />

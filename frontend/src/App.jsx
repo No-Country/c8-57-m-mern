@@ -24,8 +24,8 @@ function App() {
           <Route path="/reset" element={<ForgetPassword />} />
           <Route path="/reset:token" element={<NewPassword />} />
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
-          <Route path='/' element={<Start/>} />
           {/* Rutas Privadas */}
+          <Route path='/start' element={<Start/>} />
           <Route path="/" element={<Protected />}>
           <Route path="/targets" element={<Targets />} />
           <Route path="/beforeStart" element={<BeforeStart />} />
