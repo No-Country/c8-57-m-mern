@@ -4,7 +4,8 @@ import Deslice from 'react-tinder-card'
 import { string } from 'yup'
 
 const Feeling = () => {
-  const [emociones, setEmociones] = useState([{ id: 1, feel: 'ira' },
+  const [emociones, setEmociones] = useState([
+  { id: 1, feel: 'ira' },
   { id: 2, feel: 'enojo' },
   { id: 3, feel: 'ansiedad' },
 ])

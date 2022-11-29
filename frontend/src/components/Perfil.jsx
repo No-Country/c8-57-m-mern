@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 import { FaTrash } from 'react-icons/fa';
+
 function Perfil() {
   // const userDeleted = axiosClient.delete('user/', + userStorage._id)
 
