@@ -12,6 +12,7 @@ import Targets from "./components/Targets";
 import PaidPackage from "./pages/PaidPackage";
 import Perfil from "./components/Perfil";
 import Start from './components/Start';
+import EmotionResume from "./components/EmotionResume";
 
 function App() {
   return (
@@ -24,14 +25,15 @@ function App() {
           <Route path="/reset" element={<ForgetPassword />} />
           <Route path="/reset:token" element={<NewPassword />} />
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
-          <Route path='/' element={<Start/>} />
+          <Route path='/' element={<Start />} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
-          <Route path="/targets" element={<Targets />} />
-          <Route path="/beforeStart" element={<BeforeStart />} />
+            <Route path="/targets" element={<Targets />} />
+            <Route path="/beforeStart" element={<BeforeStart />} />
             <Route path="/home" element={<Home />} />
             <Route path="/paid" element={<PaidPackage />} />
-          <Route path="/perfil" element={<Perfil/>} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/emotionResume" element={<EmotionResume />}/>
           </Route>
         </Routes>
       </div>
