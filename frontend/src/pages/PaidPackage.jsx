@@ -1,13 +1,13 @@
-import React from "react";
-import { IoIosArrowForward } from "react-icons/io";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { IoIosArrowForward } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 function PaidPackage() {
   return (
     <div className="flex justify-center flex-col gap-5 items-center">
       <Link
         to="/home"
-        className="absolute 1/3 top-5 text-3xl left-4 rotate-180"
+        className="absolute 1/4 top-5 text-3xl left-4 rotate-180"
       >
         <IoIosArrowForward />
       </Link>
@@ -36,7 +36,7 @@ function PaidPackage() {
           <div className="w-full bg-secondary p-2 flex flex-col gap-1 rounded-lg sm:w-72 hover:animate-pulse hover:scale-110 duration-150">
             <h3 className="text-left">ESENCIAL</h3>
             <span className="text-sm text-center font-semibold">
-              4 sesiones con 30% de descuento{" "}
+              4 sesiones con 30% de descuento{' '}
             </span>
             <span className="text-sm text-center">
               S/49.00 C/sesión S/196.00 en total

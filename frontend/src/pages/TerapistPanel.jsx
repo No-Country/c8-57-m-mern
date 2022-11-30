@@ -16,9 +16,9 @@ const TerapistPanel = () => {
   ];
 
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-screen">
       <div className="h-screen">
-        <div className="h-full bg-fifth w-60 p-2 flex flex-col gap-5">
+        <div className="h-full  w-60 p-3 flex flex-col gap-5">
           <div className="flex justify-center items-center gap-4">
             <img className="w-20" src={logo} />
             <h3>Panel</h3>
@@ -41,7 +41,7 @@ const TerapistPanel = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="bg-primary h-20">
+        <div className=" h-20">
           <h3>Panel</h3>
         </div>
         <div>

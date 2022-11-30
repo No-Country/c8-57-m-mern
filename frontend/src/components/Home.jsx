@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   BsEmojiLaughing,
   BsEmojiNeutral,
@@ -7,12 +6,8 @@ import {
   BsEmojiAngry,
   BsEmojiSmile,
 } from 'react-icons/bs';
-import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
-import { GoHome } from 'react-icons/go';
-import { HiOutlineChat } from 'react-icons/hi';
-import { FaBriefcaseMedical, FaQuestion } from 'react-icons/fa';
-import { RiLightbulbFlashLine } from 'react-icons/ri';
-import { AiOutlineUser, AiOutlineControl } from 'react-icons/ai';
+import { IoIosArrowDown } from 'react-icons/io';
+import { FaQuestion } from 'react-icons/fa';
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ImagePerfil from '../image/imagen_logotipo.png';
@@ -21,7 +16,6 @@ import Imagen2 from '../image/imagen_2.jpeg';
 import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 import ModalFeelings from './layout/ModalFeelings';
-
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -36,7 +30,7 @@ function Home() {
     setShowModal(!showModal);
   };
   return (
-    <div className="flex flex-col-reverse w-full sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
+    <div className="flex flex-col w-full justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
       {/* Cajas */}
       {/* Separacion */}
 
