@@ -12,7 +12,7 @@ import Targets from './components/Targets';
 import PaidPackage from './pages/PaidPackage';
 import Perfil from './components/Perfil';
 import Start from './components/Start';
-import ForYou from './pages/ForYou';
+import EmotionResume from "./components/EmotionResume";
 import TerapistPanel from './pages/TerapistPanel';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/paid" element={<PaidPackage />} />
             <Route path="/perfil" element={<Perfil />} />
-            <Route path="/you" element={<ForYou />} />
+            <Route path="/emotionResume" element={<EmotionResume />} />
             <Route path="/controler" element={<TerapistPanel />} />
           </Route>
         </Routes>

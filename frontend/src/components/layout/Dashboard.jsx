@@ -32,20 +32,24 @@ const Dashboard = () => {
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
           </div>
         </Link>
+        <Link>
         <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-          <HiOutlineChat className="text-[#f4717f] text-2xl lg:text-4xl hover:scale-125 duration-200" />
+          <HiOutlineChat className="text-[#f4717f] sm:text-4xl text-2xl lg:text-4xl hover:scale-125 duration-200" />
           <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
         </div>
+        </Link>
         <Link to="/paid">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
           </div>
-        </Link>
+        </Link >
+        <Link to='/emotionResume'>
         <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
           <RiLightbulbFlashLine className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
           <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
         </div>
+        </Link>
         <Link to="/perfil">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <AiOutlineUser className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
