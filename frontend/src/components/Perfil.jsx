@@ -46,99 +46,69 @@ function Perfil() {
   });
 
   return (
-    <div className="flex flex-col p-8 w-full justify-center items-center">
-      <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl ">
-        <header className="flex items-center  justify-center pt-2 pb-4">
-          <h2 className="text-2xl font-bold text-[#ffffff]">
-            Edita tu Perfil{' '}
-          </h2>
-        </header>
-        <Formik
-          initialValues={user}
-          enableReinitialize
-          onSubmit={handleSubmit}
-          validationSchema={profileSchema}
-        >
-          <Form className="flex flex-col w-[90%]">
-            <label htmlFor="name" className="font-bold  block text-[#ffffff]">
-              {' '}
-              Nombre
-            </label>
-            <Field
-              name="name"
-              id="name"
-              type="text"
-              className="px-3 w-full py-2 focus: outline-none rounded"
-            />
-            <ErrorMessage name="name" component="p" />
-            <label
-              htmlFor="age"
-              className="font-bold  block text-[#ffffff]"
-            >
-              {' '}
-              Número Telefónico
-            </label>
-            <Field
-              label="phone"
-              type="text"
-              name="phone"
-              placeholder="Ingresa tu celular"
-              className="px-3 py-2 focus: outline-none rounded w-full "
-            />
-            <ErrorMessage name="phone" component="p" />
-            <label
-              htmlFor="age"
-              className="font-bold  block text-[#ffffff]"
-            >
-              {' '}
-              Fecha de nacimiento
-            </label>
-            <Field
-              label="birthdate"
-              type="date"
-              name="birthdate"
-              min="1990-01-01" max="2022-01-01"
-              placeholder="DD/MM/YY"
-              className="px-3 py-2 focus: outline-none rounded w-full "
-            />
-            <ErrorMessage name="birthdate" component="p" />
-            <label
-              htmlFor="age"
-              className="font-bold  block text-[#ffffff]"
-            >
-              {' '}
-              Edad
-            </label>
-            <Field
-              label="age"
-              type="number"
-              name="age"
-              placeholder="Ingresa tu edad"
-              className="px-3 py-2 focus: outline-none rounded w-full "
-            />
-            <ErrorMessage name="age" component="p" />
-            <label/>
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                onClick={handleSubmit}
-                className=" w-full lg:w-1/2 text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="flex flex-col p-8 w-[90%] lg:w-1/2">
+        <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl ">
+          <header className="flex items-center  justify-center pt-2 pb-4">
+            <h2 className="text-2xl font-bold text-[#ffffff]">
+              Edita tu Perfil{' '}
+            </h2>
+          </header>
+          <Formik
+            initialValues={user}
+            enableReinitialize
+            onSubmit={handleSubmit}
+            validationSchema={profileSchema}
+          >
+            <Form className="flex flex-col w-[90%]">
+              <label htmlFor="name" className="font-bold  block text-[#ffffff]">
+                {' '}
+                Nombre
+              </label>
+              <Field
+                name="name"
+                id="name"
+                type="text"
+                className="px-3 w-full py-2 focus: outline-none rounded"
+              />
+              <ErrorMessage name="name" component="p" />
+              <label
+                htmlFor="nickname"
+                className="font-bold  block text-[#ffffff]"
               >
-                Confirmar
-              </button>
-            </div>
-          </Form>
-        </Formik>
-      </div>
-      <div className="flex justify-end">
-        <button
-          type="submit"
-          // onClick={handleDelete}
-          className=" w-full lg:w-1/3 text-lg py-2  mb-4 bg-eighth rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
-        >
-          Eliminar Usuario
-          <FaTrash />
-        </button>
+                {' '}
+                Apodo(opcional)
+              </label>
+              <Field
+                name="nickname"
+                id="nickname"
+                type="text"
+                placeholder="Ingresa tu apodo"
+                className="px-3 py-2 focus: outline-none rounded w-full "
+              />
+              <ErrorMessage name="nickname" component="p" />
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className=" w-full lg:w-1/2 text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
+                >
+                  Confirmar
+                </button>
+              </div>
+            </Form>
+          </Formik>
+        </div>
+        <div className="flex justify-end">
+          <button
+            type="submit"
+            // onClick={handleDelete}
+            className=" w-full lg:w-1/3 text-lg py-2  mb-4 bg-eighth rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
+          >
+            Eliminar Usuario
+            <FaTrash />
+          </button>
+        </div>
       </div>
     </div>
   );
