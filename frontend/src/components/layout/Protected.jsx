@@ -33,7 +33,7 @@ function Protected() {
       {loading && 'loading....'}
 
       {auth && (
-        <div className="flex flex-col-reverse sm:block w-full ">
+        <div className="flex flex-col-reverse sm:block w-full gap-10">
           <Dashboard />
           <Outlet />
         </div>
