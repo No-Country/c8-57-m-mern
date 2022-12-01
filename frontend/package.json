@@ -23,7 +23,8 @@
     "react-simple-chatbot": "^0.6.1",
     "react-tinder-card": "^1.6.2",
     "sweetalert2": "^11.6.8",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "yup-phone-lite": "^1.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

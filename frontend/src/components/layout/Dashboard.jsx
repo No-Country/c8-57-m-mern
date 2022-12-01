@@ -13,7 +13,7 @@ const Dashboard = () => {
     <div>
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
       <div
-        className={`bg-secondary flex w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center ${
+        className={`bg-secondary flex w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center  ${
           showMenu ? 'sm:w-60' : 'sm:w-10 lg:w-16'
         }`}
       >
@@ -26,33 +26,37 @@ const Dashboard = () => {
         >
           <IoIosArrowForward className="text-third" />
         </button>
-        <Link to="/home">
+        <Link to="/home" className="w-full">
           <div className="flex flex-col  items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <GoHome className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
           </div>
         </Link>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-          <HiOutlineChat className="text-[#f4717f] text-2xl lg:text-4xl hover:scale-125 duration-200" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
-        </div>
-        <Link to="/paid">
+        <Link className="w-full">
+          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+            <HiOutlineChat className="text-[#f4717f] text-2xl lg:text-4xl hover:scale-125 duration-200" />
+            <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
+          </div>
+        </Link>
+        <Link to="/paid" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
           </div>
         </Link>
-        <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-          <RiLightbulbFlashLine className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
-          <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
-        </div>
-        <Link to="/perfil">
+        <Link className="w-full">
+          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+            <RiLightbulbFlashLine className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
+            <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
+          </div>
+        </Link>
+        <Link to="/perfil" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <AiOutlineUser className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
           </div>
         </Link>
-        <Link to="/controler">
+        <Link to="/controler" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaRegAddressBook className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
