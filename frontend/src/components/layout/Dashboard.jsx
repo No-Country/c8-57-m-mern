@@ -10,7 +10,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 const Dashboard = () => {
     const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative z-10">
     {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
     <div
           className={`flex bg-[#597a97] w-full p-1 px-25  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center ${
@@ -40,10 +40,12 @@ const Dashboard = () => {
             <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
           </div>
+          <Link to='/emotionResume'>
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <RiLightbulbFlashLine className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Para ti</h3>
           </div>
+          </Link>
           <Link to="/perfil">
             <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
               <AiOutlineUser className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
