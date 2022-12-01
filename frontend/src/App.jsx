@@ -16,7 +16,7 @@ import Start from './components/Start';
 function App() {
   return (
     <AuthProvider>
-      <div className="bg-primary min-h-screen flex items-center justify-center">
+      <div className="bg-primary min-h-screen flex items-center justify-center ">
         {/* Rutas Publicas */}
         <Routes>
           <Route path="/register" element={<Registro />} />

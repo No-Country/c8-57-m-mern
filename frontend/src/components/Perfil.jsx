@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import useAuth from '../hooks/useAuth';
 import { FaTrash } from 'react-icons/fa';
-
+import 'yup-phone-lite';
 function Perfil() {
   // const userDeleted = axiosClient.delete('user/', + userStorage._id)
 
@@ -13,6 +13,13 @@ function Perfil() {
     toast.success('Usuario editado exitosamente!');
   };
   const { user } = useAuth();
+  const initialValues = {
+    name: {user},
+    age: "",
+    birthdate: "",
+    phone: "",
+    location: ""
+  };
   console.log(user);
   const profileSchema = Yup.object().shape({
     name: Yup.string()
@@ -20,18 +27,26 @@ function Perfil() {
       .max(15, 'Nombre demasiado largo!')
       .required('No puedes dejar este espacio en blanco!')
       .matches(/^[A-Z _]+$/i, 'El nombre solo puede contener letras'),
-    lastName: Yup.string()
-      .min(3, 'Apellido muy corto!')
-      .max(15, 'Apellido demasiado largo!')
-      .required('No puedes dejar este espacio en blanco!')
-      .matches(/^[A-Z _]+$/i, 'El apellido solo puede contener letras'),
-    nickname: Yup.string()
-      .min(3, 'Nickname muy corto!')
-      .max(15, 'Nickname demasiado largo!'),
+    age: Yup.number()
+      .required('Porfavor ingresa tu edad')
+      .min(18, 'Debes tener al menos 18 años')
+      .max(60, 'Debes tener al menos 60 años'),
+    birthdate: Yup.date()
+      .max(new Date(Date.now() - 567648000000), 'Debes tener al menos 18 años')
+      .required('Required'),
+    phone: Yup.string()
+      .phone('AR', 'Ingresa un teléfono válido')
+      .required('El número telefónico es requerido'),
+    location: Yup.object().nullable().shape({
+      country: Yup.string().required(),
+      state: Yup.string().required(),
+      city: Yup.string().required(),
+      zipcode: Yup.string().required(),
+    }),
   });
 
   return (
-    <div className="flex flex-col p-8 w-[90%] lg:w-1/2">
+    <div className="flex flex-col p-8 w-full justify-center items-center">
       <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl ">
         <header className="flex items-center  justify-center pt-2 pb-4">
           <h2 className="text-2xl font-bold text-[#ffffff]">
@@ -57,20 +72,52 @@ function Perfil() {
             />
             <ErrorMessage name="name" component="p" />
             <label
-              htmlFor="nickname"
+              htmlFor="age"
               className="font-bold  block text-[#ffffff]"
             >
               {' '}
-              Apodo(opcional)
+              Número Telefónico
             </label>
             <Field
-              name="nickname"
-              id="nickname"
+              label="phone"
               type="text"
-              placeholder="Ingresa tu apodo"
+              name="phone"
+              placeholder="Ingresa tu celular"
               className="px-3 py-2 focus: outline-none rounded w-full "
             />
-            <ErrorMessage name="nickname" component="p" />
+            <ErrorMessage name="phone" component="p" />
+            <label
+              htmlFor="age"
+              className="font-bold  block text-[#ffffff]"
+            >
+              {' '}
+              Fecha de nacimiento
+            </label>
+            <Field
+              label="birthdate"
+              type="date"
+              name="birthdate"
+              min="1990-01-01" max="2022-01-01"
+              placeholder="DD/MM/YY"
+              className="px-3 py-2 focus: outline-none rounded w-full "
+            />
+            <ErrorMessage name="birthdate" component="p" />
+            <label
+              htmlFor="age"
+              className="font-bold  block text-[#ffffff]"
+            >
+              {' '}
+              Edad
+            </label>
+            <Field
+              label="age"
+              type="number"
+              name="age"
+              placeholder="Ingresa tu edad"
+              className="px-3 py-2 focus: outline-none rounded w-full "
+            />
+            <ErrorMessage name="age" component="p" />
+            <label/>
             <div className="flex justify-center">
               <button
                 type="submit"
