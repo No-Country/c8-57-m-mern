@@ -18,7 +18,7 @@ import TerapistPanel from './pages/TerapistPanel';
 function App() {
   return (
     <AuthProvider>
-      <div className="bg-primary min-h-screen w-full flex items-center justify-center">
+      <div className="bg-primary min-h-screen w-full flex">
         {/* Rutas Publicas */}
         <Routes>
           <Route path="/register" element={<Registro />} />

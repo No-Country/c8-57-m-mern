@@ -10,10 +10,10 @@ import { AiOutlineUser } from 'react-icons/ai';
 const Dashboard = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className="relative">
+    <div>
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
       <div
-        className={`flex bg-[#597a97] w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center ${
+        className={`bg-secondary flex w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center ${
           showMenu ? 'sm:w-60' : 'sm:w-10 lg:w-16'
         }`}
       >
@@ -27,7 +27,7 @@ const Dashboard = () => {
           <IoIosArrowForward className="text-third" />
         </button>
         <Link to="/home">
-          <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
+          <div className="flex flex-col  items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <GoHome className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
           </div>
