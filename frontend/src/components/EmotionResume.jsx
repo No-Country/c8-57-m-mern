@@ -7,7 +7,7 @@ import Imagen4 from '../image/imagen_4.jpeg';
 
 const EmotionResume = () => {
   return (
-    <div className="flex flex-col w-full sm:flex gap-2 container justify-center items-center sm:pl-5">
+    <div className="flex flex-col w-[inherit] sm:flex gap-2 container justify-center items-center sm:pl-5  m-auto">
       <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white mb-6">
         <div className="flex flex-col gap-3 justify-center ">
           <h2 className="text-center sm:text-3xl mb-5">Resumen de emociones</h2>
