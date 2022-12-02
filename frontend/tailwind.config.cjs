@@ -4,9 +4,11 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
-      sm: '600px',
+      sm: '645px',
       md: '768px',
       lg: '900px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
     extend: {
       boxShadow: {

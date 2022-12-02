@@ -28,7 +28,6 @@ function App() {
           <Route path="/reset:token" element={<NewPassword />} />
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
           <Route path="/" element={<Start />} />
-          <Route path="/payment" element={<Payment />} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
             <Route path="/targets" element={<Targets />} />
@@ -38,6 +37,7 @@ function App() {
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/emotionResume" element={<EmotionResume />} />
             <Route path="/controler" element={<TerapistPanel />} />
+            <Route path="/payment" element={<Payment />} />
           </Route>
         </Routes>
       </div>

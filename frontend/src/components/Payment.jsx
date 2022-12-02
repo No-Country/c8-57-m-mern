@@ -58,7 +58,7 @@ const CheckoutForm = () => {
 
 function Payment() {
   return (
-    <div className="bg-fifth w-3/4 md:w-1/2 p-2">
+    <div className="bg-fifth w-3/4 md:w-1/2 p-2 m-auto">
       <header className="text-center p-1 mb-2 font-bold text-2xl text-fourth">
         <h1>Ingresa tus datos</h1>
         <hr className="mt-2" />
