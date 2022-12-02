@@ -6,10 +6,7 @@ import Dashboard from './Dashboard';
 
 function Protected() {
   const [auth, setAuth] = useState(false);
-  const {
-    loading,
-    setLoading,
-  } = useAuth();
+  const { loading, setLoading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,14 +32,13 @@ function Protected() {
     <>
       {loading && 'loading....'}
 
-      {auth &&
-      <div>
-        <Dashboard />
-        <Outlet />
-      </div>
-      }
+      {auth && (
+        <div className="flex flex-col-reverse sm:block w-full gap-10">
+          <Dashboard />
+          <Outlet />
+        </div>
+      )}
     </>
-
   );
 }
 

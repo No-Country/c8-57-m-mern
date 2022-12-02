@@ -12,12 +12,14 @@ import Targets from './components/Targets';
 import PaidPackage from './pages/PaidPackage';
 import Perfil from './components/Perfil';
 import Start from './components/Start';
+import EmotionResume from './components/EmotionResume';
+import TerapistPanel from './pages/TerapistPanel';
 import Payment from './components/Payment';
 
 function App() {
   return (
     <AuthProvider>
-      <div className="bg-primary min-h-screen flex items-center justify-center">
+      <div className="bg-primary min-h-screen w-full flex">
         {/* Rutas Publicas */}
         <Routes>
           <Route path="/register" element={<Registro />} />
@@ -34,6 +36,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/paid" element={<PaidPackage />} />
             <Route path="/perfil" element={<Perfil />} />
+            <Route path="/emotionResume" element={<EmotionResume />} />
+            <Route path="/controler" element={<TerapistPanel />} />
           </Route>
         </Routes>
       </div>
