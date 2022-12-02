@@ -12,8 +12,9 @@ import Targets from './components/Targets';
 import PaidPackage from './pages/PaidPackage';
 import Perfil from './components/Perfil';
 import Start from './components/Start';
-import EmotionResume from "./components/EmotionResume";
+import EmotionResume from './components/EmotionResume';
 import TerapistPanel from './pages/TerapistPanel';
+import Payment from './components/Payment';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/emotionResume" element={<EmotionResume />} />
             <Route path="/controler" element={<TerapistPanel />} />
+            <Route path="/payment" element={<Payment />} />
           </Route>
         </Routes>
       </div>
