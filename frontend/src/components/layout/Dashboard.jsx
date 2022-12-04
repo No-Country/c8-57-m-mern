@@ -40,7 +40,7 @@ const Dashboard = () => {
         </Link>
         <Link to="/paid" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
+            <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-150" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
           </div>
         </Link>
