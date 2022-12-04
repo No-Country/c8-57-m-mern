@@ -16,9 +16,9 @@ const TerapistPanel = () => {
   ];
 
   return (
-    <div className="flex w-screen text-fourth sm:pl-20 overflow-hidden">
+    <div className="flex w-full text-fourth sm:pl-20 overflow-hidden">
       <div className="h-screen">
-        <div className="h-full  w-60 p-3 flex flex-col shadow-lg shadow-seventh  gap-5">
+        {/* <div className="h-full  w-60 p-3 flex flex-col shadow-lg shadow-seventh  gap-5">
           <div className="flex justify-center items-center gap-4">
             <img className="w-20" src={logo} />
             <h3 className="text-xl">Panel</h3>
@@ -38,7 +38,7 @@ const TerapistPanel = () => {
             <AiOutlinePlusSquare className="text-3xl" />
             <h3 className="text-xl">Consulta</h3>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="w-full">
         <div className=" h-20 flex flex-row items-center justify-end mx-4 mt-4 pr-[5vh] gap-[20vh]">
@@ -46,40 +46,48 @@ const TerapistPanel = () => {
           <AiOutlinePlusSquare className="text-3xl shadow-228b p-1 rounded-full hover:text-third hover:scale-[1.2]" />
           <RiLightbulbFlashLine className="text-3xl shadow-228b p-1 rounded-full hover:text-third hover:scale-[1.2]" />
         </div>
-        <div className="mt-4 flex flex-col justify-center ">
+        <div className=" flex flex-col justify-center w-full">
           <h3 className="text-3xl px-2 py-4 ml-4">Consultas</h3>
           <div className="w-full flex justify-left mb-10 ml-4">
-            <table className=" w-[80%] flex flex-col justify-left items-left text-xl text-center ">
-              <tr className="flex justify-center  w-full ">
-                <td className="w-1/5 py-4 border-r-[1px] border-secondary">
+            <table className=" w-[90%] flex  lg:flex-col justify-left items-left text-xl text-center lg:gap-3">
+              <tr className="flex flex-col lg:flex-row justify-center items-center lg:gap-5 lg:w-full w-1/2 bg-secondary">
+                <td className="lg:w-2/5 h-16 lg:h-20 w-full lg:py-4  bg-third lg:bg-transparent">
                   Status
                 </td>
-                <td className="w-1/5 py-4 border-r-[1px] border-secondary">
-                  Identificador
+                <td className="lg:w-2/5 h-16 lg:h-20 w-full lg:py-4  bg-third lg:bg-transparent">
+                  Numero
                 </td>
-                <td className="w-1/5 py-4 border-r-[1px] border-secondary">
+                <td className="lg:w-2/5 h-16 lg:h-20 w-full lg:py-4  bg-third lg:bg-transparent">
                   Medico
                 </td>
-                <td className="w-1/5 py-4 border-r-[1px] border-secondary">
+                <td className="lg:w-2/5 h-16 lg:h-20 w-full lg:py-4  bg-third lg:bg-transparent">
                   Fecha
                 </td>
-                <td className="w-1/5 py-4 border-r-[1px] border-secondary">
+                <td className="lg:w-2/5 h-16 lg:h-20 w-full lg:py-4  bg-third lg:bg-transparent">
                   Motivo
                 </td>
               </tr>
               {information.map((element) => (
-                <tr className="flex justify-center w-full items-center ">
-                  <td className="w-1/5 flex items-center justify-center  h-[20px]">
-                    <span
-                      className={`rounded-full  w-[10px] h-[10px] ${
+                <tr className="flex   justify-between lg:w-full flex-col lg:items-center lg:flex-row w-1/2 lg:gap-2 lg:bg-transparent bg-secondary">
+                  <td className="lg:w-2/5  w-full flex items-center py-6  justify-center ">
+                    <div
+                      className={`rounded-full  flex justify-center items-center  w-[10px] h-[10px] ${
                         element.status ? 'bg-[green]' : 'bg-[red]'
                       }`}
-                    ></span>
+                    ></div>
                   </td>
-                  <td className="w-1/5">{element.identificador}</td>
-                  <td className="w-1/5">{element.medico}</td>
-                  <td className="w-1/5">{element.fecha}</td>
-                  <td className="w-1/5">{element.descripcion}</td>
+                  <td className="lg:w-2/5 w-full py-4  bg-secondary lg:bg-transparent">
+                    {element.identificador}
+                  </td>
+                  <td className="lg:w-2/5 w-full py-4  bg-secondary lg:bg-transparent">
+                    {element.medico}
+                  </td>
+                  <td className="lg:w-2/5 w-full py-4  bg-secondary lg:bg-transparent">
+                    {element.fecha}
+                  </td>
+                  <td className="lg:w-2/5 w-full py-4  bg-secondary lg:bg-transparent">
+                    {element.descripcion}
+                  </td>
                 </tr>
               ))}
             </table>

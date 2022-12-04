@@ -10,7 +10,7 @@ import { AiOutlineUser } from 'react-icons/ai';
 const Dashboard = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div>
+    <div className="w-auto">
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
       <div
         className={`bg-secondary flex w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center  ${

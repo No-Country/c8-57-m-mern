@@ -12,7 +12,7 @@ function PaidPackage() {
         <IoIosArrowForward />
       </Link>
       <h2 className="text-fourth text-center">Elige tu plan ideal</h2>
-      <div className="w-full bg-fifth p-3 flex flex-col gap-1 rounded-lg sm:w-2/3">
+      <div className="w-full bg-fifth p-3 flex flex-col gap-1 justify-center items-center rounded-lg sm:w-2/3">
         <h3 className=" font-semibold">Paquetes de Bienestar</h3>
         <div className="  flex flex-col gap-4 justify-center items-center p-2 sm:flex-row flex-wrap ">
           <div className=" w-full bg-secondary p-1 flex flex-col gap-3 rounded-lg relative sm:w-72 hover:animate-pulse hover:scale-110 duration-150">

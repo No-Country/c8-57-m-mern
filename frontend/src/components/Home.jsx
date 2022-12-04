@@ -30,7 +30,7 @@ function Home() {
     setShowModal(!showModal);
   };
   return (
-    <div className="flex flex-col w-full justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
+    <div className="flex flex-col max-w-max justify-center lg:ml-10 sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
       {/* Cajas */}
       {/* Separacion */}
 
@@ -189,13 +189,13 @@ function Home() {
         {/* Seccion de tu terapeuta ideal, contiene una imagen y un boton hacia otra direccion */}
         <div className="flex flex-col lg:flex-row lg:my-2 gap-4">
           <div className="border-b-[#597a97] lg:p-1 border-t-[#597a97] lg:relative  border-b-2 lg:hover:scale-95 duration-100   lg:bg-fifth lg:w-1/2 lg:flex  lg:items-center  lg:justify-center lg:rounded-lg">
-            <h2 className="block p-0 text-fourth sm:text-3xl lg:text-center lg:absolute lg:top-0 lg:left-4">
+            <h2 className="block p-0 text-fourth  lg:text-3xl lg:text-center lg:absolute lg:top-0 lg:left-4">
               Tu terapeuta ideal
             </h2>
             <div className="flex lg:flex-col  lg:w-full text-center gap-2 lg:gap-10 justify-around items-center my-10 sm:w-full sm:justify-around ">
               <div className="flex flex-col lg:flex-row w-1/2 lg:justify-center  items-center">
                 <FaQuestion className="text-3xl text-[#f4717f]" />
-                <span className="text-sm text-fourth sm:text-2xl">
+                <span className="text-sm text-fourth sm:text-2xl mt-6">
                   En espera...
                 </span>
               </div>
