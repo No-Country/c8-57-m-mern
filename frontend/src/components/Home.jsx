@@ -31,10 +31,7 @@ function Home() {
   };
   return (
     <div className="flex flex-col max-w-max justify-center lg:ml-10 sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
-      {/* Separacion */}
-
       <div className="flex flex-col sm:w-auto sm:ml-12 lg:m-12 lg:mt-2 sm:p-2  lg:w-full">
-        {/* Caja principal, donde contiene la imagen, el SOS, y el boton */}
         <div className="flex flex-col lg:flex-row lg:gap-6 lg:justify-center">
           <div className="flex justify-center w-full   lg:w-2/3 lg:h-full lg:hover:scale-95 duration-100  lg:bg-fifth lg:flex-col relative p-1 gap-2  border-b-[#597a97] border-t-[#597a97] border-b-2  pb-3 sm:gap-3 sm:p-3 sm:my-5 lg:my-0 lg:items-center lg:rounded-xl">
             <div className="w-2/4 sm:w-full lg:w-2/4">
@@ -274,7 +271,7 @@ function Home() {
                 type="submit"
                 className="hover:scale-110 duration-100  hover:bg-secondary w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:text-2xl sm:w-2/4 sm:p-3"
               >
-                Encontrar terapeuta
+                Encontrar Terapeuta
               </button>
             </div>
           </div>
