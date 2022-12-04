@@ -31,7 +31,6 @@ function Home() {
   };
   return (
     <div className="flex flex-col max-w-max justify-center lg:ml-10 sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
-      {/* Cajas */}
       {/* Separacion */}
 
       <div className="flex flex-col sm:w-auto sm:ml-12 lg:m-12 lg:mt-2 sm:p-2  lg:w-full">
