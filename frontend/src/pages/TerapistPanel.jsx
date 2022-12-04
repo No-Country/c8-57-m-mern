@@ -17,34 +17,12 @@ const TerapistPanel = () => {
 
   return (
     <div className="flex w-full text-fourth sm:pl-20 overflow-hidden">
-      <div className="h-screen">
-        {/* <div className="h-full  w-60 p-3 flex flex-col shadow-lg shadow-seventh  gap-5">
-          <div className="flex justify-center items-center gap-4">
-            <img className="w-20" src={logo} />
-            <h3 className="text-xl">Panel</h3>
-          </div>
-          <div>
-            <h2 className="text-fourth text-3xl">Menu</h2>
-          </div>
-          <div className="flex gap-3 hover:bg-third p-2 rounded-lg">
-            <CgProfile className="text-3xl" />
-            <h3 className="text-xl">Perfil</h3>
-          </div>
-          <div className="flex gap-3 hover:bg-third  p-2 rounded-lg">
-            <RiLightbulbFlashLine className="text-fourth text-3xl" />
-            <h3 className="text-xl">Historial</h3>
-          </div>
-          <div className="flex gap-3  hover:bg-third  p-2 rounded-lg">
-            <AiOutlinePlusSquare className="text-3xl" />
-            <h3 className="text-xl">Consulta</h3>
-          </div>
-        </div> */}
-      </div>
+      <div className="h-screen"></div>
       <div className="w-full">
         <div className=" h-20 flex flex-row items-center justify-end mx-4 mt-4 pr-[5vh] gap-[20vh]">
-          <CgProfile className="text-3xl shadow-228b p-1 rounded-full hover:text-third hover:scale-[1.2]" />
-          <AiOutlinePlusSquare className="text-3xl shadow-228b p-1 rounded-full hover:text-third hover:scale-[1.2]" />
-          <RiLightbulbFlashLine className="text-3xl shadow-228b p-1 rounded-full hover:text-third hover:scale-[1.2]" />
+          <CgProfile className="text-3xl shadow-228b p-1  hover:text-third hover:scale-[1.2]" />
+          <AiOutlinePlusSquare className="text-3xl shadow-228b p-1  hover:text-third hover:scale-[1.2]" />
+          <RiLightbulbFlashLine className="text-3xl shadow-228b p-1  hover:text-third hover:scale-[1.2]" />
         </div>
         <div className=" flex flex-col justify-center w-full">
           <h3 className="text-3xl px-2 py-4 ml-4">Consultas</h3>
