@@ -3,7 +3,7 @@ import ChatBot from 'react-simple-chatbot';
 
 function Chatbot() {
   return (
-    <div>
+    <div className=" w-full md:m-auto md:w-1/3">
       <ChatBot
         steps={[
           {
