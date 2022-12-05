@@ -1,9 +1,14 @@
+import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useAsyncValue } from 'react-router-dom'
 import Deslice from 'react-tinder-card'
 import { string } from 'yup'
+import axiosClient from '../../config/axiosClient'
+import useAuth from '../../hooks/useAuth'
 
-const Feeling = () => {
+const Feeling = ({setFirstLogin}) => {
+  
+  const {postFirstLogin,user} =useAuth()
   const [emociones, setEmociones] = useState([
   { id: 1, feel: 'ira' },
   { id: 2, feel: 'enojo' },
@@ -12,10 +17,14 @@ const Feeling = () => {
 
 const onSwipe = (direction) => {
   console.log('You swiped: ' + direction)
+  setFirstLogin(1)
 }
 const onCardLeftScreen = (myIdentifier) => {
   console.log(myIdentifier + ' left the screen')
+  setFirstLogin(1)
 }
+
+
   return (
      <div className=" flex justify-center items-center w-full h-full bg-[b] relative rounded z-[0]">
     <div className=' absolute z-[2] ' >

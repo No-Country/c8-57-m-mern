@@ -27,7 +27,7 @@ const Start = () => {
         <p className=" text-[clamp(1rem,7vw,2rem)] w-screen h-max text-center px-[10px]">Este es un espacio seguro creado para ti</p>
       </div>
      
-      <Link to="/login">
+      <Link to="/home">
 
           
     
