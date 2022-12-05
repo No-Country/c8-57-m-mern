@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {  Link } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 import Feeling from './targets/Feeling';
 
 function Targets() {
+  const [firstLogin, setFirstLogin] = useState(0)
+  const {postFirstLogin, user} = useAuth
+  if(firstLogin == 1){
+    postFirstLogin(user.id)
+  }
   return (
     <div 
     className= " m-0 bg-[#3D6487] relative h-[100vh] max-h-screen w-[100vw] flex flex-col items-center , pt-[10vh] gap-[2rem] text-white overflow-hidden text-[white] font-serif "
@@ -14,9 +20,12 @@ function Targets() {
     
       
       <div className='w-[clamp(100px,50vw,300px)]  h-[clamp(300px,100vw,400px)] '>
-        <Feeling />
+        <Feeling 
+        firstLogin = {firstLogin} 
+        setFirstLogin = {setFirstLogin}
+         />
       </div>
-      <Link to="/beforeStart">
+      <Link to="/beforeStart" onClick={()=>setFirstLogin(1)}>
 
           
         <div className="text-[#B1C0CE] absolute bottom-16 left-2/4 translate-x-[-50%]" >
