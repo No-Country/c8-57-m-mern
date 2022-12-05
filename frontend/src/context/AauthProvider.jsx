@@ -1,5 +1,6 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
 import axiosClient from '../config/axiosClient';
+import { createCheckoutRequest } from '../helpers/stripe';
 
 const AuthContext = createContext();
 
@@ -8,6 +9,12 @@ function AuthProvider({ children }) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
+
+  const postCheckout = async (order) => {
+    console.log('estoy en postCheckout');
+    const { data } = await createCheckoutRequest(order);
+    return data;
+  };
 
   useEffect(() => {
     (async () => {
@@ -41,6 +48,7 @@ function AuthProvider({ children }) {
         setLoading,
         email,
         setEmail,
+        postCheckout,
       }}
     >
       {children}

@@ -7,6 +7,7 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 import useAuth from '../hooks/useAuth';
+import axiosClient from '../config/axiosClient';
 
 const stripePromise = loadStripe(
   'pk_test_51M8nPkEZcBXalvvxy6k87YiwyWvwCp0oIq0mQgCuQ9zgLOYchA31na4kTE6pAZRMRstxM7sCtL1knjNv49MDaP5g00nxM62vC9'
@@ -15,21 +16,30 @@ const stripePromise = loadStripe(
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const { postCheckout } = useAuth();
+  const { postCheckout, user } = useAuth();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('hola');
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement), //captura la info tipeada por el usuario
-    });
-    if (!error) {
-      const { id } = paymentMethod;
-      const order = { id, amount: 10000 };
-      const data = await postCheckout(order);
+    try {
+      e.preventDefault();
+      console.log('submiteando..');
+      const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: elements.getElement(CardElement), //captura la info tipeada por el usuario
+      });
+      if (!error) {
+        const { id } = paymentMethod;
+        // const order = { id, amount: 10000 };
+        // console.log(user.email);
+        const { data } = await axiosClient.post('checkout', {
+          id,
+          amount: 10000,
+          email: user.email,
+        });
+        console.log('esto responde el back:', data);
+      }
+    } catch (error) {
+      console.log(error);
     }
-    console.log(error);
   };
 
   return (
