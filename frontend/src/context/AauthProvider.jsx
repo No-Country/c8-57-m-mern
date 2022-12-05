@@ -10,12 +10,6 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
-  const postCheckout = async (order) => {
-    console.log('estoy en postCheckout');
-    const { data } = await createCheckoutRequest(order);
-    return data;
-  };
-
   useEffect(() => {
     (async () => {
       const userStorage = JSON.parse(localStorage.getItem('user'));
@@ -30,6 +24,20 @@ function AuthProvider({ children }) {
       }
     })();
   }, []);
+
+  const postFirstLogin = async (id) => {
+    try {
+      const { data } = await axiosClient.post('first', id);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const postCheckout = async (order) => {
+    console.log('estoy en postCheckout');
+    const { data } = await createCheckoutRequest(order);
+    return data;
+  };
   // const data = useMemo(
   //   () => ({
   //     user,
@@ -48,6 +56,7 @@ function AuthProvider({ children }) {
         setLoading,
         email,
         setEmail,
+        postFirstLogin,
         postCheckout,
       }}
     >

@@ -10,10 +10,10 @@ import { AiOutlineUser } from 'react-icons/ai';
 const Dashboard = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div>
+    <div className="w-auto">
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
       <div
-        className={`bg-secondary flex w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center  ${
+        className={`bg-secondary flex w-full p-1 px-25 z-10 top-0  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center  ${
           showMenu ? 'sm:w-60' : 'sm:w-10 lg:w-16'
         }`}
       >
@@ -32,7 +32,7 @@ const Dashboard = () => {
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
           </div>
         </Link>
-        <Link className="w-full">
+        <Link to="/chat" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <HiOutlineChat className="text-[#f4717f] text-2xl lg:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
@@ -40,7 +40,7 @@ const Dashboard = () => {
         </Link>
         <Link to="/paid" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
-            <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
+            <FaBriefcaseMedical className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-150" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Terapia</h3>
           </div>
         </Link>
@@ -59,7 +59,7 @@ const Dashboard = () => {
         <Link to="/controler" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaRegAddressBook className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
-            <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
+            <h3 className={`${!showMenu && 'sm:hidden'}`}>Control</h3>
           </div>
         </Link>
       </div>
