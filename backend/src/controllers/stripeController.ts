@@ -1,5 +1,9 @@
 import {Request, Response} from 'express'
 import User from '../models/user'
+import Stripe from 'stripe'
+
+const secretKey = process.env.SECRET_KEY
+// const stripe = new Stripe(secretKey)
 
 export const postStripe = async (req: Request, res:Response) :Promise<Response | undefined> => {
     try {
