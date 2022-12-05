@@ -23,6 +23,9 @@ module.exports = {
           '50%': { border: '5px #3D6487 solid' },
         },
       },
+      dropShadow: {
+        '228b': '2px 2px 8px rgba(0,0,0)'
+      }
     },
     colors: {
       primary: '#3D6487',
