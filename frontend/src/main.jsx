@@ -7,10 +7,8 @@ import './index.css';
 import Payment from './components/Payment';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-      <Toaster position="top-center" reverseOrder={false} />
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <App />
+    <Toaster position="top-center" reverseOrder={false} />
+  </BrowserRouter>
 );

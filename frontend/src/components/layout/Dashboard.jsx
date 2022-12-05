@@ -32,7 +32,7 @@ const Dashboard = () => {
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Home</h3>
           </div>
         </Link>
-        <Link className="w-full">
+        <Link to="/chat" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <HiOutlineChat className="text-[#f4717f] text-2xl lg:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Chat</h3>
