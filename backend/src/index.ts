@@ -10,6 +10,7 @@ import userRoute from './routes/userRoute'
 import updateRoute from './routes/updateRoute'
 import confirmRoute from './routes/confirmRoute'
 import passwordRoute from './routes/passwordRoute'
+import stripeRoute from './routes/stripeRoute'
 import { strategy } from './middleware/passport';
 
 const app=express()
@@ -40,3 +41,4 @@ app.use('/user', userRoute)
 app.use('/update', updateRoute)
 app.use('/confirm', confirmRoute)
 app.use('/forget-password',passwordRoute)
+app.use('/checkout', stripeRoute)

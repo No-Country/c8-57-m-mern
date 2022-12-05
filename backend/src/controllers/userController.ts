@@ -143,7 +143,7 @@ export const updateUser = async (req: Request, res: Response): Promise<Response 
 
    await user.save()
 
-   return res.json({ update:true})
+   return res.json({msg:'User successfully updated', user, updated:true})
 
 }
 
