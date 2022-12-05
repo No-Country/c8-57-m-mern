@@ -29,7 +29,7 @@ function ForgetPassword() {
     email: Yup.string().email('Mail no valido').required('Required'),
   });
   return (
-    <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
+    <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl m-auto md:w-1/3">
       <header className="flex items-center  justify-center pt-2 pb-4">
         <h2 className="text-2xl font-bold text-[#ffffff]">Recuperar Contraseña</h2>
       </header>
