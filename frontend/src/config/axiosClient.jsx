@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const deployUrl = 'https://back-fame-app.up.railway.app/';
+
 const axiosClient = axios.create({
-  baseURL: 'https://back-fame-app.up.railway.app/',
+  baseURL: 'http://localhost:4000/',
 });
 
 export default axiosClient;
