@@ -13,7 +13,7 @@ const Dashboard = () => {
     <div className="w-auto">
       {/* Caja con redireccionamiento, homr, chat, tienda, para ti, perfil */}
       <div
-        className={`bg-secondary flex w-full p-1 px-25 z-10  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center  ${
+        className={`bg-secondary flex w-full p-1 px-25 z-10 top-0  justify-around text-fourth sm:fixed sm:left-0  sm:duration-150 sm:flex-col  sm:h-screen sm:items-center  sm:gap-5 sm:justify-center  ${
           showMenu ? 'sm:w-60' : 'sm:w-10 lg:w-16'
         }`}
       >
