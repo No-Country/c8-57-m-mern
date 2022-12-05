@@ -30,12 +30,8 @@ function Home() {
     setShowModal(!showModal);
   };
   return (
-    <div className="flex flex-col w-full justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
-      {/* Cajas */}
-      {/* Separacion */}
-
+    <div className="flex  flex-col max-w-max lg:ml-10 justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
       <div className="flex flex-col sm:w-auto sm:ml-12 lg:m-12 lg:mt-2 sm:p-2  lg:w-full">
-        {/* Caja principal, donde contiene la imagen, el SOS, y el boton */}
         <div className="flex flex-col lg:flex-row lg:gap-6 lg:justify-center">
           <div className="flex justify-center w-full   lg:w-2/3 lg:h-full lg:hover:scale-95 duration-100  lg:bg-fifth lg:flex-col relative p-1 gap-2  border-b-[#597a97] border-t-[#597a97] border-b-2  pb-3 sm:gap-3 sm:p-3 sm:my-5 lg:my-0 lg:items-center lg:rounded-xl">
             <div className="w-2/4 sm:w-full lg:w-2/4">
@@ -189,13 +185,13 @@ function Home() {
         {/* Seccion de tu terapeuta ideal, contiene una imagen y un boton hacia otra direccion */}
         <div className="flex flex-col lg:flex-row lg:my-2 gap-4">
           <div className="border-b-[#597a97] lg:p-1 border-t-[#597a97] lg:relative  border-b-2 lg:hover:scale-95 duration-100   lg:bg-fifth lg:w-1/2 lg:flex  lg:items-center  lg:justify-center lg:rounded-lg">
-            <h2 className="block p-0 text-fourth sm:text-3xl lg:text-center lg:absolute lg:top-0 lg:left-4">
+            <h2 className="block p-0 text-fourth  lg:text-3xl lg:text-center lg:absolute lg:top-0 lg:left-4">
               Tu terapeuta ideal
             </h2>
             <div className="flex lg:flex-col  lg:w-full text-center gap-2 lg:gap-10 justify-around items-center my-10 sm:w-full sm:justify-around ">
               <div className="flex flex-col lg:flex-row w-1/2 lg:justify-center  items-center">
                 <FaQuestion className="text-3xl text-[#f4717f]" />
-                <span className="text-sm text-fourth sm:text-2xl">
+                <span className="text-sm text-fourth sm:text-2xl mt-6">
                   En espera...
                 </span>
               </div>
@@ -275,7 +271,7 @@ function Home() {
                 type="submit"
                 className="hover:scale-110 duration-100  hover:bg-secondary w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:text-2xl sm:w-2/4 sm:p-3"
               >
-                Encontrar terapeuta
+                Encontrar Terapeuta
               </button>
             </div>
           </div>
