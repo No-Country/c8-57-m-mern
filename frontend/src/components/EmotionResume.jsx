@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsEmojiAngry, BsEmojiFrown, BsEmojiLaughing, BsEmojiNeutral, BsEmojiSmile } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 import Imagen1 from '../image/imagen_1.jpeg';
 import Imagen2 from '../image/imagen_2.jpeg';
 import Imagen3 from '../image/imagen_3.jpeg';
@@ -56,45 +57,47 @@ const EmotionResume = () => {
         </div>
         <div className="h-auto   sm:w-full">
           <div className="flex flex-col gap-4 items-center justify-center sm:mx-4  pr-4  sm:flex-row sm:flex-wrap ">
-            <div className='rounded-xl overflow-hidden relative cursor-pointer'>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg' >
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen1}
               alt="imagen_1"
               />
             <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm'>Volver al presente  <span className='text-right pl-8'> 5 min</span> </p>
-            </div>
-            <div className='rounded-xl overflow-hidden relative cursor-pointer'>
+            </a>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b'target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg'>
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen2}
               alt="imagen_2"
               />
-            <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm'> Combatir el estrés <span className='text-right pl-8'> 12 min</span> </p>
-            </div>
-            <div className='rounded-xl overflow-hidden relative cursor-pointer'>
+            <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm '> Combatir el estrés <span className='text-right pl-8'> 12 min</span> </p>
+            </a>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg'>
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen3}
               alt="imagen_3"
               />
-            <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm'>Manejo de la ira  <span className='text-right pl-8'>5 min</span> </p>
-            </div>
-            <div className='rounded-xl overflow-hidden relative cursor-pointer'>
+            <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm '>Manejo de la ira  <span className='text-right pl-8'>5 min</span> </p>
+            </a>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg'>
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen4}
               alt="imagen_4"
               />
             <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm'>Respiracion con conciencia  <span className='text-right pl-8'>12 min</span> </p>
-            </div>
+            </a>
           </div>
         </div>
         <div className="flex flex-col gap-3 justify-center items-center ">
           <h2 className="text-center sm:text-3xl my-4">¿Te gustaria apreender algo, Jin? </h2>
-          <button className='bg-third rounded-md w-max px-4 py-2'>
+          <Link to='/chat'>
+          <button className='bg-third rounded-md w-max px-4 py-2 hover:shadow-228b active:scale-[.98]'>
             Claro que si 
           </button>
+            </Link>
         </div>
       </div>
     </div>
