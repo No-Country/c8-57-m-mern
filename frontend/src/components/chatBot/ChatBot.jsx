@@ -1,23 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ChatBot from 'react-simple-chatbot';
 import useAuth from '../../hooks/useAuth';
 import botImg from '../../image/imagen_logotipo.png';
-import { ThemeProvider } from './ThemeProvider';
+
 function Chatbot() {
   const { user } = useAuth();
+  const [data, setData] = useState({
+    stress:'',
+    anxiety:'',
+    sadness:''
+  });
   console.log(user);
   
   
   return (
     <div className=" w-full md:m-auto md:w-1/3">
-    <ThemeProvider theme={theme}>
+    
       <ChatBot
         botAvatar={botImg}
         headerTitle="Fame"
-        placeholder="Habla conmigo...
-       
-       
-       "
+        placeholder="Habla conmigo..."
+        
       
         steps={[
           {
@@ -127,9 +130,10 @@ function Chatbot() {
               { value: 2, label: '2', trigger: '17' },
               { value: 3, label: '3', trigger: '17' },
               { value: 4, label: '4', trigger: '17' },
-              { value: 5, label: '5- Me ha afectado mucho', trigger: '18' },
+              { value: 5, label: '5- Me ha afectado mucho', trigger: '17' },
             ],
             hideInput: true,
+            
           },
           {
             id: '17',
@@ -140,20 +144,15 @@ function Chatbot() {
           {
             id: '18',
             options: [
-              { value: 1, label: '1-Muy poco', trigger: '19' },
-              { value: 2, label: '2', trigger: '19' },
-              { value: 3, label: '3', trigger: '19' },
-              { value: 4, label: '4', trigger: '19' },
-              { value: 5, label: '5- Me ha afectado mucho', trigger: '19' },
+              { value: 1, label: '1-Muy poco', trigger: '20' },
+              { value: 2, label: '2', trigger: '20' },
+              { value: 3, label: '3', trigger: '20' },
+              { value: 4, label: '4', trigger: '20' },
+              { value: 5, label: '5- Me ha afectado mucho', trigger: '20' },
             ],
             hideInput: true,
           },
-          {
-            id: '19',
-            message: 'Que nivel de tristeza te ha generado la situación',
-            trigger: '20',
-            hideInput: true,
-          },
+          
           {
             id: '20',
             message:
@@ -173,7 +172,7 @@ function Chatbot() {
           },
         ]}
       />
-      </ThemeProvider>
+      
     </div>
   );
 }
