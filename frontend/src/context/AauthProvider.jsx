@@ -34,7 +34,7 @@ function AuthProvider({ children }) {
     }
   };
   const postCheckout = async (order) => {
-    console.log('estoy en postCheckout');
+    // console.log('estoy en postCheckout');
     const { data } = await createCheckoutRequest(order);
     return data;
   };
