@@ -19,7 +19,7 @@ import Chatbot from './components/targets/ChatBot';
 function App() {
   return (
     <AuthProvider>
-      <div className="bg-primary min-h-screen w-full flex">
+      <div className="bg-primary min-h-screen w-full flex font-roboto">
         {/* Rutas Publicas */}
         <Routes>
           <Route path="/register" element={<Registro />} />

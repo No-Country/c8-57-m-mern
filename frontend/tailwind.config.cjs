@@ -40,6 +40,9 @@ module.exports = {
       gray: '#f0f0f0',
       grayOscuro: '#cdcdcd',
     },
+    fontFamily:{
+      roboto:[ 'Roboto', 'sans-serif']
+    }
   },
   plugins: [],
 };
