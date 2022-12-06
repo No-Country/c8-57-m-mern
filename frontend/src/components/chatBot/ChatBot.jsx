@@ -1,19 +1,24 @@
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
-import useAuth from '../../hooks/useAuth'
-import botImg from '../../image/imagen_logotipo.png'
+import useAuth from '../../hooks/useAuth';
+import botImg from '../../image/imagen_logotipo.png';
+import { ThemeProvider } from './ThemeProvider';
 function Chatbot() {
   const { user } = useAuth();
-  console.log(user)
+  console.log(user);
+  
+  
   return (
     <div className=" w-full md:m-auto md:w-1/3">
+    <ThemeProvider theme={theme}>
       <ChatBot
-       botAvatar={botImg}
-       headerTitle="Fame"
-       placeholder="Habla conmigo...
+        botAvatar={botImg}
+        headerTitle="Fame"
+        placeholder="Habla conmigo...
        
        
        "
+      
         steps={[
           {
             id: '1',
@@ -168,6 +173,7 @@ function Chatbot() {
           },
         ]}
       />
+      </ThemeProvider>
     </div>
   );
 }
