@@ -9,6 +9,7 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
+
   useEffect(() => {
     (async () => {
       const userStorage = JSON.parse(localStorage.getItem('user'));
@@ -23,6 +24,15 @@ function AuthProvider({ children }) {
       }
     })();
   }, []);
+
+  const postFirstLogin = async (id) => {
+    try {
+      const {data} = await axiosClient.post('first', id)
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   // const data = useMemo(
   //   () => ({
   //     user,
@@ -41,12 +51,15 @@ function AuthProvider({ children }) {
         setLoading,
         email,
         setEmail,
+        postFirstLogin
       }}
     >
       {children}
     </AuthContext.Provider>
   );
 }
+
+
 
 export { AuthProvider };
 
