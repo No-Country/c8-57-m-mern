@@ -16,6 +16,7 @@ import Imagen2 from '../image/imagen_2.jpeg';
 import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 import ModalFeelings from './layout/ModalFeelings';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -33,7 +34,7 @@ function Home() {
     <div className="flex  flex-col max-w-max lg:ml-10 justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
       <div className="flex flex-col sm:w-auto sm:ml-12 lg:m-12 lg:mt-2 sm:p-2  lg:w-full">
         <div className="flex flex-col lg:flex-row lg:gap-6 lg:justify-center">
-          <div className="flex justify-center w-full   lg:w-2/3 lg:h-full lg:hover:scale-95 duration-100  lg:bg-fifth lg:flex-col relative p-1 gap-2  border-b-[#597a97] border-t-[#597a97] border-b-2  pb-3 sm:gap-3 sm:p-3 sm:my-5 lg:my-0 lg:items-center lg:rounded-xl">
+          <div className="flex justify-center w-full   lg:w-2/3 lg:h-full   lg:bg-fifth lg:flex-col relative p-1 gap-2  border-b-[#597a97] border-t-[#597a97] border-b-2  pb-3 sm:gap-3 sm:p-3 sm:my-5 lg:my-0 lg:items-center lg:rounded-xl">
             <div className="w-2/4 sm:w-full lg:w-2/4">
               <img
                 className="w-full lg:rounded-full"
@@ -43,20 +44,22 @@ function Home() {
             </div>
 
             <div className="flex flex-col w-2/3 gap-2 justify-between sm:w-full sm:justify-around sm:gap-3">
-              <h3 className="text-base my-px text-fourth sm:text-xl lg:text-2xl lg:text-center">
+              <h3 className="text-base  my-px text-fourth sm:text-xl lg:text-2xl lg:text-center">
                 Hola, Ana
               </h3>
-              <span className="block  text-base text-fourth sm:text-xl lg:text-2xl lg:text-center">
+              <span className="block   text-base text-fourth sm:text-xl lg:text-2xl lg:text-center">
                 ¿Como te sientes?
               </span>
-              <button
-                type="submit"
-                className="hover:scale-110 lg:w-56 lg:m-auto text-sm rounded-2xl bg-[#f4717f] p-2 cursor-pointer hover:bg-secondary duration-150"
-              >
-                <span className="w-full text-fourth sm:text-xl lg:text-2xl">
-                  Hablar ahora
-                </span>
-              </button>
+              <Link to="/chat" className="m-auto">
+                <button
+                  type="submit"
+                  className=" lg:w-56 hover:scale-110 duration-150 lg:m-auto text-sm rounded-2xl bg-[#f4717f] p-2 cursor-pointer"
+                >
+                  <span className="w-full text-fourth sm:text-xl lg:text-2xl">
+                    Hablar ahora
+                  </span>
+                </button>
+              </Link>
             </div>
 
             <div className="text-white w-1/4 sm:w-full sm:flex justify-end lg:absolute lg:w-20 lg:top-2 lg:right-2 ">
@@ -73,7 +76,7 @@ function Home() {
 
           <div className="flex flex-col gap-3 justify-between ites-center ">
             <div
-              className={` lg:w-full   lg:bg-fifth lg:rounded-xl lg:hover:scale-95 duration-100 
+              className={` lg:w-full   lg:bg-fifth lg:rounded-xl 
            ${
              showCalendar
                ? 'flex flex-col gap-3 overflow-scroll p-1 '
@@ -143,15 +146,18 @@ function Home() {
             </div>
 
             {/* Seccion para ti, slider de imagenes */}
-            <div className="lg:bg-fifth rounded-lg lg:hover:scale-95 duration-100 p-2">
+            <div className="lg:bg-fifth rounded-lg p-2">
               <div>
                 <div className=" w-full">
                   <h3 className="text-fourth sm:text-3xl text-left">Para ti</h3>
                 </div>
                 <div>
-                  <span className="text-right text-fourth block sm:text-2xl">
+                  <Link
+                    to="/emotionResume"
+                    className="text-right text-fourth block sm:text-2xl"
+                  >
                     Ver mas
-                  </span>
+                  </Link>
                 </div>
               </div>
               <div className="h-auto p-2 order-b-[#597a97] border-b-[#597a97] lg:border-none  overflow-x-auto border-t-[#597a97] border-b-2  sm:w-full">
@@ -184,7 +190,7 @@ function Home() {
 
         {/* Seccion de tu terapeuta ideal, contiene una imagen y un boton hacia otra direccion */}
         <div className="flex flex-col lg:flex-row lg:my-2 gap-4">
-          <div className="border-b-[#597a97] lg:p-1 border-t-[#597a97] lg:relative  border-b-2 lg:hover:scale-95 duration-100   lg:bg-fifth lg:w-1/2 lg:flex  lg:items-center  lg:justify-center lg:rounded-lg">
+          <div className="border-b-[#597a97] lg:p-1 border-t-[#597a97] lg:relative  border-b-2 lg:bg-fifth lg:w-1/2 lg:flex  lg:items-center  lg:justify-center lg:rounded-lg">
             <h2 className="block p-0 text-fourth  lg:text-3xl lg:text-center lg:absolute lg:top-0 lg:left-4">
               Tu terapeuta ideal
             </h2>
@@ -208,20 +214,22 @@ function Home() {
                 </div>
 
                 <div className="block">
-                  <button
-                    type="submit"
-                    className="hover:scale-110 bg-third p-2 cursor-pointer hover:bg-secondary duration-100 text-fourth  rounded-2xl text-white text-sm sm:p-4 sm:text-2xl"
-                  >
-                    {' '}
-                    Programar ahora{' '}
-                  </button>
+                  <Link to="/paid">
+                    <button
+                      type="submit"
+                      className="hover:scale-110 bg-third p-2 cursor-pointer duration-100 text-fourth  rounded-2xl text-white text-sm sm:p-4 sm:text-2xl"
+                    >
+                      {' '}
+                      Programar ahora{' '}
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Caja de resumen de emociones, contiene emociones, boton de terapeuta */}
-          <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white lg:hover:scale-95 duration-100   lg:bg-fifth lg:rounded-lg">
+          <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white lg:bg-fifth lg:rounded-lg">
             <div className="flex flex-col gap-3">
               <h2 className="text-left sm:text-3xl">Resumen de emociones</h2>
               <span className="text-sm sm:text-2xl">
@@ -267,12 +275,14 @@ function Home() {
               <span className="text-sm sm:text-3xl">
                 ¿Te gustaria empezar terapia?
               </span>
-              <button
-                type="submit"
-                className="hover:scale-110 duration-100  hover:bg-secondary w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:text-2xl sm:w-2/4 sm:p-3"
-              >
-                Encontrar Terapeuta
-              </button>
+              <Link to="/paid" className="w-full">
+                <button
+                  type="submit"
+                  className="hover:scale-110 duration-100  w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:text-2xl sm:w-2/4 sm:p-3"
+                >
+                  Encontrar Terapeuta
+                </button>
+              </Link>
             </div>
           </div>
         </div>
