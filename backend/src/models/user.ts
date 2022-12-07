@@ -134,11 +134,11 @@ const userSchema = new Schema(
     emotion: {
       type: Array,
     },
-    type_consult: {
-      type: Schema.Types.ObjectId,
-      ref: "category",
-      required: true,
-    },
+    // type_consult: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "category",
+    //   required: true,
+    // },
     firstLogin: {
       type: Boolean,
       default: false,

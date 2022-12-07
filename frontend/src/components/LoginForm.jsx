@@ -7,21 +7,23 @@ import axiosClient from '../config/axiosClient';
 import useAuth from '../hooks/useAuth';
 
 function LoginForm() {
-  const { setLoading, user } = useAuth();
+  const { setLoading, getUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
     try {
       const { data } = await axiosClient.post('login', values);
-
+      // console.log(data);
+      // const userByEmail = await getUser(user.email)
       if (data.login) {
         // usuario en localStorage
         localStorage.setItem('user', JSON.stringify(data));
         // usuario en el Provider
         setLoading(false);
-        if (user.firstLogin === false) {
+        console.log(data.firstLogin);
+        if (data.firstLogin === false) {
           navigate('/targets');
-        } else {
+        } else if (data.firstLogin === true) {
           navigate('/home');
         }
       } else {

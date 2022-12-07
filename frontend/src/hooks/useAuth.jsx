@@ -4,7 +4,7 @@ import AuthContext from '../context/AauthProvider';
 
 const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) throw new Error('Provider is missing');
+  // if (!context) throw new Error('Provider is missing');
   return context;
 };
 
