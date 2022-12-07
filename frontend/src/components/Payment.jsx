@@ -1,4 +1,3 @@
-import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import {
   Elements,
@@ -7,6 +6,10 @@ import {
   useElements,
 } from '@stripe/react-stripe-js';
 import useAuth from '../hooks/useAuth';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 const stripePromise = loadStripe(
   'pk_test_51M8nPkEZcBXalvvxy6k87YiwyWvwCp0oIq0mQgCuQ9zgLOYchA31na4kTE6pAZRMRstxM7sCtL1knjNv49MDaP5g00nxM62vC9'
@@ -14,22 +17,46 @@ const stripePromise = loadStripe(
 
 const CheckoutForm = () => {
   const stripe = useStripe();
+  const navigate = useNavigate();
   const elements = useElements();
   const { postCheckout } = useAuth();
+  const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('hola');
+    // console.log('submiteando..');
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement), //captura la info tipeada por el usuario
     });
     if (!error) {
-      const { id } = paymentMethod;
-      const order = { id, amount: 10000 };
-      const data = await postCheckout(order);
+      try {
+        const { id } = paymentMethod;
+        // const order = { id, amount: 10000 };
+        // console.log(user.email);
+        setIsSubmitting(true);
+        const data = await postCheckout({ id, amount: 100 });
+        console.log(data);
+        if (data.success) {
+          console.log('successfull payment');
+          setSuccess(true);
+          Swal.fire({
+            icon: 'success',
+            title: 'El pago se ha realizado exitósamente',
+            text: 'Realizando pago.. ',
+            position: 'top',
+            timer: 2500,
+            timerProgressBar: true,
+          });
+          navigate('/home');
+        }
+      } catch (error) {
+        console.log('Error', error);
+      }
+    } else {
+      console.log(error.message);
     }
-    console.log(error);
   };
 
   return (
@@ -41,16 +68,28 @@ const CheckoutForm = () => {
       <div className="flex flex-row w-full md:w-4/6 items-start">
         <button
           type="button"
-          className="bg-third text-xl font-bold w-1/3 mr-2 mt-2 px-2 rounded-sm text-fourth hover:bg-thirdHover"
+          className="bg-third text-xl font-bold w-1/3 mr-2 mt-2 px-2 py-1 rounded-sm text-fourth hover:bg-thirdHover"
         >
-          Volver
+          <Link to="/paid">Volver</Link>
         </button>
-        <button
-          type="submit"
-          className="bg-third text-xl font-bold w-full md:w-1/2 mt-2 px-2 rounded-sm text-fourth hover:bg-thirdHover"
-        >
-          Pagar
-        </button>
+
+        {isSubmitting ? (
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-third text-xl font-bold w-1/4 mt-2 px-2 py-2 rounded-sm text-fourth hover:bg-thirdHover flex justify-center"
+          >
+            <AiOutlineLoading3Quarters className="animate-spin h-5 w-5" />
+          </button>
+        ) : (
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-third text-xl font-bold w-full md:w-1/2 mt-2 px-2 py-1 rounded-sm text-fourth hover:bg-thirdHover"
+          >
+            Pagar
+          </button>
+        )}
       </div>
     </form>
   );
