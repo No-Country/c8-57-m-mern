@@ -25,9 +25,9 @@ function AuthProvider({ children }) {
     })();
   }, []);
 
-  const postFirstLogin = async (id) => {
+  const putFirstLoginUser = async (id) => {
     try {
-      const { data } = await axiosClient.post('first', id);
+      const { data } = await axiosClient.put(`firstLogin/${id}`);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -53,10 +53,10 @@ function AuthProvider({ children }) {
       value={{
         user,
         loading,
-        setLoading,
         email,
+        setLoading,
         setEmail,
-        postFirstLogin,
+        putFirstLoginUser,
         postCheckout,
       }}
     >

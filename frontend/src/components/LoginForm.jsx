@@ -7,11 +7,10 @@ import axiosClient from '../config/axiosClient';
 import useAuth from '../hooks/useAuth';
 
 function LoginForm() {
-  const { setLoading,  user} = useAuth();
+  const { setLoading, user } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
-
     try {
       const { data } = await axiosClient.post('login', values);
 
@@ -20,10 +19,10 @@ function LoginForm() {
         localStorage.setItem('user', JSON.stringify(data));
         // usuario en el Provider
         setLoading(false);
-        if(user.firstLogin == 0){
+        if (user.firstLogin === false) {
           navigate('/targets');
-        }else{
-          navigate('/home') 
+        } else {
+          navigate('/home');
         }
       } else {
         Swal.fire({
