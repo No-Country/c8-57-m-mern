@@ -12,23 +12,23 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    (async () => {
-      const userStorage = JSON.parse(localStorage.getItem('user'));
-      if (userStorage.login) {
-        console.log(userStorage._id);
-        const res = await axiosClient.get('user/' + userStorage._id);
-        const { user } = res.data;
-        // console.log(user);
-        setUser({
-          email: user.email,
-          name: user.name,
-          id: user._id,
-          firstLogin: user.firstLogin,
-        });
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const userStorage = JSON.parse(localStorage.getItem('user'));
+  //     // if (userStorage.login) {
+  //     //   console.log(userStorage._id);
+  //     //   const res = await axiosClient.get('user/' + userStorage._id);
+  //     //   const { user } = res.data;
+  //     //   // console.log(user);
+  //     //   setUser({
+  //     //     email: user.email,
+  //     //     name: user.name,
+  //     //     id: user._id,
+  //     //     firstLogin: user.firstLogin,
+  //     //   });
+  //     }
+  //   })();
+  // }, []);
 
   const putFirstLoginUser = async (id, firstLogin) => {
     try {
@@ -64,6 +64,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
         email,
         setLoading,
