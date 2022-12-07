@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Deslice from 'react-tinder-card';
-import useAuth from '../../hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
 
 const Feeling = ({ setFirstLogin }) => {
   // const {putFirstLoginUser,user} = useAuth()

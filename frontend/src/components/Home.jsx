@@ -163,17 +163,17 @@ function Home() {
               <div className="h-auto p-2 order-b-[#597a97] border-b-[#597a97] lg:border-none  overflow-x-auto border-t-[#597a97] border-b-2  sm:w-full">
                 <div className="flex  gap-4  sm:mx-6  pr-4 w-3xl ">
                   <img
-                    className="w-56 cursor-pointer sm:w-96 lg:w-72 "
+                    className="w-56 cursor-pointer sm:w-96 lg:w-72 rounded-lg"
                     src={Imagen1}
                     alt="imagen_1"
                   />
                   <img
-                    className="w-56 cursor-pointer sm:w-96 lg:w-72 "
+                    className="w-56 cursor-pointer sm:w-96 lg:w-72 rounded-lg"
                     src={Imagen2}
                     alt="imagen_2"
                   />
                   <img
-                    className="w-56 cursor-pointer sm:w-96 lg:w-72 "
+                    className="w-56 cursor-pointer sm:w-96 lg:w-72 rounded-lg"
                     src={Imagen3}
                     alt="imagen_3"
                   />
@@ -229,7 +229,7 @@ function Home() {
           </div>
 
           {/* Caja de resumen de emociones, contiene emociones, boton de terapeuta */}
-          <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white lg:bg-fifth lg:rounded-lg">
+          <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white lg:w-full lg:bg-fifth lg:rounded-lg">
             <div className="flex flex-col gap-3">
               <h2 className="text-left sm:text-3xl">Resumen de emociones</h2>
               <span className="text-sm sm:text-2xl">

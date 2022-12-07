@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import Feeling from './targets/Feeling';
@@ -6,9 +7,13 @@ import Feeling from './targets/Feeling';
 function Targets() {
   const [firstLogin, setFirstLogin] = useState(0);
   const { putFirstLoginUser, user } = useAuth();
+  // console.log(user);
   if (firstLogin == 1) {
+    console.log('Entre al if:', user);
     putFirstLoginUser(user.id);
   }
+
+  // console.log(firstLogin);
   return (
     <div className=" m-0 bg-[#3D6487] relative h-[100vh] max-h-screen w-[100vw] flex flex-col items-center , pt-[10vh] gap-[2rem] text-white overflow-hidden text-[white] font-serif ">
       <div className=" top-[0] flex flex-col justify-center items-center gap-4 px-[5px]  sm:gap-2">
