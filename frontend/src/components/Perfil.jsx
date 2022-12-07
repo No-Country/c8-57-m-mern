@@ -10,13 +10,13 @@ import Swal from 'sweetalert2';
 import 'yup-phone-lite';
 function Perfil() {
   const navigate = useNavigate();
-  // const userDeleted = axiosClient.delete('user/', + userStorage._id)
   const handleSubmit = () => {
     toast.success('Usuario editado exitosamente!');
     
   };
-
+  
   const handleDelete = () => {
+    const userDeleted = axiosClient.delete('user/', + userStorage._id)
     Swal.fire({
       icon: 'success',
       title: 'Tu cuenta ha sido eliminada correctamente',

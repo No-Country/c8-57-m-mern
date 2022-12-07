@@ -65,7 +65,7 @@ function ModalFeelings({ handleModal }) {
               onClick={() => handleSubmitEmotion(value)}
               key={index}
               type="submit"
-              className="p-1 lg:p-2 rounded-md text-fourth bg-third"
+              className="p-1 lg:p-3 sm:p-2  rounded-md text-fourth bg-third"
             >
               {value}
             </button>
