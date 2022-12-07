@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsEmojiAngry, BsEmojiFrown, BsEmojiLaughing, BsEmojiNeutral, BsEmojiSmile } from 'react-icons/bs'
+import useAuth from '../hooks/useAuth'
 import { Link } from 'react-router-dom';
 import Imagen1 from '../image/imagen_1.jpeg';
 import Imagen2 from '../image/imagen_2.jpeg';
@@ -7,6 +8,7 @@ import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 
 const EmotionResume = () => {
+  const { user } = useAuth();
   return (
     <div className="flex flex-col w-[inherit] sm:flex gap-2 container justify-center items-center sm:pl-5  m-auto">
       <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white mb-6">
@@ -92,7 +94,7 @@ const EmotionResume = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3 justify-center items-center ">
-          <h2 className="text-center sm:text-3xl my-4">¿Te gustaria apreender algo, Jin? </h2>
+          <h2 className="text-center sm:text-3xl my-4">¿Te gustaria apreender algo,{user.name} ? </h2>
           <Link to='/chat'>
           <button className='bg-third rounded-md w-max px-4 py-2 hover:shadow-228b active:scale-[.98]'>
             Claro que si 
