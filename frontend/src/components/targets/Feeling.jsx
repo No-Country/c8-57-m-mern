@@ -32,11 +32,8 @@ const Feeling = ({ setFirstLogin }) => {
             onSwipe={onSwipe}
           >
             <div
-              className={`bg-[#F4717F]  border-[1px] shadow-228b absolute rounded bottom-[0]  translate-y-[50%] left-0 translate-x-[-50%] w-[clamp(100px,70vw,300px)]  h-[clamp(200px,100vw,300px)] flex uppercase justify-center items-center text-lg rotate-[${
-                5 * feel.id
-              }deg]  hover:drop-shadow-lg shadow-black  z-[2] sm:h-[clamp(200px,100vw,300px)] sm:w-[clamp(100px,50vw,300px)]`}
+              className={`bg-[#F4717F]  border-[1px] shadow-228b absolute rounded bottom-[0]  translate-y-[50%] left-0 translate-x-[-50%] w-[clamp(100px,70vw,300px)]  h-[clamp(200px,100vw,300px)] flex uppercase justify-center items-center text-lg rotate-[${5 * feel.id}deg]  hover:drop-shadow-lg shadow-black  z-[2] sm:h-[clamp(200px,100vw,300px)] sm:w-[clamp(100px,50vw,300px)]`}
             >
-              {console.log(5 * feel.id)}
               <h2 className="hover:cursor-pointer  text-[clamp(1rem,7vw,3rem)]">
                 {feel.feel}
               </h2>
