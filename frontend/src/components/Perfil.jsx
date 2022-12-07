@@ -25,7 +25,7 @@ function Perfil() {
       timer: 2500,
       timerProgressBar: true,
     })
-    navigate('/');
+    navigate('/register');
   };
   const { user } = useAuth();
   const initialValues = {
@@ -66,7 +66,7 @@ function Perfil() {
     <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
       <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl ">
         <header className="flex items-center  justify-center pt-2 pb-4">
-          <h2 className="text-2xl font-bold text-[#ffffff]">
+          <h2 className="text-2xl font-bold text-[#ffffff] font-roboto">
             Edita tu Perfil{' '}
           </h2>
         </header>

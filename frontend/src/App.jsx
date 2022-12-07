@@ -15,11 +15,11 @@ import Start from './components/Start';
 import EmotionResume from './components/EmotionResume';
 import TerapistPanel from './pages/TerapistPanel';
 import Payment from './components/Payment';
-import Chatbot from './components/targets/ChatBot';
+import Chatbot from './components/chatBot/ChatBot';
 function App() {
   return (
     <AuthProvider>
-      <div className="bg-primary min-h-screen w-full flex">
+      <div className="bg-primary min-h-screen w-full flex font-roboto">
         {/* Rutas Publicas */}
         <Routes>
           <Route path="/register" element={<Registro />} />
@@ -38,7 +38,7 @@ function App() {
             <Route path="/emotionResume" element={<EmotionResume />} />
             <Route path="/controler" element={<TerapistPanel />} />
             <Route path="/payment" element={<Payment />} />
-            <Route path="/chat" element={<Chatbot/>} />
+            <Route path="/chat" element={<Chatbot />} />
           </Route>
         </Routes>
       </div>
