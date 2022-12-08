@@ -16,7 +16,6 @@ import EmotionResume from './components/EmotionResume';
 import TerapistPanel from './pages/TerapistPanel';
 import Payment from './components/Payment';
 import Chatbot from './components/chatBot/ChatBot';
-import ConfirmEmail from './components/ConfirmEmail';
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
           <Route path="/reset:token" element={<NewPassword />} />
           <Route path="/confirm/:token" element={<ConfirmAccount />} />
           <Route path="/" element={<Start />} />
-          <Route path="/" element={<ConfirmEmail />} />
           {/* Rutas Privadas */}
           <Route path="/" element={<Protected />}>
             <Route path="/targets" element={<Targets />} />

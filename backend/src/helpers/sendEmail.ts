@@ -32,7 +32,7 @@ export const emailRegister = async (data: IUser) => {
     text: "Verificar cuenta de Fame App",
     html: `<p>Hola: ${name} Verifca tu cuenta en Fame App</p>
          <p>Tu cuenta está casi lista, solo tienes que verificarla en el siguiente enlace: </p>
-        <a href="http://localhost:4000/confirm/${token}">Verificar Cuenta</a>
+        <a href="http://localhost:5173/confirm/${token}">Verificar Cuenta</a>
 
         <p>Si no creaste esta cuenta, puedes ignorar este mensaje</p>
     
@@ -80,9 +80,7 @@ export const emailForgetPassword = async (data: IUser) => {
     html: `<p>Hola: ${name} Ha solicitado restablecer su contraseña</p>
              <p>Siga el siguiente enlace para generar una nueva contraseña: </p>
             <a href="${process.env.FRONTEND_URL}/reset/${token}">Reset your password</a>
-    
             <p>Si no solicitó este correo electrónico, puede ignorar este mensaje</p>
-        
         `,
   };
   transport.sendMail(mailOptions, function (error, info) {

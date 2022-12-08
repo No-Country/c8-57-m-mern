@@ -124,7 +124,7 @@ function Perfil() {
                 className="px-3 py-2 focus: outline-none rounded w-full "
               />
               <ErrorMessage name="phone" component="p" />
-              <label
+              {/* <label
                 htmlFor="dateOfBirty"
                 className="font-bold  block text-[#ffffff]"
               >
@@ -140,7 +140,7 @@ function Perfil() {
                 placeholder="DD/MM/YY"
                 className="px-3 py-2 focus: outline-none rounded w-full "
               />
-              <ErrorMessage name="dateOfBirty" component="p" />
+              <ErrorMessage name="dateOfBirty" component="p" /> */}
               <label htmlFor="age" className="font-bold  block text-[#ffffff]">
                 {' '}
                 Edad

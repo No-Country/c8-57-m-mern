@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import { createCheckoutRequest } from '../helpers/stripe';
 import { updateFirstLogin } from '../helpers/firstLogin';
 import { getUserByEmail, updateUser, deleteUserById } from '../helpers/user';
+import { confirm } from '../helpers/confirm';
 
 const AuthContext = createContext();
 
@@ -79,6 +80,15 @@ function AuthProvider({ children }) {
     }
   };
 
+  const confirmarCuenta = async (token) => {
+    try {
+      const { data } = await confirm(token);
+      return data;
+    } catch (error) {
+      console.log('Error', error);
+    }
+  };
+
   // const data = useMemo(
   //   () => ({
   //     user,
@@ -105,6 +115,7 @@ function AuthProvider({ children }) {
         setPlanTerapia,
         putUser,
         deleteUser,
+        confirmarCuenta,
       }}
     >
       {children}

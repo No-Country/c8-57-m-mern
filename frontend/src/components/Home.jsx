@@ -32,7 +32,7 @@ function Home() {
     setShowModal(!showModal);
   };
 
-   const {planTerapia, setPlanTerapia}=useAuth()
+  const { planTerapia, setPlanTerapia, user } = useAuth();
   return (
     <div className="flex  flex-col max-w-max lg:ml-10 justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
       <div className="flex flex-col sm:w-auto sm:ml-12 lg:m-12 lg:mt-2 sm:p-2  lg:w-full">
@@ -48,7 +48,7 @@ function Home() {
 
             <div className="flex flex-col w-2/3 gap-2 justify-between sm:w-full sm:justify-around sm:gap-3">
               <h3 className="text-base  my-px text-fourth sm:text-xl lg:text-2xl lg:text-center">
-                Hola, Ana
+                Hola, {user.name}
               </h3>
               <span className="block   text-base text-fourth sm:text-xl lg:text-2xl lg:text-center">
                 ¿Como te sientes?
