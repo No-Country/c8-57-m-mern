@@ -10,6 +10,7 @@ function AuthProvider({ children }) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
+  const [planTerapia, setPlanTerapia] = useState('En espera...');
 
   // useEffect(() => {
   //   (async () => {
@@ -100,6 +101,8 @@ function AuthProvider({ children }) {
         putFirstLoginUser,
         postCheckout,
         getUserEmail,
+        planTerapia,
+        setPlanTerapia,
         putUser,
         deleteUser,
       }}
