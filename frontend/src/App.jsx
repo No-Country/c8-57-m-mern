@@ -16,6 +16,7 @@ import EmotionResume from './components/EmotionResume';
 import TerapistPanel from './pages/TerapistPanel';
 import Payment from './components/Payment';
 import Chatbot from './components/chatBot/ChatBot';
+import About from './components/targets/About';
 function App() {
   return (
     <AuthProvider>
@@ -36,7 +37,7 @@ function App() {
             <Route path="/paid" element={<PaidPackage />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/emotionResume" element={<EmotionResume />} />
-            <Route path="/controler" element={<TerapistPanel />} />
+            <Route path="/about" element={<About />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/chat" element={<Chatbot />} />
           </Route>
