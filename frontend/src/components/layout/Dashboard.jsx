@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io';
 import { GoHome } from 'react-icons/go';
 import { HiOutlineChat } from 'react-icons/hi';
-import { FaBriefcaseMedical, FaRegAddressBook,FaExclamationCircle } from 'react-icons/fa';
+import {
+  FaBriefcaseMedical,
+  FaRegAddressBook,
+  FaExclamationCircle,
+} from 'react-icons/fa';
 import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
-
 
 const Dashboard = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -57,7 +60,7 @@ const Dashboard = () => {
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
           </div>
         </Link>
-        <Link to="/controler" className="w-full">
+        <Link to="/about" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaExclamationCircle className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>About</h3>
