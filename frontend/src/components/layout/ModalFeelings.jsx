@@ -34,7 +34,7 @@ function ModalFeelings({ handleModal }) {
   };
 
   return (
-    <div className="flex flex-col bg-fifth p-3 gap-3  lg:w-2/3 fixed justify-center items-center rounded-lg m-2">
+    <div className="flex flex-col bg-primary p-3 gap-3  lg:w-2/3 fixed justify-center items-center rounded-lg m-2">
       <div className="absolute top-1 right-1">
         <AiFillCloseCircle
           onClick={handleModal}

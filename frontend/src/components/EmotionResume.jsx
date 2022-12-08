@@ -25,38 +25,35 @@ const EmotionResume = () => {
             Resumen de emociones del 8-14 de agosto 2022
           </span>
         </div>
-        <div className="text-right ">
-          <span className="cursor-pointer underline text-xs">Ver mas</span>
-        </div>
         <div className="flex justify-around">
-          <div className="cursor-pointer">
+          <div className="">
             <span>L</span>
-            <BsEmojiLaughing className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiLaughing className="text-2xl sm:text-4xl duration-200 " />
           </div>
-          <div className="cursor-pointer">
+          <div className="">
             <span>M</span>
-            <BsEmojiNeutral className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiNeutral className="text-2xl sm:text-4xl  duration-200 " />
           </div>
-          <div className="cursor-pointer">
+          <div className="">
             <span>M</span>
-            <BsEmojiFrown className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiFrown className="text-2xl sm:text-4xl  duration-200 " />
           </div>
-          <div className="cursor-pointer">
+          <div className="">
             <span>J</span>
-            <BsEmojiAngry className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiAngry className="text-2xl sm:text-4xl  duration-200 " />
           </div>
-          <div className="cursor-pointer">
+          <div className="">
             <span>V</span>
-            <BsEmojiSmile className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiSmile className="text-2xl sm:text-4xl duration-200" />
           </div>
 
-          <div className="cursor-pointer">
+          <div className="">
             <span>S</span>
-            <BsEmojiLaughing className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiLaughing className="text-2xl sm:text-4xl  duration-200 " />
           </div>
-          <div className="cursor-pointer">
+          <div className="">
             <span>D</span>
-            <BsEmojiNeutral className="text-2xl sm:text-4xl hover:scale-125 duration-200 hover:text-third" />
+            <BsEmojiNeutral className="text-2xl sm:text-4xl  duration-200 " />
           </div>
         </div>
       </div>

@@ -60,12 +60,12 @@ const Dashboard = () => {
             <h3 className={`${!showMenu && 'sm:hidden'}`}>Perfil</h3>
           </div>
         </Link>
-        <Link to="/about" className="w-full">
+        {/* <Link to="/about" className="w-full">
           <div className="flex flex-col items-center cursor-pointer sm:flex-row sm:justify-around sm:w-full sm:hover:bg-primary sm:p-2 rounded-md">
             <FaExclamationCircle className="text-[#f4717f] text-2xl sm:text-4xl hover:scale-125 duration-200" />
             <h3 className={`${!showMenu && 'sm:hidden'}`}>About</h3>
           </div>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
