@@ -9,6 +9,7 @@ import Imagen4 from '../image/imagen_4.jpeg';
 
 const EmotionResume = () => {
   const { user } = useAuth();
+  
   return (
     <div className="flex flex-col w-[inherit] sm:flex gap-2 container justify-center items-center sm:pl-5  m-auto">
       <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white mb-6">
@@ -59,7 +60,7 @@ const EmotionResume = () => {
         </div>
         <div className="h-auto   sm:w-full">
           <div className="flex flex-col gap-4 items-center justify-center sm:mx-4  pr-4  sm:flex-row sm:flex-wrap ">
-            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg' >
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=OL7RM9zo-nA' >
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen1}
@@ -67,7 +68,7 @@ const EmotionResume = () => {
               />
             <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm'>Volver al presente  <span className='text-right pl-8'> 5 min</span> </p>
             </a>
-            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b'target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg'>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b'target='_blank' href='https://www.youtube.com/watch?v=w2wxI5iHDgs'>
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen2}
@@ -75,7 +76,7 @@ const EmotionResume = () => {
               />
             <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm '> Combatir el estrés <span className='text-right pl-8'> 12 min</span> </p>
             </a>
-            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg'>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=wv3l9D7dLEY'>
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen3}
@@ -83,7 +84,7 @@ const EmotionResume = () => {
               />
             <p className='absolute px-2 bottom-0 bg-third w-full py-1 text-sm '>Manejo de la ira  <span className='text-right pl-8'>5 min</span> </p>
             </a>
-            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=9E6b3swbnWg'>
+            <a className='rounded-xl overflow-hidden relative cursor-pointer hover:scale-[.99] duration-200 hover:shadow-228b' target='_blank' href='https://www.youtube.com/watch?v=8Op2QXZqWsA'>
             <img
               className="w-80 h-[280px] sm:w-[400px] sm:h-[385px]"
               src={Imagen4}

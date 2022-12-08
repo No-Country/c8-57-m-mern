@@ -12,8 +12,9 @@ import Imagen2 from '../image/imagen_2.jpeg';
 import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 import { Link } from 'react-router-dom';
-
+import useAuth from '../../hooks/useAuth';
 const ForYou = () => {
+  const { user } = useAuth();
   return (
     <div className="flex flex-col gap-3 p-3">
       <Link to="/home">
@@ -68,7 +69,7 @@ const ForYou = () => {
       </div>
       <div className="flex flex-col justify-center gap-9">
         <h3 className="text-fourth text-center">
-          Te gustaria aprender algo jin?
+          Te gustaria aprender algo {user.name} ?
         </h3>
         <button className="bg-third rounded-lg p-2 w-2/4 m-auto" type="submit">
           Claro que si
