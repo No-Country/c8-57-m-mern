@@ -26,13 +26,9 @@ const Start = () => {
       <div className=' top-[0] flex flex-col justify-center items-end gap-4 px-[5px]  sm:gap-2'  >
         <p className=" text-[clamp(1rem,7vw,2rem)] w-screen h-max text-center px-[10px]">Este es un espacio seguro creado para ti</p>
         <Link to="/home">
-        <button className='text-2xl rounded-[10px]  hover:bg-slate-600 hover:text-third hover:scale-[1.1] mr-[25vw] mt-[20px]'><span className='underline text-base'>Comencemos</span> ▶ </button>
+        <button className='text-2xl rounded-[10px] text-secondary  hover:bg-slate-600 hover:text-third hover:scale-[1.1] mr-[25vw] mt-[20px]'><span className=' text-base'>Comencemos ▶</span>  </button>
       </Link>
       </div>
-            
-
-      
-            
 
     </div>
   )

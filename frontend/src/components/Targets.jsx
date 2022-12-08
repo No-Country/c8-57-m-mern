@@ -15,7 +15,7 @@ function Targets() {
 
   // console.log(firstLogin);
   return (
-    <div className=" m-0 bg-[#3D6487] relative h-[100vh] max-h-screen w-[100vw] flex flex-col items-center , pt-[10vh] gap-[2rem] text-white overflow-hidden text-[white] font-serif ">
+    <div className=" m-0 bg-[#3D6487] relative min-h-[100vh] w-[100vw] flex flex-col items-center  justify-evenly, pt-[5vh] gap-[2rem] text-white overflow-hidden text-[white] font-serif ">
       <div className=" top-[0] flex flex-col justify-center items-center gap-4 px-[5px]  sm:gap-2">
         <h2 className=" text-[clamp(1.5rem,7vw,3rem)] w-max h-max">
           Hagamos este espacio tuyo
@@ -27,16 +27,20 @@ function Targets() {
 
       <div className="w-[clamp(100px,50vw,300px)]  h-[clamp(300px,100vw,400px)] ">
         <Feeling firstLogin={firstLogin} setFirstLogin={setFirstLogin} />
+        
       </div>
-      <Link to="/beforeStart" onClick={() => setFirstLogin(1)}>
-        <div className="text-[#B1C0CE] absolute bottom-16 left-2/4 translate-x-[-50%]">
-          <p className="underline">No por ahora</p>
+      <div className=' flex flex-col items-center justify-center w-full'>
+
+          <Link to="/beforeStart" onClick={() => setFirstLogin(1)}>
+            
+
+            <div className="text-[#B1C0CE] mt-[20px] mb-[40px] flex justify-center items-center">
+              <p className="underline hover:shadow-228b rounded-md p-1">No por ahora</p>
+            </div>
+
+          </Link>
         </div>
-        <button className="absolute right-[20%] bottom-24 text-3xl rounded-[10px] p-4 hover:bg-slate-600">
-          {' '}
-          ▶{' '}
-        </button>
-      </Link>
+
     </div>
   );
 }

@@ -17,6 +17,7 @@ import Imagen3 from '../image/imagen_3.jpeg';
 import Imagen4 from '../image/imagen_4.jpeg';
 import ModalFeelings from './layout/ModalFeelings';
 import { Link } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
 function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -30,6 +31,8 @@ function Home() {
   const handleModal = () => {
     setShowModal(!showModal);
   };
+
+   const {planTerapia, setPlanTerapia}=useAuth()
   return (
     <div className="flex  flex-col max-w-max lg:ml-10 justify-center sm:flex sm:flex-row gap-2 lg:gap-7  lg:box-content overflow-hidden">
       <div className="flex flex-col sm:w-auto sm:ml-12 lg:m-12 lg:mt-2 sm:p-2  lg:w-full">
@@ -190,7 +193,7 @@ function Home() {
 
         {/* Seccion de tu terapeuta ideal, contiene una imagen y un boton hacia otra direccion */}
         <div className="flex flex-col lg:flex-row lg:my-2 gap-4">
-          <div className="border-b-[#597a97] lg:p-1 border-t-[#597a97] lg:relative  border-b-2 lg:bg-fifth lg:w-1/2 lg:flex  lg:items-center  lg:justify-center lg:rounded-lg">
+          <div className="border-b-[#597a97] lg:p-1 border-t-[#597a97] lg:relative  border-b-2 lg:bg-fifth lg:w-1/2 lg:flex  lg:items-center  lg:justify-center lg:rounded-lg ">
             <h2 className="block p-0 text-fourth  lg:text-3xl lg:text-center lg:absolute lg:top-0 lg:left-4">
               Tu terapeuta ideal
             </h2>
@@ -198,7 +201,7 @@ function Home() {
               <div className="flex flex-col lg:flex-row w-1/2 lg:justify-center  items-center">
                 <FaQuestion className="text-3xl text-[#f4717f]" />
                 <span className="text-sm text-fourth sm:text-2xl mt-6">
-                  En espera...
+                  {planTerapia}
                 </span>
               </div>
               <div>
@@ -275,12 +278,12 @@ function Home() {
               <span className="text-sm sm:text-3xl">
                 ¿Te gustaria empezar terapia?
               </span>
-              <Link to="/paid" className="w-full">
+              <Link to="/emotionResume" className="w-full">
                 <button
                   type="submit"
                   className="hover:scale-110 duration-100  w-2/4 bg-red-400 p-2 rounded-2xl bg-third text-xs sm:text-2xl sm:w-2/4 sm:p-3"
                 >
-                  Encontrar Terapeuta
+                  Ver Resumen de emociones
                 </button>
               </Link>
             </div>
