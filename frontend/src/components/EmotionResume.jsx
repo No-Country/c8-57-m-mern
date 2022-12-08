@@ -9,6 +9,7 @@ import Imagen4 from '../image/imagen_4.jpeg';
 
 const EmotionResume = () => {
   const { user } = useAuth();
+  
   return (
     <div className="flex flex-col w-[inherit] sm:flex gap-2 container justify-center items-center sm:pl-5  m-auto">
       <div className=" text-fourth flex flex-col gap-4 p-2 text-center text-white mb-6">
