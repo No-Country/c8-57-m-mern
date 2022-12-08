@@ -1,8 +1,8 @@
-import { createContext, useEffect, useMemo, useState } from 'react';
-import axiosClient from '../config/axiosClient';
+import { createContext, useState } from 'react';
 import { createCheckoutRequest } from '../helpers/stripe';
 import { updateFirstLogin } from '../helpers/firstLogin';
-import { getUserByEmail } from '../helpers/user';
+import { getUserByEmail, updateUser, deleteUserById } from '../helpers/user';
+import { confirm } from '../helpers/confirm';
 
 const AuthContext = createContext();
 
@@ -11,7 +11,7 @@ function AuthProvider({ children }) {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const [planTerapia, setPlanTerapia] = useState('En espera...')
+  const [planTerapia, setPlanTerapia] = useState('En espera...');
 
   // useEffect(() => {
   //   (async () => {
@@ -51,6 +51,44 @@ function AuthProvider({ children }) {
     const { data } = await getUserByEmail(email);
     return data;
   };
+
+  const putUser = async ({ name, phone, dateOfBirty, age }) => {
+    try {
+      const newUser = { email: user.email, name, phone, dateOfBirty, age };
+      const { data } = await updateUser(newUser);
+      console.log('Soy la respuesta del back en el update del auth:', data);
+      setUser({
+        ...user,
+        name: data.user.name,
+        age: data.user.age,
+        phone: data.user.phone,
+        dateOfBirty: data.user.dateOfBirty,
+      });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      const { data } = await deleteUserById(id);
+      console.log('Soy el user eliminado', data);
+      return data;
+    } catch (error) {
+      console.log('Error', error);
+    }
+  };
+
+  const confirmarCuenta = async (token) => {
+    try {
+      const { data } = await confirm(token);
+      return data;
+    } catch (error) {
+      console.log('Error', error);
+    }
+  };
+
   // const data = useMemo(
   //   () => ({
   //     user,
@@ -74,7 +112,10 @@ function AuthProvider({ children }) {
         postCheckout,
         getUserEmail,
         planTerapia,
-        setPlanTerapia
+        setPlanTerapia,
+        putUser,
+        deleteUser,
+        confirmarCuenta,
       }}
     >
       {children}

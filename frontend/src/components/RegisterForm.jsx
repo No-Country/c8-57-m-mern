@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Swal from 'sweetalert2';
 import * as yup from 'yup';
@@ -126,6 +127,11 @@ function RegisterForm() {
             </Form>
           )}
         </Formik>
+        <Link to="/login">
+          <button className="w-full text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4 hover:shadow-228b active:shadow">
+            Login
+          </button>
+        </Link>
       </div>
     </div>
   );
