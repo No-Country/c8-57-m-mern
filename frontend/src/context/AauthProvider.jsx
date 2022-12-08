@@ -1,8 +1,7 @@
-import { createContext, useEffect, useMemo, useState } from 'react';
-import axiosClient from '../config/axiosClient';
+import { createContext, useState } from 'react';
 import { createCheckoutRequest } from '../helpers/stripe';
 import { updateFirstLogin } from '../helpers/firstLogin';
-import { getUserByEmail } from '../helpers/user';
+import { getUserByEmail, updateUser, deleteUserById } from '../helpers/user';
 
 const AuthContext = createContext();
 
@@ -50,6 +49,35 @@ function AuthProvider({ children }) {
     const { data } = await getUserByEmail(email);
     return data;
   };
+
+  const putUser = async ({ name, phone, dateOfBirty, age }) => {
+    try {
+      const newUser = { email: user.email, name, phone, dateOfBirty, age };
+      const { data } = await updateUser(newUser);
+      console.log('Soy la respuesta del back en el update del auth:', data);
+      setUser({
+        ...user,
+        name: data.user.name,
+        age: data.user.age,
+        phone: data.user.phone,
+        dateOfBirty: data.user.dateOfBirty,
+      });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      const { data } = await deleteUserById(id);
+      console.log('Soy el user eliminado', data);
+      return data;
+    } catch (error) {
+      console.log('Error', error);
+    }
+  };
+
   // const data = useMemo(
   //   () => ({
   //     user,
@@ -72,6 +100,8 @@ function AuthProvider({ children }) {
         putFirstLoginUser,
         postCheckout,
         getUserEmail,
+        putUser,
+        deleteUser,
       }}
     >
       {children}

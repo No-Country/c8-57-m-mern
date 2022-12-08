@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import {
-  Formik, Form, Field, ErrorMessage,
-} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 import axiosClient from '../config/axiosClient';
@@ -26,12 +24,16 @@ function ForgetPassword() {
     }
   };
   const recoverPassword = Yup.object().shape({
-    email: Yup.string().email('Mail no valido').required('Required'),
+    email: Yup.string()
+      .email('Mail no valido')
+      .required('Ingrese un email válido'),
   });
   return (
     <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl m-auto md:w-1/3">
       <header className="flex items-center  justify-center pt-2 pb-4">
-        <h2 className="text-2xl font-bold text-[#ffffff]">Recuperar Contraseña</h2>
+        <h2 className="text-2xl font-bold text-[#ffffff]">
+          Recuperar Contraseña
+        </h2>
       </header>
       <Formik
         initialValues={{ email: '' }}
@@ -60,7 +62,6 @@ function ForgetPassword() {
             Enviar
           </button>
         </Form>
-
       </Formik>
     </div>
   );

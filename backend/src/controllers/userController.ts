@@ -169,20 +169,7 @@ export const updateUser = async (
   res: Response
 ): Promise<Response | any> => {
   // Evitar registros duplicados
-  const {
-    email,
-    age,
-    sex,
-    phone,
-    dateOfBirty,
-    direction,
-    experience,
-    emotion,
-    motivation,
-    security,
-    interest,
-    firstLogin,
-  } = req.body;
+  const { name, email, age, phone, dateOfBirty, firstLogin } = req.body;
   try {
     const user = await User.findOne({ email });
     if (!user) {
@@ -191,17 +178,10 @@ export const updateUser = async (
         .json({ msg: "User doesn't exist", updated: false });
     }
 
+    user.name = name || user.name;
     user.age = age || user.age;
-    user.sex = sex || user.sex;
     user.phone = phone || user.phone;
     user.dateOfBirty = dateOfBirty || user.dateOfBirty;
-    user.direction = direction || user.direction;
-    user.experience = experience || user.experience;
-    user.emotion = emotion || user.emotion;
-    user.motivation = motivation || user.motivation;
-    user.security = security || user.security;
-    user.interest = interest || user.interest;
-    user.experience = experience || user.experience;
     user.firstLogin = firstLogin || user.firstLogin;
     await user.save();
 

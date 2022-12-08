@@ -23,6 +23,9 @@ function LoginForm() {
           name: data.name,
           id: data._id,
           firstLogin: data.firstLogin,
+          age: data.age,
+          phone: data.phone,
+          dateOfBirty: data.dateOfBirty,
         });
         // usuario en el Provider
         setLoading(false);
@@ -102,15 +105,14 @@ function LoginForm() {
             >
               Continuar
             </button>
-            <button className="font-bold  text-[#ffffff]  hover:text-third active:scale-[.9]">
-              <Link to="/reset">Olvidé mi contraseña</Link>
-            </button>
-            <button className="font-bold  text-[#ffffff]  ml-16  hover:text-third active:scale-[.9]">
-              <Link to="/register">Registrarme</Link>
-            </button>
           </Form>
         )}
       </Formik>
+      <Link to="/register">
+        <button className="w-full text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4 hover:shadow-228b active:shadow">
+          Registrarme
+        </button>
+      </Link>
     </div>
   );
 }
