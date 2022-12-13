@@ -75,88 +75,84 @@ function Perfil() {
   });
 
   return (
-    <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl w-full md:m-auto md:w-1/3">
-      <div className="bg-secondary p-8 shadow-md shadow-secondary rounded-xl ">
-        <header className="flex items-center  justify-center pt-2 pb-4">
-          <h2 className="text-2xl font-bold text-[#ffffff] font-roboto">
-            Edita tu Perfil{' '}
-          </h2>
-        </header>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={profileSchema}
-          onSubmit={handleSubmit}
-          // enableReinitialize
-        >
-          {({ handleChange, values }) => (
-            <Form
-              className="flex flex-col w-[90%]"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit(values);
-              }}
+    <div className="bg-secondary p-4 shadow-md shadow-secondary rounded-xl m-auto w-[90%] md:w-[60%] lg:w-[45%] flex flex-col justify-center">
+      <header className="flex items-center  justify-center pt-2 pb-4">
+        <h2 className="text-2xl font-bold text-[#ffffff] font-roboto">
+          Edita tu Perfil{' '}
+        </h2>
+      </header>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={profileSchema}
+        onSubmit={handleSubmit}
+        // enableReinitialize
+      >
+        {({ handleChange, values }) => (
+          <Form
+            className="flex flex-col w-[90%] m-auto"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit(values);
+            }}
+          >
+            <label htmlFor="name" className="font-bold  block text-[#ffffff]">
+              {' '}
+              Nombre
+            </label>
+            <Field
+              id="name"
+              type="text"
+              name="name"
+              onChange={handleChange}
+              // value={values.name}
+              className="px-3 w-full py-2 focus: outline-none rounded lg:w-[60%]"
+            />
+            <ErrorMessage name="name" component="p" />
+            <label htmlFor="phone" className="font-bold  block text-[#ffffff]">
+              {' '}
+              Número Telefónico
+            </label>
+            <Field
+              // value={values.phone}
+              label="phone"
+              type="text"
+              name="phone"
+              onChange={handleChange}
+              placeholder="Ingresa tu celular"
+              className="px-3 py-2 focus: outline-none rounded w-full lg:w-[60%]"
+            />
+            <ErrorMessage name="phone" component="p" />
+            <label htmlFor="age" className="font-bold  block text-[#ffffff]">
+              {' '}
+              Edad
+            </label>
+            <Field
+              // value={values.age}
+              label="age"
+              type="text"
+              name="age"
+              onChange={handleChange}
+              placeholder="Ingresa tu edad"
+              className="px-3 py-2 focus: outline-none rounded w-full lg:w-[60%]"
+            />
+            <ErrorMessage name="age" component="p" />
+            <label />
+            <button
+              type="submit"
+              className=" w-full lg:w-[40%] text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c] text-[#ffffff] mt-4"
             >
-              <label htmlFor="name" className="font-bold  block text-[#ffffff]">
-                {' '}
-                Nombre
-              </label>
-              <Field
-                id="name"
-                type="text"
-                name="name"
-                onChange={handleChange}
-                // value={values.name}
-                className="px-3 w-full py-2 focus: outline-none rounded"
-              />
-              <ErrorMessage name="name" component="p" />
-              <label
-                htmlFor="phone"
-                className="font-bold  block text-[#ffffff]"
-              >
-                {' '}
-                Número Telefónico
-              </label>
-              <Field
-                // value={values.phone}
-                label="phone"
-                type="text"
-                name="phone"
-                onChange={handleChange}
-                placeholder="Ingresa tu celular"
-                className="px-3 py-2 focus: outline-none rounded w-full "
-              />
-              <ErrorMessage name="phone" component="p" />
-              <label htmlFor="age" className="font-bold  block text-[#ffffff]">
-                {' '}
-                Edad
-              </label>
-              <Field
-                // value={values.age}
-                label="age"
-                type="number"
-                name="age"
-                onChange={handleChange}
-                placeholder="Ingresa tu edad"
-                className="px-3 py-2 focus: outline-none rounded w-full "
-              />
-              <ErrorMessage name="age" component="p" />
-              <label />
-              <button
-                type="submit"
-                className=" w-full lg:w-1/2 text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c] text-[#ffffff] mt-4"
-              >
-                Confirmar
-              </button>
-            </Form>
-          )}
-        </Formik>
-      </div>
-      <div className="flex justify-end item">
+              Confirmar
+            </button>
+          </Form>
+        )}
+      </Formik>
+
+      <div className="flex justify-end">
         <button
           onClick={handleDelete}
-          className=" w-full lg:w-1/3 text-lg py-2  mb-4 bg-eighth rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4 flex justify-center gap-3 items-center"
+          className=" w-[50%] lg:w-[45%] text-lg p-2  mb-4 bg-eighth rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4 flex gap-3 items-center justify-center text-center"
         >
-          Eliminar Cuenta
+          <span>Eliminar Cuenta</span>
           <FaTrash />
         </button>
       </div>
