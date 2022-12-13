@@ -12,23 +12,21 @@ import { useState } from 'react';
 function Perfil() {
   const { putUser, user, deleteUser } = useAuth();
   // console.log(user);
-  const [initialValues, setinitialValues] = useState({
+  const initialValues = {
     name: user.name,
-    age: user.age,
-    dateOfBirty: user.dateOfBirty,
     phone: user.phone,
-  });
+    age: user.age,
+  };
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
     try {
-      console.log('Soy values:', values);
+      // console.log('Soy values:', values);
+      // console.log('Soy actions:', actions);
       const data = await putUser(values);
+      console.log();
       Swal.fire({
         title: data.updated && 'Usuario editado exitósamente!',
-        // text:
-        //   data.updated &&
-        //   'Has editado el usuario, por favor verifica tu Email para verificar la cuenta',
         icon: data.updated ? 'success' : 'error',
         timer: 2500,
       });
@@ -74,12 +72,6 @@ function Perfil() {
     phone: Yup.string()
       .phone('AR', 'Ingresa un teléfono válido')
       .required('El número telefónico es requerido'),
-    // location: Yup.object().nullable().shape({
-    //   country: Yup.string().required(),
-    //   state: Yup.string().required(),
-    //   city: Yup.string().required(),
-    //   zipcode: Yup.string().required(),
-    // }),
   });
 
   return (
@@ -94,18 +86,26 @@ function Perfil() {
           initialValues={initialValues}
           validationSchema={profileSchema}
           onSubmit={handleSubmit}
-          enableReinitialize
+          // enableReinitialize
         >
-          {({ handleSubmit }) => (
-            <Form className="flex flex-col w-[90%]">
+          {({ handleChange, values }) => (
+            <Form
+              className="flex flex-col w-[90%]"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(values);
+              }}
+            >
               <label htmlFor="name" className="font-bold  block text-[#ffffff]">
                 {' '}
                 Nombre
               </label>
               <Field
-                name="name"
                 id="name"
                 type="text"
+                name="name"
+                onChange={handleChange}
+                // value={values.name}
                 className="px-3 w-full py-2 focus: outline-none rounded"
               />
               <ErrorMessage name="name" component="p" />
@@ -117,52 +117,36 @@ function Perfil() {
                 Número Telefónico
               </label>
               <Field
+                // value={values.phone}
                 label="phone"
                 type="text"
                 name="phone"
+                onChange={handleChange}
                 placeholder="Ingresa tu celular"
                 className="px-3 py-2 focus: outline-none rounded w-full "
               />
               <ErrorMessage name="phone" component="p" />
-              {/* <label
-                htmlFor="dateOfBirty"
-                className="font-bold  block text-[#ffffff]"
-              >
-                {' '}
-                Fecha de nacimiento
-              </label>
-              <Field
-                label="dateOfBirty"
-                type="date"
-                name="dateOfBirty"
-                min="1990-01-01"
-                max="2022-01-01"
-                placeholder="DD/MM/YY"
-                className="px-3 py-2 focus: outline-none rounded w-full "
-              />
-              <ErrorMessage name="dateOfBirty" component="p" /> */}
               <label htmlFor="age" className="font-bold  block text-[#ffffff]">
                 {' '}
                 Edad
               </label>
               <Field
+                // value={values.age}
                 label="age"
                 type="number"
                 name="age"
+                onChange={handleChange}
                 placeholder="Ingresa tu edad"
                 className="px-3 py-2 focus: outline-none rounded w-full "
               />
               <ErrorMessage name="age" component="p" />
               <label />
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  onClick={() => handleSubmit()}
-                  className=" w-full lg:w-1/2 text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c]  disabled:cursor-not-allowed text-[#ffffff] mt-4"
-                >
-                  Confirmar
-                </button>
-              </div>
+              <button
+                type="submit"
+                className=" w-full lg:w-1/2 text-lg py-2  mb-4 bg-third rounded-lg text-gray-800 font-bold active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  active:hover:bg-[#b1656c] text-[#ffffff] mt-4"
+              >
+                Confirmar
+              </button>
             </Form>
           )}
         </Formik>
